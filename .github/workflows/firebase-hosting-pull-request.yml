@@ -13,7 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm i && npm run build
+      - name: Build Docker Image
+        run: |
+          docker build -t my-react-app .
+      
+      - name: Run Docker Container
+        run: |
+          docker run -d -p 80:80 --name my-react-app-container my-react-app
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
