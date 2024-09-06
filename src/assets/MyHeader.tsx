@@ -3,8 +3,8 @@
 export const MyHeader = () => {
   return (
     <>
-      <nav className="bg-violet-500 w-full">
-        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <nav className="bg-fuchsia-400 w-full">
+        <div className="mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             {/* Parte menu-movil */}
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -30,10 +30,10 @@ export const MyHeader = () => {
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
                   
-                  <a href="#" className="rounded-md px-3 py-2 text-lg font-medium text-white">About me</a>
-                  <a href="#" className="rounded-md px-3 py-2 text-lg font-medium text-gray-300 text-white">Education</a>
-                  <a href="#" className="rounded-md px-3 py-2 text-lg font-medium text-gray-300 text-white">Technologies</a>
-                  <a href="#" className="rounded-md px-3 py-2 text-lg font-medium text-gray-300 text-white">Projects</a>
+                  <a href="#" className="rounded-md px-3 py-2 text-lg font-medium text-slate-800">About me</a>
+                  <a href="#" className="rounded-md px-3 py-2 text-lg font-medium text-slate-800">Education</a>
+                  <a href="#" className="rounded-md px-3 py-2 text-lg font-medium text-slate-800">Technologies</a>
+                  <a href="#" className="rounded-md px-3 py-2 text-lg font-medium text-slate-800">Projects</a>
                 </div>
               </div>
             </div>
