@@ -1,5 +1,6 @@
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content";
+import { UserCircleIcon } from '@heroicons/react/24/outline';
 
 
 export const Login = () => {
@@ -13,14 +14,14 @@ export const Login = () => {
     const handleLoginClick = () => {
         MySwal.fire({
           title: 'Login',
-          text: 'Choose a login option:',
           showCancelButton: true,
           showConfirmButton: false,
           background: '#F0F0F0',
           cancelButtonText: 'Close',
           html: `
-                <button id="github-login" class="swal2-styled" style="background-color:#242424; color:#F0F0F0; padding: 10px 20px; border-radius: 5px; margin-right: 10px;">Login with GitHub</button>
-                <button id="google-login" class="swal2-styled" style="background-color:#DB4A39; color:#F0F0F0; padding: 10px 20px; border-radius: 5px;">Login with Google</button>
+                <p style=" padding: 10px; ">The login is intended for portfolio management only. If you decide to try it, the editing functionality will be available only to the site owner.</p>
+                <button id="github-login" class="swal2-styled" style="background-color:#242424; color:#F0F0F0; padding: 10px 20px; border-radius: 5px; margin-right: 10px;">GitHub</button>
+                <button id="google-login" class="swal2-styled" style="background-color:#DB4A39; color:#F0F0F0; padding: 10px 20px; border-radius: 5px;">Google</button>
             `,
           didOpen: () => {
             const githubButton = document.getElementById('github-login');
@@ -35,8 +36,8 @@ export const Login = () => {
   return (
     <button type="button"
             onClick={handleLoginClick}
-            className="bg-transparent hover:bg-gray-700 text-gray-700 font-semibold hover:text-fuchsia-400 py-2 px-4 border border-gray-500 hover:border-transparent rounded">
-            LOGIN
+            className="bg-transparent hover:bg-gray-700 rounded-full hover:text-fuchsia-400">
+              <UserCircleIcon className="h-10 w-10 text-fuchsia-400"/>
     </button>
   )
 }
