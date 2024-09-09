@@ -1,5 +1,9 @@
+import { useFetch } from "../hooks/useFetch";
 
 export const Presentation = () => {
+  const {data, isLoading, hasError } =useFetch('public/profile/ñonquepan');
+  //console.log(data);
+
   return (
     <section className="flex flex-col-reverse lg:flex-row items-center p-8 lg:p-16 max-w-7xl mx-auto">
       <div className="lg:w-3/5 flex flex-col items-center lg:items-start text-center lg:text-left text-fuchsia-300">
@@ -8,11 +12,16 @@ export const Presentation = () => {
           <br></br>
           My name is Florencia Ñonquepan
         </h1>
-        <p className="text-lg my-4">
-        I'm a Fullstack Developer with a focus on backend development, 
-        particularly with Java Spring Boot. While backend is my primary expertise, 
-        I also have experience with frontend technologies to complement full-stack solutions when needed.
-        </p>
+        {
+          !isLoading && 
+          <p className="text-lg my-4">
+            {hasError? '😞 An error occurred.':''}
+            {data?.presentation}
+          </p>
+        }
+
+        {isLoading && <p>...</p>}
+
       </div>
       <div className="lg:w-2/5 flex justify-center lg:justify-center mb-8 lg:mb-0">
         <div className="custom-border-">
