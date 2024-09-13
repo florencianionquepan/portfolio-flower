@@ -1,0 +1,143 @@
+.cartoon-girl {
+  --skin: rgb(245, 185, 144);
+  --nose: rgb(226, 140, 83);
+  --mouth: rgb(226, 112, 83);
+  --skin-line: #444; 
+  --line: #161111;
+  --eye: #fff;
+  --hair: #755627;
+  --hair-line: #2c1f0c;
+  --shirt: #7a6;
+  --shirt-line: #444;
+  --table: #852;
+  --table-line: #444;
+  --laptop: #ccc;
+  --laptop-line: #444; 
+}
+
+.cartoon-girl {
+    position: relative;
+    width: 50vmin;
+    height: 50vmin;
+    max-width: 560px;
+    max-height: 560px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1.5vmin solid var(--laptop-line);
+    background-color: rgb(121, 62, 177);
+}
+  
+.cartoon-girl div {
+    position: absolute;
+    box-sizing: border-box;
+  }
+  
+.head{
+    z-index: 2;
+    width: 25%;
+    height: 28%;
+    border-color: var(--skin-line);
+    background-color: var(--skin);
+    top: 30%;   
+    left: 30%;
+    border-radius: 50%;
+}
+
+.eye{
+    top:30%;
+    width: 25%;
+    height: 25%;
+    background: var(--eye);
+    border: 0.5px solid var(--line);
+    border-radius: 50%;
+}
+
+.l{
+    left: 25%;
+}
+
+.r{
+    left: 50%;
+}
+
+.eye::after{
+    content: "";
+    width: 35%;
+    height: 35%;
+    border-radius: 50%;
+    background: var(--line);
+    top:50%;
+    left:30%;
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.nose{
+    width: 10%;
+    height: 10%;
+    border: 1px solid var(--nose);
+    border-width: 4px 0px 0px 4px;
+    border-radius: 40%;
+    top:50%;
+    left:45%;
+}
+
+.mouth{
+    width: 20%;
+    height: 10%;
+    border: 1px solid var(--line);
+    border-width: 0px 2px 2px 2px;
+    border-radius: 0 0 100% 100%;
+    top: 65%;
+    left: 40%;
+}
+
+.bangs {
+    z-index: 10;
+    width: 25%;
+    height: 8%;
+    top:29%;
+    left:30%;
+    background-color: var(--hair);
+    border:1px solid var(--hair-line);
+    border-radius: 100% / 155% 155% 45% 45%;
+}
+
+.hear{
+    z-index: 5;
+    width: 5%;
+    height: 28%;
+    top:32%;  
+    background-color: var(--hair);
+    border: 1px solid var(--hair-line);
+}
+
+.hear-l{
+    left:28%;
+    background-color: var(--hair);
+    border-radius: 80% 0 0 0;
+}
+
+.hear-r{
+    left: 52%;
+    border-radius: 0 80% 0 0;
+}
+
+.hear-back{
+    width: 25%;
+    height: 20%;
+    top:40%;
+    left: 30%;  
+    background-color: var(--hair);
+    border: 1px solid var(--hair-line);
+}
+
+.neck{
+    width: 5%;
+    height: 8%;
+    left: 40%;
+    top: 55%;
+    background-color: var(--skin);
+    border: 1px solid var(--skin-line);
+}
