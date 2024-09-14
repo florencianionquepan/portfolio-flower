@@ -2,17 +2,18 @@
   --skin: rgb(245, 185, 144);
   --nose: rgb(226, 140, 83);
   --mouth: rgb(226, 112, 83);
-  --skin-line: #444; 
-  --line: #161111;
+  --skin-line: #574828; 
+  --line: #2a332d;
   --eye: #fff;
   --hair:#72501d;
   --hair-line: #72501d;
-  --shirt: rgb(142, 165, 157);
+  --shirt: rgb(230, 153, 217);
   --shirt-line: #444;
-  --desk: rgb(62, 104, 158);
+  --desk: rgb(152, 161, 173);
   --desk-line: #444;
   --laptop: #ccc;
-  --laptop-line: #444; 
+  --laptop-line: #444;
+  --border-cartoon:  rgb(240 171 252); 
 }
 
 .cartoon-girl {
@@ -22,9 +23,9 @@
     max-width: 560px;
     max-height: 560px;
     overflow: hidden;
-    border-radius: 50%;
-    border: 1.5vmin solid var(--laptop-line);
-    background-color: rgb(121, 62, 177);
+    border-radius: 20%;
+    border: 1vmin solid var(--border-cartoon);
+    
 }
   
 .cartoon-girl div {
@@ -33,126 +34,175 @@
   }
   
 .head{
-    z-index: 2;
-    width: 24%;
-    height: 27%;
-    border-color: var(--skin-line);
+    z-index: 5;
+    width: 22%;
+    height: 25%;
+    border: 1px solid var(--skin-line);
     background-color: var(--skin);
     top: 20%;   
     left: 40%;
     border-radius: 50%;
 }
 
-.eye{
-    top:35%;
-    width: 25%;
-    height: 25%;
-    background: var(--eye);
-    border: 0.5px solid var(--line);
+.glass{
+    top:25%;
+    width: 35%;
+    height: 35%;
+    border: 2px solid var(--line);
     border-radius: 50%;
 }
 
 .l{
-    left: 25%;
+    left: 5%;
+}
+
+.l::before{
+    content: "";
+    position: absolute;
+    width: 25%;
+    height: 10%;
+    background-color: var(--line); /* Mismo color que el borde de las gafas */
+    left:100%;
+    top:50%;
 }
 
 .r{
-    left: 50%;
+    left: 45%;
 }
 
-.eye::after{
+   
+.r::before {
     content: "";
-    width: 35%;
-    height: 35%;
-    border-radius: 50%;
+    position: absolute;
+    width: 70%;
+    height: 10%; 
+    background-color: var(--line); /* Mismo color que el borde de las gafas */
+    top: 20%;
+    left: 100%; 
+    transform: rotate(-30deg); /* Un poco de inclinación */
+}
+
+.eye{
+    width: 20%;
+    height: 20%;
+    border-radius: 100%;
     background: var(--line);
-    top:50%;
-    left:30%;
+    top: 60%;
+    left: 15%;
+}
+
+/* cejas */
+
+/*  .glass::after{
+    content: "";
+    width: 80%;
+    height: 5%;
+    border-radius: 0 10%;
+    background: var(--line);
+    top:10%;
+    left:10%;
     display: block;
     position: absolute;
     box-sizing: border-box;
-}
+} */
+
+
 
 .nose{
-    width: 5%;
-    height: 5%;
-    border: 1px solid var(--nose);
-    border-width: 4px 0px 0px 4px;
-    border-radius: 40%;
-    top:55%;
-    left:45%;
+    width: 12%;
+    height: 8%;
+    border: 0.1px solid var(--line);
+    border-width: 1px 0px 0px 1px;
+    border-radius: 70% 0;
+    top:52%;
+    left:35%;
+    transform: rotate(-50deg);
 }
 
 .mouth{
     width: 20%;
     height: 5%;
-    border: 1px solid var(--line);
-    border-width: 0px 2px 2px 2px;
+    border: 1px solid var(--skin-line);
+    border-width: 0px 1px 1px 0;
     border-radius: 0 0 50% 50%;
     top: 70%;
-    left: 40%;
+    left: 35%;
 }
 
-.all-hear{
-    width: 100%;
-    height: 100%;
+.ear{
+    width: 12%;
+    height: 8%;
+    border: 0.1px solid var(--line);
+    border-width: 1px 0px 0px 1px;
+    border-radius: 70% 0;
+    top:50%;
+    left:85%;
+    transform: rotate(120deg);
 }
 
-.bangs {
-    z-index: 10;
-    width: 22%;
-    height: 9%;
-    top:20%;
-    left:41%;
+/* Flequillo izquierdo */
+.bang-left {
+    width: 50%;
+    height: 30%;
     background-color: var(--hair);
-    border:1px solid var(--hair-line);
-    border-radius: 100% / 155% 155% 60% 60%;
+    border-radius: 100% 0 50% 0;
+    left: 2%;
+    top: -2%;
 }
 
-.hear{
-    z-index: 5;
-    width: 5%;
-    height: 28%;
-    top:23%;  
+/* Flequillo derecho */
+.bang-right {
+    width: 60%;
+    height: 35%;
     background-color: var(--hair);
-    border: 1px solid var(--hair-line);
+    border-radius: 10% 100% 0 100%;
+    left: 47%;
+    top: 0;
+    transform: rotate(5deg);
 }
 
-.hear-l{
-    left:39%;
+/* Mechón de pelo saliendo del flequillo izquierdo */
+.bang-right::after {
+    content: '';
+    position: absolute;
+    width: 15%; /* Ajusta según sea necesario */
+    height: 100%; /* Ajusta según sea necesario */
     background-color: var(--hair);
-    border-radius: 80% 0 0 0;
+    border-radius: 0 50% 60% 100%;
+    left: 85%; 
+    top: 90%;
 }
 
-.hear-r{
-    left: 60%;;
-    border-radius: 0 80% 0 0;
-}
 
 .hear-back{
-    width: 22%;
+    width: 25%;
     height: 20%;
     top:30%;
-    left: 42%;  
+    left: 40%;  
     background-color: var(--hair);
     border: 1px solid var(--hair-line);
+    border-radius: 10%;
+    transform-origin: bottom center;
+    transform: perspective(100px) rotateX(20deg);
 }
 
+
 .neck{
-    width: 5%;
-    height: 8%;
+    width: 8%;
+    height: 15%;
     left: 50%;
-    top: 45%;
+    top: 40%;
     background-color: var(--skin);
     border: 1px solid var(--skin-line);
+    border-radius: 20%;
 }
 
 .body{
-    z-index: 2;
-    width: 35%;
-    height: 25%;
-    left: 35%;
-    top: 52%;
+    z-index: 1;
+    width: 30%;
+    height: 27%;
+    left: 38%;
+    top: 50%;
     background-color: var(--shirt);
     border: 1px solid var(--shirt-line);
     border-radius: 30% 30% 15% 10%;
@@ -161,21 +211,21 @@
 .body::after{
     content: "";
     position: absolute;
-    width: 32%;
-    height: 55%;
+    width: 20%;
+    height: 56%;
     border: 1px solid var(--line);
     border-width: 0 1px 1px 0;
     border-radius: 0 0 30% 0;
     top: 33%;
-    left: 55%;
+    left: 60%;
 }
 
 .desk{
-    width: 80%;
-    height: 24%;
+    width: 90%;
+    height: 30%;
     background: var(--desk);
     border-color: var(--desk-line);
-    bottom: 0;
+    bottom: -6%;
     left: 5%;
     border-radius: 1vmin
 }
@@ -199,5 +249,6 @@
     background: var(--skin);
     top: -10%;
     left: 55%;
+    border: 0.5px solid var(--skin-line);
     border-radius: 60% 15% 0 0;
 }
