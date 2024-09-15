@@ -3,10 +3,9 @@ import './girl.css';
 export const Girl = () => {
   return (
     <div className="cartoon-girl">
+      
       <div className='hear-back'></div>
-
       <div className='head'>
-
         <div className="bang-left"></div>
         <div className="bang-right"></div>
 
@@ -29,6 +28,19 @@ export const Girl = () => {
         <div className='computer'></div>
       </div>
 
+      <div className='cat'>
+        <div className='cat-head'>
+          <div className='cat-ear'></div>
+          <div className='cat-ear'></div>
+          <div className='cat-eye'></div>
+          <div className='cat-eye'></div>
+          <div className='cat-nose'>
+            <div className='cat-whisker'></div>
+            <div className='cat-whisker'></div>
+          </div>
+        </div>
+        <div className='cat-body'></div>
+      </div>
 
     </div>
   )
