@@ -4,6 +4,7 @@
   --mouth: rgb(226, 112, 83);
   --skin-line: #574828; 
   --line: #2a332d;
+  --glasses: rgb(235, 144, 215);
   --eye: #fff;
   --hair:#72501d;
   --hair-line: #72501d;
@@ -13,7 +14,8 @@
   --desk-line: #444;
   --laptop: #ccc;
   --laptop-line: #444;
-  --border-cartoon:  rgb(240 171 252); 
+  --border-cartoon:  rgb(240 171 252);
+  --cat: #AF9E82;
 }
 
 .cartoon-girl {
@@ -40,7 +42,7 @@
     border: 1px solid var(--skin-line);
     background-color: var(--skin);
     top: 20%;   
-    left: 40%;
+    left: 30%;
     border-radius: 50%;
 }
 
@@ -48,7 +50,7 @@
     top:25%;
     width: 35%;
     height: 35%;
-    border: 2px solid var(--line);
+    border: 2px solid var(--glasses);
     border-radius: 50%;
 }
 
@@ -61,7 +63,7 @@
     position: absolute;
     width: 25%;
     height: 10%;
-    background-color: var(--line); /* Mismo color que el borde de las gafas */
+    background-color: var(--glasses); /* Mismo color que el borde de las gafas */
     left:100%;
     top:50%;
 }
@@ -76,7 +78,7 @@
     position: absolute;
     width: 70%;
     height: 10%; 
-    background-color: var(--line); /* Mismo color que el borde de las gafas */
+    background-color: var(--glasses); /* Mismo color que el borde de las gafas */
     top: 20%;
     left: 100%; 
     transform: rotate(-30deg); /* Un poco de inclinación */
@@ -178,7 +180,7 @@
     width: 25%;
     height: 20%;
     top:30%;
-    left: 40%;  
+    left: 30%;  
     background-color: var(--hair);
     border: 1px solid var(--hair-line);
     border-radius: 10%;
@@ -190,7 +192,7 @@
 .neck{
     width: 8%;
     height: 15%;
-    left: 50%;
+    left: 40%;
     top: 40%;
     background-color: var(--skin);
     border: 1px solid var(--skin-line);
@@ -201,7 +203,7 @@
     z-index: 1;
     width: 30%;
     height: 27%;
-    left: 38%;
+    left: 28%;
     top: 50%;
     background-color: var(--shirt);
     border: 1px solid var(--shirt-line);
@@ -221,24 +223,38 @@
 }
 
 .desk{
-    width: 90%;
+    width: 95%;
     height: 30%;
     background: var(--desk);
     border-color: var(--desk-line);
     bottom: -6%;
-    left: 5%;
+    left: 1%;
     border-radius: 1vmin
 }
 
+
+
 .computer{
     z-index: 3;
-    width: 40%;
+    width: 35%;
     height: 80%;
     background: var(--laptop);
     border: 0.5vmin solid var(--laptop-line);
     border-radius: 5% 5% 0 0;
     top: calc(-70% - 0.5vmin);
-    left: 15%;
+    left: 10%;
+}
+
+.computer::after{
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 10%;
+    background: var(--laptop);
+    border: 0.4vmin solid var(--laptop-line);
+    border-radius: 20%;
+    left:-4%;
+    bottom: -10%;
 }
 
 .hand {
@@ -248,7 +264,77 @@
     border-color: var(--skin-line);
     background: var(--skin);
     top: -10%;
-    left: 55%;
+    left: 45%;
     border: 0.5px solid var(--skin-line);
     border-radius: 60% 15% 0 0;
+}
+
+.cat{
+    width: 35%;
+    height: 40%;
+    border:1px solid blanchedalmond;
+    top: 40%;
+    left: 60%;
+}
+
+.cat-head{
+    width: 40%;
+    height: 30%;
+    border: 1px solid var(--cat);
+    border-radius: 50% 50%;
+    background: var(--cat);
+    top: 30%;
+    left: 15%;
+}
+
+.cat-ear{
+    top:-20%;
+    width: 40%;
+    height: 40%;
+    background: var(--cat);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    transform: rotate(-30deg);
+    border-radius: 40%;
+
+    +.cat-ear{
+        transform: rotate(30deg);
+        left:60%;
+    }
+}
+
+.cat-eye{
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+    background: var(--line);
+    top: 30%;
+    left: 35%;
+    +.cat-eye{
+        left:55%;
+    }
+}
+
+.cat-nose{
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+    background: var(--line);
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cat-whisker{
+    top: 160%;
+    left:-250%;
+    width: 600%;
+    height: 5%;
+    background: var(--line);
+    transform-origin: 100% 0;
+    transform: rotate(20deg);
+    +.cat-whisker{
+        top:160%;
+        left:-800%;
+        transform: rotate(160deg);
+    }
 }
