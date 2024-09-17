@@ -39,7 +39,24 @@ export const Girl = () => {
             <div className='cat-whisker'></div>
           </div>
         </div>
-        <div className='cat-body'></div>
+        <div className='cat-body'>
+          <div className='paw'></div>
+          <div className='paw'></div>
+          
+        </div>
+        <div className='tail-container'>
+          <div className='tail'>
+            <div className='tail'>
+              <div className='tail'>
+                <div className='tail'>
+                  <div className='tail'>
+                    <div className='tail'></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>

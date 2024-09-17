@@ -15,7 +15,7 @@
   --laptop: #ccc;
   --laptop-line: #444;
   --border-cartoon:  rgb(240 171 252);
-  --cat: #AF9E82;
+  --cat: #e9bf65;
 }
 
 .cartoon-girl {
@@ -284,7 +284,7 @@
     border-radius: 50% 50%;
     background: var(--cat);
     top: 30%;
-    left: 15%;
+    left: 10%;
 }
 
 .cat-ear{
@@ -337,4 +337,56 @@
         left:-800%;
         transform: rotate(160deg);
     }
+}
+
+.cat-body{
+    width: 30%;
+    height: 40%;
+    background: var(--cat);
+    top:55%;
+    left:25%;
+    border-radius: 0 80% 0 0;
+}
+
+.paw{
+    width: 20%;
+    height: 30%;
+    background: var(--cat);
+    top:85%;
+    left:15%;
+    border-radius: 0 0 40% 40%;
+
+    +.paw{
+        left:50%;
+    }
+}
+
+.tail-container{
+    width: 50%;
+    height: 100%;
+    left: 50%;
+    top: 80%;
+}
+
+.tail {
+    height: 10%;
+    width: 50%;
+    background: var(--cat);
+    
+    
+    > .tail {
+      animation: tail-swish 5s infinite ease-in-out;
+      height: 100%;
+      width: 90%;
+      left: 50%;
+      border-radius: 0 20% 0 60%;
+    }
+}
+
+@keyframes tail-swish {
+    0% { transform: rotate(0deg);  /* Posición horizontal, sin curvatura */ }
+    10% { transform: rotate(-5deg);  /* Comienza a curvarse ligeramente hacia arriba */}
+    40% { transform: rotate(-10deg); /* Curvatura más pronunciada hacia arriba */}
+    60% { transform: rotate(-30deg); /* Máximo doblado hacia arriba */ }
+    100% { transform: rotate(0deg);  /* Vuelve a la posición horizontal */}
 }
