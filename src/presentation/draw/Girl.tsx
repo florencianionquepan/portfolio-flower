@@ -46,11 +46,15 @@ export const Girl = () => {
         </div>
         <div className='tail-container'>
           <div className='tail'>
-            <div className='tail'>
-              <div className='tail'>
+            <div className='tail seg'>
+              <div className='tail seg'>
                 <div className='tail'>
                   <div className='tail'>
-                    <div className='tail'></div>
+                    <div className='tail'>
+                      <div className='tail'>
+                        <div className='tail'></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

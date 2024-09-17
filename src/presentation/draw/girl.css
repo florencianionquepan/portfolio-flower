@@ -362,31 +362,50 @@
 }
 
 .tail-container{
-    width: 50%;
+    z-index: 2;
+    width: 80%;
     height: 100%;
     left: 50%;
-    top: 80%;
+    bottom: 10%;
+    padding-top: 106%;
+    /* border: 1px solid wheat; */
+    overflow: hidden;
 }
 
 .tail {
-    height: 10%;
-    width: 50%;
+    height: 7%;
+    width: 30%;
     background: var(--cat);
-    
-    
+    border-radius: 0 20% 50% 0;
+
     > .tail {
-      animation: tail-swish 5s infinite ease-in-out;
+      animation: tail-swish 5s infinite ease-in-out;   
       height: 100%;
       width: 90%;
-      left: 50%;
-      border-radius: 0 20% 0 60%;
+      left: 40%;
     }
 }
 
+
 @keyframes tail-swish {
-    0% { transform: rotate(0deg);  /* Posición horizontal, sin curvatura */ }
-    10% { transform: rotate(-5deg);  /* Comienza a curvarse ligeramente hacia arriba */}
-    40% { transform: rotate(-10deg); /* Curvatura más pronunciada hacia arriba */}
-    60% { transform: rotate(-30deg); /* Máximo doblado hacia arriba */ }
-    100% { transform: rotate(0deg);  /* Vuelve a la posición horizontal */}
+    0% { 
+        transform: rotate(0deg);  /* Posición horizontal, sin curvatura */ 
+        border-radius: 0;
+    }
+    10% { 
+        transform: rotate(-5deg);  /* Comienza a curvarse ligeramente hacia arriba */
+        border-radius: 0 20% 80% 200%;
+    }
+    40% { 
+        transform: rotate(-10deg); /* Curvatura más pronunciada hacia arriba */
+        border-radius: 0 20% 80% 200%;
+    }
+    60% { 
+        transform: rotate(-30deg); /* Máximo doblado hacia arriba */ 
+        border-radius: 0 20% 80% 200%;
+    }
+    100% { 
+        transform: rotate(0deg);  /* Vuelve a la posición horizontal */
+        border-radius: 0;
+    }
 }
