@@ -4,7 +4,7 @@ import { Login } from "./Login"
 export const MyHeader = () => {
   return (
     <>
-      <nav className="bg-transparent max-w-screen-2xl mx-auto mt-5">
+      <nav className="bg-transparent mt-5">
         <div className="mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
 
