@@ -23,10 +23,10 @@ export const Girl = () => {
       <div className='neck'></div>
       <div className='body'></div>
 
-      <div className='desk'>
-        <div className='hand'></div>
-        <div className='computer'></div>
-      </div>
+      <div className='desk'></div>
+      <div className='desk-wall'></div>
+      <div className='hand'></div>
+      <div className='computer'></div>
 
       <div className='cat'>
         <div className='cat-head'>
@@ -35,8 +35,8 @@ export const Girl = () => {
           <div className='cat-eye'></div>
           <div className='cat-eye'></div>
           <div className='cat-nose'>
-            <div className='cat-whisker'></div>
-            <div className='cat-whisker'></div>
+            <div className='cat-whisker-one'></div>
+            <div className='cat-whisker-two'></div>
           </div>
         </div>
         <div className='cat-body'>
@@ -52,7 +52,7 @@ export const Girl = () => {
                   <div className='tail'>
                     <div className='tail'>
                       <div className='tail'>
-                        <div className='tail'></div>
+                        <div className='tail last'></div>
                       </div>
                     </div>
                   </div>
