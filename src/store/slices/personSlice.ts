@@ -24,7 +24,9 @@ export const personSlice = createSlice({
             state.loading = true
         },
         setPerson: (state, action)=>{
-            console.log(action);
+            //console.log(action);
+            state.loading =false;
+            state.person = action.payload;
         }
     },
 })
