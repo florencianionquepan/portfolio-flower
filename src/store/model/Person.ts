@@ -1,12 +1,12 @@
 export class Person{
-    private id: number;
-    private name: string;
-    private lastName: string;
-    private tel?: string; 
-    private email?: string; 
-    private dateOfBirth?: Date; 
-    private occupation?: string; 
-    private presentation?: string; 
+    public id: number;
+    public name: string;
+    public lastName: string;
+    public tel?: string; 
+    public email?: string; 
+    public dateOfBirth?: Date; 
+    public occupation?: string; 
+    public presentation?: string; 
 
     constructor(
         id: number,
