@@ -1,14 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { MyHeader } from './assets/MyHeader'
-import { Presentation } from './presentation/Presentation'
+import { Provider } from 'react-redux'
+import App from './App'
+import { store } from './store/store'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <div className='container max-w-7xl mx-auto'>
-      <MyHeader/>
-      <Presentation/>
-    </div>
+    <Provider store={store}>
+      <App/>
+    </Provider>
+    
   </React.StrictMode>,
 )
