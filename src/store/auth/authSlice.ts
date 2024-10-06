@@ -1,13 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { authState } from './authState';
 
-// Define a type for the slice state
-interface authState {
-    status: string,
-    name: string | null,
-    email: string | null
-    imageURL: string | null
-    role: string | null
-}
 
 // Define the initial state using that type
 const initialState: authState = {
@@ -15,7 +8,7 @@ const initialState: authState = {
     name:null,
     email:null,
     imageURL:null,
-    role: null
+    role: []
 }
 
 export const authSlice = createSlice({
@@ -35,7 +28,7 @@ export const authSlice = createSlice({
             state.name = null;
             state.email = null;
             state.imageURL = null;
-            state.role = null;
+            state.role = [];
         },
         checkingCredentials :(state) =>{
             state.status='checking';
