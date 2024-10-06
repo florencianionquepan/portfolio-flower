@@ -39,8 +39,9 @@ export const useFetch = (endpoint: string) => {
   const getFetch = async () => {
     setLoadingState();
     try {
-      const resp = await fetch(`${apiUrl}/${endpoint}`);
-
+      const resp = await fetch(`${apiUrl}/${endpoint}`,{
+        credentials:'include'
+      });
       if (!resp.ok) {
         setState({
           data: null,
