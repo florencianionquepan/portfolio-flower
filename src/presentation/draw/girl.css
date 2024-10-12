@@ -4,7 +4,7 @@
   --mouth: rgb(226, 112, 83);
   --skin-line: #574828; 
   --line: #2a332d;
-  --glasses: rgb(235, 144, 215);
+  --glasses: rgb(0, 0, 0);
   --eye: #fff;
   --hair:#72501d;
   --hair-line: #72501d;
@@ -25,7 +25,7 @@
     max-width: 560px;
     max-height: 560px;
     overflow: hidden;
-    border-radius: 20%;
+    border-radius: 10%;
     border: 1vmin solid var(--border-cartoon);
     
 }
@@ -50,7 +50,7 @@
     top:25%;
     width: 35%;
     height: 35%;
-    border: 2px solid var(--glasses);
+    border: 0.1rem solid var(--glasses);
     border-radius: 50%;
 }
 
@@ -62,7 +62,7 @@
     content: "";
     position: absolute;
     width: 25%;
-    height: 10%;
+    height: 1%;
     background-color: var(--glasses); /* Mismo color que el borde de las gafas */
     left:100%;
     top:50%;
@@ -77,9 +77,9 @@
     content: "";
     position: absolute;
     width: 70%;
-    height: 10%; 
+    height: 1%; 
     background-color: var(--glasses); /* Mismo color que el borde de las gafas */
-    top: 20%;
+    top: 25%;
     left: 100%; 
     transform: rotate(-30deg); /* Un poco de inclinación */
 }
@@ -227,7 +227,7 @@
     height: 10%;
     background: var(--desk);
     border-color: var(--desk-line);
-    border-width: 0 5px 5px 0;
+    border-width: 0 0.2rem 0.2rem 0;
     bottom: 14%;
     left: 5%;
     border-radius: 4%;
@@ -237,7 +237,7 @@
 .desk::after{
     content: "";
     position: absolute;
-    top: 110%;
+    top: 107%;
     background:var(--desk);
     left: 6%;
     width: 100%;
