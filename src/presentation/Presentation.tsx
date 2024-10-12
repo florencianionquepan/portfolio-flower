@@ -1,9 +1,22 @@
-import { useFetch } from "../hooks/useFetch";
 import { Girl } from "./draw/Girl";
+import { useEffect } from "react";
+import { getPerson } from "../store/slices/thunks";
+import { useAppDispatch } from "../hooks/useAppDispatch";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
 export const Presentation = () => {
-  const {data, isLoading, hasError } =useFetch('public/profile/ñonquepan');
+  //const {data, isLoading, hasError } =useFetch('public/profile/ñonquepan');
   //console.log(data);
+
+  const dispatch = useAppDispatch();
+  const {person, loading, error }= useSelector ( (state: RootState) => state.person); 
+
+  useEffect(() => {
+    dispatch( getPerson());
+
+  }, [dispatch])
+  
 
   return (
     <section className="flex flex-col-reverse lg:flex-row items-center p-8 xl:p-16">
@@ -14,14 +27,14 @@ export const Presentation = () => {
           My name is Florencia Ñonquepan
         </h1>
         {
-          !isLoading && 
+          !loading && 
           <p className="text-lg my-4">
-            {hasError? '😞 An error occurred.':''}
-            {data?.presentation}
+            {error? '😞 An error occurred.':''}
+            {person?.presentation}
           </p>
         }
 
-        {isLoading && <p>...</p>}
+        {loading && <p>...</p>}
 
       </div>
       <div className="xl:w-2/5 flex justify-center xl:justify-center mb-8 lg:mb-0">
