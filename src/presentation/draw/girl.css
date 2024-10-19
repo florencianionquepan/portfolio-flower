@@ -137,7 +137,7 @@
     border: 0.1px solid var(--line);
     border-width: 1px 0px 0px 1px;
     border-radius: 70% 0;
-    top:50%;
+    top:40%;
     left:85%;
     transform: rotate(120deg);
 }
@@ -167,10 +167,10 @@
 .bang-right::after {
     content: '';
     position: absolute;
-    width: 15%; /* Ajusta según sea necesario */
-    height: 100%; /* Ajusta según sea necesario */
+    width: 20%; /* Ajusta según sea necesario */
+    height: 200%; /* Ajusta según sea necesario */
     background-color: var(--hair);
-    border-radius: 0 50% 60% 100%;
+    border-radius: 0 90% 30% 150%;
     left: 85%; 
     top: 90%;
 }
@@ -182,10 +182,9 @@
     top:30%;
     left: 30%;  
     background-color: var(--hair);
-    border: 1px solid var(--hair-line);
     border-radius: 10%;
     transform-origin: bottom center;
-    transform: perspective(100px) rotateX(20deg);
+    transform: perspective(8vh) rotateX(20deg);
 }
 
 
@@ -218,7 +217,7 @@
     border: 1px solid var(--line);
     border-width: 0 1px 1px 0;
     border-radius: 0 0 30% 0;
-    top: 33%;
+    top: 30%;
     left: 60%;
 }
 
@@ -337,12 +336,12 @@
 .cat-eye::after{
     content: '';
     position: absolute;
-    width: 30%; 
-    height: 30%;
+    width: 25%; 
+    height: 25%;
     background: var(--line); 
     border-radius: 50%;
-    top: 25%; 
-    left: 25%; 
+    top: 30%; 
+    left: 30%; 
 }
 
 .cat-nose{
@@ -364,7 +363,7 @@
     border-width: 0 1px 1px 0;
     border-color: #2a332d;
     border-radius: 0 0 50% 20%;
-    left: -20%;
+    left: -35%;
     top:100%;
 }
 
@@ -376,7 +375,7 @@
     border-width: 0 0 1px 1px;
     border-color: #2a332d;
     border-radius: 0 0 20% 50%;
-    left: 40%;
+    left: 50%;
     top:100%;
 }
 
