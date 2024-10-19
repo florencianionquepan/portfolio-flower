@@ -1,63 +1,87 @@
+import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react"
 import { Login } from "./Login"
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 
 
 export const MyHeader = () => {
+
+  const navigation = [
+    { name: 'About Me', href: '#', current: true },
+    { name: 'Education', href: '#', current: false },
+    { name: 'Technologies', href: '#', current: false },
+    { name: 'Projects', href: '#', current: false },
+  ]
+  
+  function classNames(...classes: any[]) {
+    return classes.filter(Boolean).join(' ')
+  }
+
   return (
     <>
-      <nav className="bg-transparent mt-5">
-        <div className="mx-auto px-2 sm:px-6 lg:px-8">
+      <Disclosure as="nav" className="bg-transparent mt-5">
+        <div className="mx-auto px-2 md:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
+        
 
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <div className="absolute inset-y-0 left-2 flex items-center pr-2 md:static md:inset-auto sm:ml-6 md:pr-0">
               <Login/>
             </div>
 
             {/* Parte menu-movil */}
-            <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
 
-              <button type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-                <span className="absolute -inset-0.5"></span>
+            <div className="absolute inset-y-0 right-2 flex items-center md:hidden">
+
+              <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-fuchsia-300 
+              hover:bg-fuchsia-300 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-fuchsia-300">
+                <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open main menu</span>
-
-                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-
-                <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
+                <Bars3Icon aria-hidden="true" className="block h-6 w-6 group-data-[open]:hidden" />
+                <XMarkIcon aria-hidden="true" className="hidden h-6 w-6 group-data-[open]:block" />
+              </DisclosureButton>
             </div>
 
-            <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
-              <div className="flex flex-shrink-0 items-center">
-                
-              </div>
-              <div className="hidden sm:ml-6 sm:block">
+            
+              <div className="hidden md:ml-6 md:block">
                 <div className="flex space-x-4">
-                  
-                  <a href="#" className="rounded-md px-3 py-2 text-lg font-medium text-fuchsia-400">About me</a>
-                  <a href="#" className="rounded-md px-3 py-2 text-lg font-medium text-fuchsia-400">Education</a>
-                  <a href="#" className="rounded-md px-3 py-2 text-lg font-medium text-fuchsia-400">Technologies</a>
-                  <a href="#" className="rounded-md px-3 py-2 text-lg font-medium text-fuchsia-400">Projects</a>
+                  {navigation.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      aria-current={item.current ? 'page' : undefined}
+                      className={classNames(
+                        item.current ? 'bg-transparent text-fuchsia-100 underline underline-offset-8 decoration-solid' : 
+                        'text-fuchsia-300 hover:underline underline-offset-8 hover:text-fuchsia-100',
+                        'rounded-md px-3 py-2 text-sm font-medium',
+                      )}
+                    >
+                      {item.name}
+                    </a>
+                  ))}
                 </div>
               </div>
-            </div>
 
+
+        <DisclosurePanel className="md:hidden" style={{zIndex:'10'}}>
+          <div className="space-y-1 px-2 pb-3 pt-3 mt-60 bg-gray-700 rounded">
+            {navigation.map((item) => (
+              <DisclosureButton
+                key={item.name}
+                as="a"
+                href={item.href}
+                aria-current={item.current ? 'page' : undefined}
+                className={classNames(
+                  item.current ? 'bg-gray-900 text-fuchsia-200' : 'text-fuchsia-300 hover:bg-gray-900 hover:text-fuchsia-200',
+                  'block rounded-md px-3 py-2 text-base font-medium',
+                )} >
+                {item.name}
+              </DisclosureButton>
+            ))}
           </div>
+        </DisclosurePanel>
+        </div>
         </div>
 
-
-        <div className="sm:hidden" id="mobile-menu">
-          <div className="space-y-1 px-2 pb-3 pt-2">
-            
-            <a href="#" className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</a>
-            <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
-            <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
-            <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
-          </div>
-        </div>
-      </nav>
+      </Disclosure>
 
     </>
 
