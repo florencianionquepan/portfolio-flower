@@ -1,3 +1,4 @@
+import axios from "axios";
 import { AppDispatch } from "../store";
 import { checkingCredentials, logout } from "./authSlice"
 
@@ -15,12 +16,15 @@ export const logoutSpring = () =>{
 
     return async(dispatch: AppDispatch)=>{
 
-        const resp= await fetch(`${apiUrl}/logout`,{
-            method: 'POST',
-            credentials: 'include'
-        });
-        if(resp.ok){
-            dispatch(logout());
+        try{
+            const resp= await axios.post(`${apiUrl}/logout`,{
+                withCredentials:true
+            });
+            if(resp.status==200){
+                dispatch(logout());
+            }
+        }catch(error){
+            console.error("Logout error:",error);
         }
     }
 }

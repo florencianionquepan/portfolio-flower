@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 interface FetchState<T> {
@@ -39,41 +40,41 @@ export const useFetch = (endpoint: string) => {
   const getFetch = async () => {
     setLoadingState();
     try {
-      const resp = await fetch(`${apiUrl}/${endpoint}`,{
-        credentials:'include'
+      const resp = await axios.get(`${apiUrl}/${endpoint}`, {
+        withCredentials: true, // Incluye cookies en la solicitud
       });
-      if (!resp.ok) {
+
+      setState({
+        data: resp.data,
+        isLoading: false,
+        hasError: false,
+        error: null,
+      });
+
+
+    } catch (error) {
+      if(axios.isAxiosError(error) && error.response){
         setState({
           data: null,
           isLoading: false,
           hasError: true,
           error: {
-            code: resp.status,
-            message: resp.statusText,
+            code: error.response.status,
+            message: error.response.statusText || 'An error ocurred',
+          },
+        })
+      }else{
+        setState({
+          data: null,
+          isLoading: false,
+          hasError: true,
+          error: {
+            code: 500,
+            message: "An unexpected error occurred",
           },
         });
-        return;
       }
-
-      const json = await resp.json();
-        setState({
-          data:json.data,
-          isLoading:false,
-          hasError:false,
-          error:null
-        })
-
-
-    } catch (error) {
-      setState({
-        data: null,
-        isLoading: false,
-        hasError: true,
-        error: {
-          code: 500,
-          message: "An unexpected error occurred",
-        },
-      });
+      
     }
   };
 
