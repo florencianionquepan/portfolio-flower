@@ -3,19 +3,20 @@
   --nose: rgb(226, 140, 83);
   --mouth: rgb(226, 112, 83);
   --skin-line: #574828; 
-  --line: #2a332d;
+  --line: #2f2a33;
   --glasses: rgb(0, 0, 0);
   --eye: #fff;
-  --hair:#72501d;
+  --hair:#945F51;
   --hair-line: #72501d;
-  --shirt: rgb(230, 153, 217);
+  --shirt: rgb(245, 238, 199);
   --shirt-line: #444;
-  --desk: rgb(152, 161, 173);
-  --desk-line: #264458;
+  --desk: #FFECED;
+  --desk-line: #D079B7;
   --laptop: #ccc;
-  --laptop-line: #444;
-  --border-cartoon:  rgb(240 171 252);
-  --cat: #e9bf65;
+  --laptop-line: #353535;
+  --border-cartoon:  #9E9AE7;
+  --cat: #fabf76;
+  --cat-nose: #fd5ddb;
 }
 
 .cartoon-girl {
@@ -92,23 +93,6 @@
     top: 60%;
     left: 15%;
 }
-
-/* cejas */
-
-/*  .glass::after{
-    content: "";
-    width: 80%;
-    height: 5%;
-    border-radius: 0 10%;
-    background: var(--line);
-    top:10%;
-    left:10%;
-    display: block;
-    position: absolute;
-    box-sizing: border-box;
-} */
-
-
 
 .nose{
     width: 12%;
@@ -349,7 +333,7 @@
     width: 12%;
     height: 12%;
     border-radius: 100%;
-    background: var(--mouth);
+    background: var(--cat-nose);
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -437,12 +421,12 @@
 }
 
 .cat-body{
-    width: 30%;
+    width: 35%;
     height: 40%;
     background: var(--cat);
     top:55%;
-    left:25%;
-    border-radius: 0 80% 5% 5%;
+    left:20%;
+    border-radius: 0 80% 40% 50%;
 }
 
 .paw{
