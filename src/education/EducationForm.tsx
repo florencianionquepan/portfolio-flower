@@ -1,17 +1,31 @@
+import { InputField } from "../formFields/InputField";
+import { SelectField } from "../formFields/SelectField";
 import { useForm } from "../hooks/useForm";
+import { Status } from "../store/model/Status";
 
 interface EducationForm {
     name: string,
-    institution: string
+    institution: string,
+    degreeType: string | null;
+    startDate: Date;
+    endDate: Date | null;
+    status: string;
 }
 
 
 export const EducationForm = () => {
 
-  const { name, institution, onInputChange }  = useForm<EducationForm>({
-    name:'ffg',
-    institution:'gbgb'
-  });
+  const { name, institution, degreeType, startDate, endDate, status, onInputChange }  
+      = useForm<EducationForm>({
+        name: 'Ingenieria',
+        institution: 'Universidad...',
+        degreeType: '',
+        status: '',
+        startDate: new Date(),
+        endDate: new Date()
+      });
+  
+  const statusArray: string[] = Object.values(Status);
 
   return (
     <form autoComplete="off">
@@ -21,46 +35,51 @@ export const EducationForm = () => {
             New Education
           </h2>
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div className="sm:col-span-3">
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium leading-6 text-white-500">
-                Title
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  autoComplete="given-name"
-                  className="block w-full bg-transparent rounded-md border-0 py-1.5 text-white-500 
-                  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 
-                  focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  value={name}
-                  onChange={onInputChange}/>
-              </div>
-            </div>
-
-            <div className="sm:col-span-3">
-              <label
-                htmlFor="institution"
-                className="block text-sm font-medium leading-6 text-white-500">
-                Last name
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="institution"
-                  id="institution"
-                  autoComplete="family-name"
-                  className="block w-full bg-transparent rounded-md border-0 py-1.5 text-white-500 
-                  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 
-                  focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  value={institution}
-                  onChange={onInputChange}/>
-              </div>
-            </div>
+            <InputField
+              name="name"
+              label="Title"
+              value={name}
+              onChange={onInputChange}              
+              />
+            <InputField
+              name="institution"
+              label="Institution"
+              value={institution}
+              onChange={onInputChange}              
+              />
           </div>
+          
+          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <InputField
+                name="degreeType"
+                label="Type of Degree"
+                value={degreeType}
+                onChange={onInputChange}              
+                />
+            <SelectField 
+            label="Status" 
+            value={status} 
+            options={statusArray} />
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <InputField
+                name="startDate"
+                label="startDate"
+                value={startDate}
+                onChange={onInputChange}
+                type="date"              
+                />
+            <InputField
+                name="endDate"
+                label="endDate"
+                value={endDate}
+                onChange={onInputChange}
+                type="date"              
+                />
+          </div>
+
+
         </div>
       </div>
     </form>
