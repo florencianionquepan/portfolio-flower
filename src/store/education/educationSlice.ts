@@ -5,14 +5,16 @@ import { Education } from '../model/Education'
 interface educationState {
     education: Education[] | [],
     loading: boolean,
-    error:string | null
+    error:string | null,
+    isFormOpen: boolean
 }
 
 // Define the initial state using that type
 const initialState: educationState = {
     education:[],
     loading:false,
-    error:null
+    error:null,
+    isFormOpen:false
 }
 
 export const educationSlice = createSlice({
@@ -36,6 +38,12 @@ export const educationSlice = createSlice({
         creatingNewEducation:(state) =>{
             state.loading=true
         },
+        openNewEducation: (state) =>{
+            state.isFormOpen=true;
+        },
+        closeNewEducation: (state) =>{
+            state.isFormOpen=false;
+        },
         setSaving: (state)=>{
 
         },
@@ -52,6 +60,8 @@ export const { startLoadingEducations,
             setEducations, 
             addNewEducation,
             creatingNewEducation,
+            openNewEducation,
+            closeNewEducation,
             setSaving,
             updateEducation,
             deleteEducationById 
