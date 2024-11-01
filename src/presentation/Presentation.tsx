@@ -20,15 +20,15 @@ export const Presentation = () => {
 
   return (
     <section className="flex flex-col-reverse lg:flex-row items-center p-8 xl:p-16">
-      <div className="xl:w-3/5 flex flex-col items-center lg:items-start text-center xl:text-left text-fuchsia-300">
+      <div className="xl:w-3/5 flex flex-col items-center lg:items-start text-center xl:text-left text-black">
         <h1 className="text-3xl xl:text-4xl mb-4">
           Hi! 
           <br></br>
-          My name is Florencia Ñonquepan
+          <span className="quicksand font-medium"> My name is Florencia Ñonquepan </span>
         </h1>
         {
           !loading && 
-          <p className="text-lg my-4">
+          <p className="text-lg my-4 font-normal">
             {error? '😞 An error occurred.':''}
             {person?.presentation}
           </p>

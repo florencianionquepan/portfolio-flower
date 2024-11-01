@@ -10,13 +10,13 @@
   --hair-line: #72501d;
   --shirt: rgb(245, 238, 199);
   --shirt-line: #444;
-  --desk: #FFECED;
-  --desk-line: #D079B7;
+  --desk: rgb(233 213 255); /*purple-200*/
+  --desk-line: rgb(192 132 252);; /*purple-600*/
   --laptop: #ccc;
   --laptop-line: #353535;
-  --border-cartoon:  #9E9AE7;
+  --border-cartoon: rgb(192 132 252);
   --cat: #fabf76;
-  --cat-nose: #fd5ddb;
+  --cat-nose: #ff8ae6;
 }
 
 .cartoon-girl {
@@ -26,8 +26,8 @@
     max-width: 560px;
     max-height: 560px;
     overflow: hidden;
-    border-radius: 10%;
-    border: 1vmin solid var(--border-cartoon);
+    border-radius: 50%;
+    border: 0.8vmin solid var(--border-cartoon);
     
 }
   
@@ -359,7 +359,7 @@
     border-width: 0 0 1px 1px;
     border-color: #2a332d;
     border-radius: 0 0 20% 50%;
-    left: 50%;
+    left: 43%;
     top:100%;
 }
 

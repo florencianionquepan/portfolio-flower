@@ -1,6 +1,6 @@
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content";
-import { UserCircleIcon } from '@heroicons/react/24/outline';
+import { UserIcon } from "@heroicons/react/24/outline";
 import { useDispatch } from "react-redux";
 import { startSignIn } from "../store/auth/thunks";
 import { AppDispatch, RootState } from "../store/store";
@@ -55,8 +55,8 @@ export const Login = () => {
       { notAuth &&
         (<button type="button"
           onClick={handleLoginClick}
-          className="bg-transparent hover:bg-gray-700 rounded-full hover:text-fuchsia-400">
-            <UserCircleIcon className="h-10 w-10 text-fuchsia-400"/>
+          className="bg-transparent border border-2 border-purple-600 rounded-full hover:shadow hover:shadow-purple-600">
+            <UserIcon className="h-8 w-9 text-purple-600"/>
         </button>)
       }
       { checkingAuth && <p>...</p> }

@@ -17,9 +17,9 @@ export const ProfileMenu = (props: UrlProps) => {
   return (
     <Menu as="div" className="relative ml-3">
             <div>
-                <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                <MenuButton className="relative flex rounded-full text-sm focus:outline-none focus:ring-1 focus:ring-gray focus:ring-offset-2 focus:ring-offset-black">
                   <img
-                    alt=""
+                    alt="Profile picture"
                     src={props.imageURL}
                     className="h-8 w-8 rounded-full"
                   />
@@ -29,7 +29,7 @@ export const ProfileMenu = (props: UrlProps) => {
                 transition
                 className="absolute left-0 z-10 mt-2 w-25 mt-2 w-48 origin-top-left rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in">
                 <MenuItem>
-                  <button className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-transparent-100" 
+                  <button className="block px-4 py-2 text-sm text-black-700 data-[focus]:bg-transparent-100" 
                   onClick={handleLogout}>
                     Sign out
                   </button>

@@ -8,20 +8,26 @@
 }
 
 @font-face {
-  font-family: 'codepro';
-  src: url('./fonts/SourceCodePro-VariableFont_wght.ttf') format('truetype');
+  font-family: 'quicksand';
+  src: url(./fonts/Quicksand-VariableFont_wght.ttf) format('truetype');
 }
 
+
 :root {
-  font-family: codepro;
-  font-weight: 500;
+  font-family: suse;
+  font-weight: 200;
   font-size: larger;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(37, 36, 36, 0.87);
+  background-color: rgb(243 232 255);
 }
 
 .suse{
   font-family: 'SUSE';
-  font-weight:700;
+}
+
+.quicksand{
+  font-family: "quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
