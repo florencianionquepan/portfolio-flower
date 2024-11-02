@@ -24,7 +24,7 @@ export const InputField: FC<InputFieldProps> = ({label, name, value, onChange, t
                   id={name}
                   autoComplete="false"
                   className="block w-full bg-transparent rounded-md border border-purple-400 py-1.5
-                  focus:outline-none focus:ring-1 focus:ring-purple-600 sm:text-sm sm:leading-6 px-2 calendar"
+                  focus:outline-none focus:ring-1 focus:ring-purple-600 px-2"
                   value={value}
                   onChange={onChange}/>
               </div>

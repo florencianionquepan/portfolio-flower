@@ -50,10 +50,11 @@ export const EducationForm = () => {
             </button>
           </div>
 
-          <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3" role="listitem" aria-label="Educational background">
+          <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3" role="listitem" aria-label="Educational background">
             
-            <div className="mx-1 pr-3 border-purple-400 border-r-2 font-normal sm:row-span-3">
-              <div className="mb-3 col-span-1">
+            <div className="ml-2 sm:pr-3 sm:border-purple-400 sm:border-r-2 
+            md:row-span-3 col-span-1">
+              <div className="mb-3">
                 <InputField
                     name="startDate"
                     label="Start Date"
@@ -61,7 +62,7 @@ export const EducationForm = () => {
                     onChange={onInputChange}
                     type="date"/>
               </div>
-              <div className="mb-3 col-span-1">
+              <div className="mb-3">
                 <InputField
                     name="endDate"
                     label="End Date"
@@ -72,37 +73,42 @@ export const EducationForm = () => {
               </div>
               
             </div>
-          
-            {/* Datos Educativos */}
-            <div className="col-span-1">
-              <InputField
-                name="name"
-                label="Title"
-                value={name}
-                onChange={onInputChange} />
+
+            <div className="md:col-span-2 ml-2">
+              <div className="grid grid-cols-2 gap-3">
+
+                <div className="col-span-2 md:col-span-1">
+                  <InputField
+                    name="name"
+                    label="Title"
+                    value={name}
+                    onChange={onInputChange} />
+                </div>
+                <div className="col-span-2 md:col-span-1">
+                  <InputField
+                    name="institution"
+                    label="Institution"
+                    value={institution}
+                    onChange={onInputChange} />
+                </div>
+                <div className="col-span-2 md:col-span-1">
+                  <InputField
+                    name="degreeType"
+                    label="Type of degree"
+                    value={degreeType}
+                    onChange={onInputChange} />
+                </div>
+                
+                <div className="col-span-2 md:col-start-1 md:col-span-1">
+                  <SelectField 
+                    label="Status" 
+                    value={status} 
+                    options={statusArray} />
+                </div>
+              </div>
+              
             </div>
-            <div className="col-span-1">
-              <InputField
-                name="institution"
-                label="Institution"
-                value={institution}
-                onChange={onInputChange} />
-            </div>
-            <div className="col-span-1">
-              <InputField
-                name="degreeType"
-                label="Type of Degree"
-                value={degreeType}
-                onChange={onInputChange} />
-            </div>
-            
-            <div className="col-start-2 col-span-1">
-              <SelectField 
-                label="Status" 
-                value={status} 
-                options={statusArray} />
-            </div>
-            
+
         </div>
 
         <div className="mt-8 flex justify-center">
