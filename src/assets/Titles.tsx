@@ -6,7 +6,8 @@ type TytleProps={
 
 export const Titles = (props: TytleProps) => {
   return (
-    <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+    <h2 className="text-2xl 
+    sm:text-3xl quicksand font-normal text-black">
         {props.title}
     </h2>
   )
