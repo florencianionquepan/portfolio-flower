@@ -6,10 +6,12 @@ import { FC, useState } from "react"
 interface SelectFieldProps{
     label:string,
     value: string,
-    options: string[]
+    options: string[],
+    hasError:boolean,
+    errorMessage:string
 }
 
-export const SelectField: FC<SelectFieldProps> = ({label, value, options}) => {
+export const SelectField: FC<SelectFieldProps> = ({label, value, options, hasError=false, errorMessage=""}) => {
   const [selected, setSelected] = useState(value)
 
   return (
@@ -18,8 +20,9 @@ export const SelectField: FC<SelectFieldProps> = ({label, value, options}) => {
         <Label className="block text-sm font-medium leading-6 text-white-500">{label}</Label>
 
         <div className="relative mt-2">
-            <ListboxButton className="relative w-full bg-transparent rounded-md border border-purple-400 py-1.5
-                  focus:outline-none focus:ring-1 focus:ring-purple-600 sm:text-sm sm:leading-6 px-2 min-h-[45px]">
+            <ListboxButton className={`relative w-full py-1.5 bg-transparent rounded-md border focus:outline-none focus:ring-1 
+                            ${hasError?'border-2 border-red-500 focus:ring-red-500':'border-purple-400 focus:ring-purple-600'}
+                            sm:text-sm sm:leading-6 px-2 min-h-[45px]`}>
             <span className="flex items-center">
                 <span className="ml-1 block truncate">{selected}</span>
             </span>
@@ -27,6 +30,11 @@ export const SelectField: FC<SelectFieldProps> = ({label, value, options}) => {
                 <ChevronUpDownIcon aria-hidden="true" className="h-5 w-5 text-black-400" />
             </span>
             </ListboxButton>
+            {hasError && 
+                (<span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                    {errorMessage}
+                  </span>)
+            }
 
             <ListboxOptions transition
             className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-purple-100 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm">
