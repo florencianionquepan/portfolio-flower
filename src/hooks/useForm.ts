@@ -7,11 +7,19 @@ export const useForm = <T extends object> (initialForm:T) => {
     const [formState, setFormState] = useState(initialForm);
     
       const onInputChange =({target}: ChangeEvent<HTMLInputElement> ) => {
-        const {name,value} = target;
-        setFormState({
+        
+        const {name, value, type} = target;
+        if(type==='date'){
+          setFormState({
+            ...formState,
+            [name]: value? new Date(value) : null,
+        });
+        }else {
+          setFormState({
             ...formState,
             [name]: value
-        });
+          });
+        }
       }
       
     const onResetForm =()=>{
