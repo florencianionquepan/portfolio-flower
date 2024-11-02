@@ -4,7 +4,7 @@ interface DateInputFieldProps {
     label:string,
     name:string,
     value: Date | null,
-    onChange: (date: Date | null) => void;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     disabled?: boolean,
     hasError: boolean,
     errorMessage: string
@@ -22,17 +22,14 @@ export const InputDateField: FC<DateInputFieldProps> = ({
 
     const [inputValue, setInputValue] = useState<string>(value ? value.toISOString().slice(0, 10) : '');
 
-    // Actualiza el estado del input cuando cambia el `value` prop
     useEffect(() => {
         setInputValue(value ? value.toISOString().slice(0, 10) : '');
     }, [value]);
 
-    // Convierte el valor de cadena a `Date` y lo envía en el evento `onChange`
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const dateString = e.target.value;
         setInputValue(dateString);
-        const newDate = dateString ? new Date(dateString) : null;
-        onChange(newDate);
+        onChange(e);
     };
 
     return (
@@ -45,6 +42,7 @@ export const InputDateField: FC<DateInputFieldProps> = ({
                 </label>
                 <div className="mt-2">
                   <input
+                    type='date'
                     name={name}
                     id={name}
                     autoComplete="false"
