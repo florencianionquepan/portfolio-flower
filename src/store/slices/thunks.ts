@@ -1,6 +1,7 @@
 import axios from "axios";
 import { AppDispatch } from "../store";
 import { setPerson, startLoadingPerson } from "./personSlice"
+import { setEducations } from "../education/educationSlice";
 
 export const getPerson = () =>{
     //luego vamos a cargar todos los datos de persona(educations, projetcs, etc)
@@ -12,9 +13,10 @@ export const getPerson = () =>{
         try{
             const resp = await axios.get(`${apiUrl}/public/profile/ñonquepan`);
             const data = resp.data;
-            //console.log(respData);
+            //console.log(data);
 
-            dispatch( setPerson (data));
+            dispatch( setPerson (data.person));
+            dispatch( setEducations(data.programs))
 
         }catch(error){
             console.error(error);

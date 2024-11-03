@@ -7,7 +7,7 @@ interface InputFieldProps {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     type?: React.HTMLInputTypeAttribute,
     hasError: boolean,
-    errorMessage: string
+    errorMessage: string | null | undefined
 }
 
 export const InputField: FC<InputFieldProps> = ({label, name, value, onChange, type="text", hasError=true, errorMessage=""}) => {

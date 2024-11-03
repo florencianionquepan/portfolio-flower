@@ -8,8 +8,9 @@ import { useDispatch } from "react-redux";
 import { closeNewEducation } from "../store/education/educationSlice";
 import { InputDateField } from "../formFields/InputDateField";
 import { formValidations } from "./formValidations";
-import { EducationFormInterface } from "./educationFormTypes";
 import { useState } from "react";
+import { startNewEducation } from "../store/education/thunk";
+import { Education } from "../store/model/Education";
 
 export const EducationForm = () => {
 
@@ -19,13 +20,12 @@ export const EducationForm = () => {
 
   const { name, institution, degreeType, startDate, endDate, status, onInputChange, onSelectChange,
     formState, nameValid, institutionValid, degreeTypeValid, startDateValid, endDateValid, statusValid, isFormValid }  
-      = useForm<EducationFormInterface>({
+      = useForm<Education>({
         name: 'Ingenieria',
         institution: 'Universidad ',
         degreeType: '',
         status: '',
-        startDate: new Date(),
-        endDate: null
+        startDate: new Date()
       }, formValidations );
   
   const statusArray: string[] = Object.values(Status);
@@ -37,11 +37,12 @@ export const EducationForm = () => {
   const onSubmit = (event: React.SyntheticEvent) =>{
     event.preventDefault();
     setFormSubmitted(true);
-    console.log(formState);
+    if(!isFormValid) return;
+    dispatch(startNewEducation(formState));
   }
 
   return (
-    <form autoComplete="off" onSubmit={onSubmit}>
+    <form autoComplete="news" onSubmit={onSubmit}>
       <div className="space-y-12 w-full max-w-4xl mx-auto">
         <div className="border rounded border-2 border-purple-600 p-5 mt-5 bg-orange-200">
           <div className="flex justify-between">
@@ -113,7 +114,7 @@ export const EducationForm = () => {
                     value={degreeType}
                     onChange={onInputChange} 
                     hasError={!!degreeTypeValid && formSubmitted}
-                    errorMessage={degreeType}
+                    errorMessage={degreeTypeValid}
                     />
                 </div>
                 

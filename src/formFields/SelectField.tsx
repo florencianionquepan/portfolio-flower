@@ -9,7 +9,7 @@ interface SelectFieldProps{
     onSelectChange: (value: string) => void; 
     options: string[],
     hasError:boolean,
-    errorMessage:string
+    errorMessage:string | null
 }
 
 export const SelectField: FC<SelectFieldProps> = ({

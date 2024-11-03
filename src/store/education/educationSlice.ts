@@ -31,7 +31,7 @@ export const educationSlice = createSlice({
             state.error = null
         },
         addNewEducation:(state, action: PayloadAction<Education>) =>{
-            state.educations.push(action.payload)
+            state.educations = [...state.educations, action.payload]
             state.loading=false,
             state.error=null
         },

@@ -1,5 +1,5 @@
 export class Education {
-    public id: number;
+    public id?: number;
     public name: string;
     public institution: string;
     public degreeType?: string;

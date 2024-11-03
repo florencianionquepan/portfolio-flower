@@ -1,9 +1,10 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { AppDispatch } from "../store"
-import { addNewEducation, creatingNewEducation } from "./educationSlice";
+import { addNewEducation, closeNewEducation, creatingNewEducation } from "./educationSlice";
 import { Education } from "../model/Education";
+import Swal from "sweetalert2";
 
-export const startNewEducation =() =>{
+export const startNewEducation =(education: Education) =>{
 
     return async(dispatch: AppDispatch, getState) =>{
 
@@ -15,9 +16,7 @@ export const startNewEducation =() =>{
         const id = person.id;
         console.log(id);
 
-        const newEducation = {
-
-        }
+        const newEducation = education;
 
         dispatch(creatingNewEducation());
 
@@ -29,13 +28,22 @@ export const startNewEducation =() =>{
 
             const data: Education = resp.data;
             dispatch(addNewEducation(data));
+            Swal.fire({
+                icon:'success',
+                title:'Success!',
+                text:'Education record created successfully'
+            })
+            dispatch(dispatch(closeNewEducation()));
     
         }catch(error){
             console.log(error);
-        }
-        
-        //dispatch
+            const axiosError = error as AxiosError;
 
-        //dispatch(newEducation)
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: axiosError? axiosError.message : 'An unexpected error occurred.'
+            });
+        }
     }
 }

@@ -3,11 +3,11 @@ import { FC, useEffect, useState } from "react";
 interface DateInputFieldProps {
     label:string,
     name:string,
-    value: Date | null,
+    value?: Date | null,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     disabled?: boolean,
     hasError: boolean,
-    errorMessage: string
+    errorMessage: string | null | undefined
 }
 
 export const InputDateField: FC<DateInputFieldProps> = ({

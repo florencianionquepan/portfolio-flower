@@ -1,6 +1,7 @@
-import { EducationFormInterface, FormValidations } from "./educationFormTypes";
+import { Education } from "../store/model/Education";
+import { FormValidations } from "./educationFormTypes";
 
-export const formValidations: FormValidations<EducationFormInterface> = {
+export const formValidations: FormValidations<Education> = {
     name: [
         (value: string) => /^[A-Za-z\s]+$/.test(value), 
         'The name can only contain letters and spaces.'
@@ -10,7 +11,12 @@ export const formValidations: FormValidations<EducationFormInterface> = {
         'The institution can only contain letters and spaces.'
     ],
     degreeType: [
-        (value: string) => /^[A-Za-z\s]*$/.test(value), 
+        (value: string | undefined) => {
+            if (value && !/^[A-Za-z\s]*$/.test(value)) {
+                return false; 
+            }
+            return true; 
+        }, 
         'The degree type can only contain letters and spaces.'
     ],
     startDate: [
@@ -24,13 +30,13 @@ export const formValidations: FormValidations<EducationFormInterface> = {
         'The start date must be in the past.'
     ],
     endDate: [
-        (value: Date | null, status: string) => {
+        (value: Date | null | undefined, status: string) => {
             if (status === 'PENDING' || status === 'IN PROGRESS' || status === "" ) {
                 return true; 
             }
             const today = new Date();
-            if(value) return value < today
-            return value !== null; 
+            if(value) return value < today;
+            return false;
         },
         'The end date is required unless the status is pending or in progress.'
     ],
