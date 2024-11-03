@@ -25,7 +25,7 @@ export const formValidations: FormValidations<EducationFormInterface> = {
     ],
     endDate: [
         (value: Date | null, status: string) => {
-            if (status === 'PENDING' || status === 'IN PROGRESS') {
+            if (status === 'PENDING' || status === 'IN PROGRESS' || status === "" ) {
                 return true; 
             }
             const today = new Date();
