@@ -3,7 +3,7 @@ import { Education } from '../model/Education'
 
 // Define a type for the slice state
 interface educationState {
-    education: Education[] | [],
+    educations: Education[] | [],
     loading: boolean,
     error:string | null,
     isFormOpen: boolean
@@ -11,7 +11,7 @@ interface educationState {
 
 // Define the initial state using that type
 const initialState: educationState = {
-    education:[],
+    educations:[],
     loading:false,
     error:null,
     isFormOpen:false
@@ -27,11 +27,11 @@ export const educationSlice = createSlice({
         },
         setEducations: (state, action: PayloadAction<Education[]>) =>{
             state.loading=false,
-            state.education = action.payload,
+            state.educations = action.payload,
             state.error = null
         },
         addNewEducation:(state, action: PayloadAction<Education>) =>{
-            state.education.push(action.payload)
+            state.educations.push(action.payload)
             state.loading=false,
             state.error=null
         },

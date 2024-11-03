@@ -6,12 +6,13 @@ import { EducationForm } from "./EducationForm"
 import { useSelector } from "react-redux"
 import { openNewEducation } from "../store/education/educationSlice"
 import { PlusIcon } from "@heroicons/react/24/outline"
+import { EducationItem } from "./EducationItem"
 
 
 export const Education = () => {
 
   const dispatch: AppDispatch = useDispatch();
-  const {loading, isFormOpen} = useSelector( (state: RootState) => state.education)
+  const {educations, loading, isFormOpen} = useSelector( (state: RootState) => state.education)
 
   //esta funcion va a estar e n el boton de enviar educacion debajo del formulario!!!
   const onClickNewEducation = () =>{
@@ -20,6 +21,7 @@ export const Education = () => {
   }
 
   const handleOpenNewEducation = () =>{
+    console.log(educations);
     dispatch( openNewEducation() );
   }
 
@@ -34,16 +36,13 @@ export const Education = () => {
           <PlusIcon className="h-5 w-5 text-purple-600"></PlusIcon>
         </button>
       </div>
-      <div className="flex flex-items-center justify-start mt-2" role="listitem" aria-label="Educational background">
-        <div className="mx-1 pr-3 border-purple-400 border-r-2 font-normal">
-          <p aria-label="Start year">2010 - </p>
-          <p aria-label="End year">2016 </p>
-        </div>
-        <div className="pl-3">
-            <p className="font-semibold"> Chemical Engineer - Universidad Nacional del Sur</p>
-            <p> Bachelor of Engineering</p>
-            <p> Status: <span className="font-semibold">COMPLETED</span></p>
-        </div>
+      <div>
+        {educations.map((e)=>(
+          <EducationItem
+          key={e.id} 
+          education={e}
+          />
+        ))}
       </div>
       { isFormOpen && <EducationForm/> }
     </div>
