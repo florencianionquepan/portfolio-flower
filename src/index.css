@@ -40,3 +40,15 @@ input[type="time"]::-webkit-calendar-picker-indicator{
   opacity: 0.9;
   filter: invert(0.9);
 }
+
+/* Autofill styles for Chrome */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px rgb(254 215 170) inset !important; /* Change white to your desired color */
+  -webkit-text-fill-color: black !important; /* Set text color */
+}
+
+/* Autofill styles for Firefox */
+input:-moz-autofill {
+  background-color: transparent !important; /* Set background to transparent */
+  color: black !important; /* Set text color */
+}
