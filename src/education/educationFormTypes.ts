@@ -12,3 +12,8 @@ export interface EducationFormInterface {
     endDate: Date | null;
     status: string;
 }
+
+export type ValidationFields<T> = {
+    [K in keyof T as `${string & K}Valid`]: string | null;
+};
+  

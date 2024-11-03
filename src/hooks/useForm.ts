@@ -1,11 +1,11 @@
 import { useState, ChangeEvent, useEffect, useMemo } from "react";
-import { FormValidations } from "../education/educationFormTypes";
+import { EducationFormInterface, FormValidations, ValidationFields } from "../education/educationFormTypes";
 
 //export function useForm<T>(initialForm:T){
 export const useForm = <T extends object> (initialForm:T, formValidations: FormValidations<T>) => {
 
     const [formState, setFormState] = useState(initialForm);
-    const [formValidation, setFormValidation] = useState<Partial<Record<string, string | null>>>({});
+    const [formValidation, setFormValidation] = useState<ValidationFields<T>>({} as ValidationFields<T>);
     
     useEffect(() => {
       createValidators();
@@ -53,8 +53,8 @@ export const useForm = <T extends object> (initialForm:T, formValidations: FormV
         const [fn, errorMessage] = formValidations[formField];
         const value = formState[formField];
 
-        if (formField === 'endDate') {
-            const status = formState.status;
+        if (formField === 'endDate' && 'status' in formState && 'status' in initialForm) {
+            const status = (formState as unknown as EducationFormInterface).status;
             formCheckedValues[`${String(formField)}Valid`] = fn(value, status) ? null : errorMessage;
         } else {
             formCheckedValues[`${String(formField)}Valid`] = fn(value) ? null : errorMessage;
