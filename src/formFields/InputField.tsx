@@ -19,7 +19,7 @@ export const InputField: FC<InputFieldProps> = ({label, name, value, onChange, t
                 className="block text-sm font-medium leading-6">
                 {label}
               </label>
-              <div className="mt-2">
+              <div>
                 <input
                   type={type}
                   name={name}

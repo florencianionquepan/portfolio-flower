@@ -40,13 +40,13 @@ export const InputDateField: FC<DateInputFieldProps> = ({
                   className="block text-sm font-medium leading-6">
                   {label}
                 </label>
-                <div className="mt-2">
+                <div>
                   <input
                     type='date'
                     name={name}
                     id={name}
                     autoComplete="false"
-                    className={`block w-full bg-transparent py-1.5 px-2 border rounded-md focus:outline-none ${hasError?'border-red-500 focus:ring-red-500':
+                    className={`max-h-[46px] block w-full bg-transparent py-1.5 px-2 border rounded-md focus:outline-none ${hasError?'border-red-500 focus:ring-red-500':
                     'border-purple-400 focus:ring-1 focus:ring-purple-600'}`}
                     value={inputValue}
                     onChange={handleChange}

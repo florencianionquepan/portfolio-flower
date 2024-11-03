@@ -19,7 +19,7 @@ export const SelectField: FC<SelectFieldProps> = ({label, value, options, hasErr
         <Listbox value={selected} onChange={setSelected}>
         <Label className="block text-sm font-medium leading-6 text-white-500">{label}</Label>
 
-        <div className="relative mt-2">
+        <div className="relative">
             <ListboxButton className={`relative w-full py-1.5 bg-transparent rounded-md border focus:outline-none focus:ring-1 
                             ${hasError?'border-2 border-red-500 focus:ring-red-500':'border-purple-400 focus:ring-purple-600'}
                             sm:text-sm sm:leading-6 px-2 min-h-[45px]`}>

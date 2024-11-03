@@ -1,15 +1,23 @@
-import { useState, ChangeEvent, useEffect } from "react";
+import { useState, ChangeEvent, useEffect, useMemo } from "react";
 import { FormValidations } from "../education/educationFormTypes";
 
 //export function useForm<T>(initialForm:T){
 export const useForm = <T extends object> (initialForm:T, formValidations: FormValidations<T>) => {
 
     const [formState, setFormState] = useState(initialForm);
-    const [formValidation, setFormValidation] = useState({});
+    const [formValidation, setFormValidation] = useState<Partial<Record<string, string | null>>>({});
     
     useEffect(() => {
       createValidators();
     }, [formState])
+
+    const isFormValid = useMemo( ()=>{
+      for (const formValue of Object.keys( formValidation )){
+        if(formValidation[formValue]!==null) return false;
+
+      }
+      return true;
+    },[formValidation])
     
     
     const onInputChange =({target}: ChangeEvent<HTMLInputElement> ) => {
@@ -54,6 +62,7 @@ export const useForm = <T extends object> (initialForm:T, formValidations: FormV
     formState,
     onInputChange,
     onResetForm,
-    ...formValidation
+    ...formValidation,
+    isFormValid
   }
 }
