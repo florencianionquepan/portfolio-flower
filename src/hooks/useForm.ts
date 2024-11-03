@@ -35,6 +35,13 @@ export const useForm = <T extends object> (initialForm:T, formValidations: FormV
         });
       }
     }
+
+    const onSelectChange = (name: keyof T, value: T[keyof T]) => {
+      setFormState({
+          ...formState,
+          [name]: value,
+      });
+  };
       
     const onResetForm =()=>{
       setFormState(initialForm);
@@ -61,6 +68,7 @@ export const useForm = <T extends object> (initialForm:T, formValidations: FormV
     ...formState,
     formState,
     onInputChange,
+    onSelectChange,
     onResetForm,
     ...formValidation,
     isFormValid

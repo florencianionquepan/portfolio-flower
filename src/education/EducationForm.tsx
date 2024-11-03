@@ -17,7 +17,7 @@ export const EducationForm = () => {
 
   const [formSubmitted, setFormSubmitted] = useState(false)
 
-  const { name, institution, degreeType, startDate, endDate, status, onInputChange, 
+  const { name, institution, degreeType, startDate, endDate, status, onInputChange, onSelectChange,
     formState, nameValid, institutionValid, degreeTypeValid, startDateValid, endDateValid, statusValid, isFormValid }  
       = useForm<EducationFormInterface>({
         name: 'Ingenieria',
@@ -120,7 +120,8 @@ export const EducationForm = () => {
                 <div className="col-span-2 md:col-start-1 md:col-span-1">
                   <SelectField 
                     label="Status" 
-                    value={status} 
+                    value={status}
+                    onSelectChange={(value) => onSelectChange("status", value)}
                     options={statusArray} 
                     hasError={!!statusValid && formSubmitted}
                     errorMessage={statusValid}

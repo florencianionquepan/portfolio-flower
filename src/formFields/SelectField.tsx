@@ -6,17 +6,32 @@ import { FC, useState } from "react"
 interface SelectFieldProps{
     label:string,
     value: string,
+    onSelectChange: (value: string) => void; 
     options: string[],
     hasError:boolean,
     errorMessage:string
 }
 
-export const SelectField: FC<SelectFieldProps> = ({label, value, options, hasError=false, errorMessage=""}) => {
-  const [selected, setSelected] = useState(value)
+export const SelectField: FC<SelectFieldProps> = ({
+    label, 
+    value,
+    onSelectChange, 
+    options, 
+    hasError=false, 
+    errorMessage=""
+}) => {
+  const [selected, setSelected] = useState(value);
+
+  const handleChange = (value: string) => {
+    setSelected(value);
+    if (onSelectChange) {
+      onSelectChange(value); // Llama a onSelectChange con el nuevo valor
+    }
+  };
 
   return (
     <div className="sm:col-span-3">
-        <Listbox value={selected} onChange={setSelected}>
+        <Listbox value={selected} onChange={handleChange}>
         <Label className="block text-sm font-medium leading-6 text-white-500">{label}</Label>
 
         <div className="relative">
