@@ -1,6 +1,6 @@
 import { Girl } from "./draw/Girl";
 import { useEffect } from "react";
-import { getPerson } from "../store/slices/thunks";
+import { getPerson } from "../store/person/thunks";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
