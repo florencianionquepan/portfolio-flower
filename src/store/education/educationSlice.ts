@@ -32,6 +32,7 @@ export const educationSlice = createSlice({
             state.educations = action.payload,
             state.error = null
         },
+        //when a new education is already created 
         addNewEducation:(state, action: PayloadAction<Education>) =>{
             state.educations = [...state.educations, action.payload]
             state.loading=false,
@@ -47,15 +48,22 @@ export const educationSlice = createSlice({
             state.isFormOpen=true;
             state.educationToEdit=action.payload
         },
-        closeNewEducation: (state) =>{
+        editingEducation:(state)=>{
+            state.loading=true;
+        },
+        closeFormEducation: (state) =>{
             state.isFormOpen=false;
             state.educationToEdit=null;
         },
-        setSaving: (state)=>{
-
-        },
         updateEducation:(state, action)=>{
-
+            state.loading=false;
+            state.educations = state.educations.map((e)=>
+            e.id === action.payload.id? action.payload : e);
+            state.error=null;
+        },
+        errorEducation:(state, action: PayloadAction<string>)=>{
+            state.loading=false;
+            state.error=action.payload;
         },
         deleteEducationById: (state, action)=>{
 
@@ -69,9 +77,10 @@ export const { startLoadingEducations,
             creatingNewEducation,
             openNewEducation,
             openEducationToEdit,
-            closeNewEducation,
-            setSaving,
+            editingEducation,
+            closeFormEducation,
             updateEducation,
+            errorEducation,
             deleteEducationById 
             } = educationSlice.actions
 

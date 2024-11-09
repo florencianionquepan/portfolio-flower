@@ -5,7 +5,7 @@ import { useForm } from "../hooks/useForm";
 import { Status } from "../store/model/Status";
 import { AppDispatch } from "../store/store";
 import { useDispatch } from "react-redux";
-import { closeNewEducation } from "../store/education/educationSlice";
+import { closeFormEducation } from "../store/education/educationSlice";
 import { InputDateField } from "../formFields/InputDateField";
 import { formValidations } from "./formValidations";
 import { useState } from "react";
@@ -39,8 +39,8 @@ const initialFormState: Education = {
   
   const statusArray: string[] = Object.values(Status);
 
-  const handleCloseNewEducation =() =>{
-      dispatch(closeNewEducation());
+  const handlecloseFormEducation =() =>{
+      dispatch(closeFormEducation());
   }
 
   const onSubmit = (event: React.SyntheticEvent) =>{
@@ -58,7 +58,7 @@ const initialFormState: Education = {
             <h2 className="text-base font-semibold leading-7">
               {educationToEdit? 'Edit Education' : 'New Education'}
             </h2>
-            <button type="button" onClick={handleCloseNewEducation}>
+            <button type="button" onClick={handlecloseFormEducation}>
               <XMarkIcon className="h-6 w-6 m-1 text-purple-600 hover:text-purple-800" aria-hidden="true" />
             </button>
           </div>
