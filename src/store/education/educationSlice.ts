@@ -6,7 +6,8 @@ interface educationState {
     educations: Education[] | [],
     loading: boolean,
     error:string | null,
-    isFormOpen: boolean
+    isFormOpen: boolean,
+    educationToEdit: Education | null
 }
 
 // Define the initial state using that type
@@ -14,7 +15,8 @@ const initialState: educationState = {
     educations:[],
     loading:false,
     error:null,
-    isFormOpen:false
+    isFormOpen:false,
+    educationToEdit: null
 }
 
 export const educationSlice = createSlice({
@@ -41,8 +43,13 @@ export const educationSlice = createSlice({
         openNewEducation: (state) =>{
             state.isFormOpen=true;
         },
+        openEducationToEdit: (state, action: PayloadAction<Education>) =>{
+            state.isFormOpen=true;
+            state.educationToEdit=action.payload
+        },
         closeNewEducation: (state) =>{
             state.isFormOpen=false;
+            state.educationToEdit=null;
         },
         setSaving: (state)=>{
 
@@ -61,6 +68,7 @@ export const { startLoadingEducations,
             addNewEducation,
             creatingNewEducation,
             openNewEducation,
+            openEducationToEdit,
             closeNewEducation,
             setSaving,
             updateEducation,
