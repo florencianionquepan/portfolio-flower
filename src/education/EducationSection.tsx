@@ -9,7 +9,7 @@ import { EducationItem } from "./EducationItem"
 import { useMemo } from "react"
 
 
-export const Education = () => {
+export const EducationSection = () => {
 
   const dispatch: AppDispatch = useDispatch();
   const {educations, loading, isFormOpen, educationToEdit} = useSelector( (state: RootState) => state.education)
@@ -28,7 +28,7 @@ export const Education = () => {
 }, [educations]);
 
   return (
-    <div className="p-8 xl:p-16">
+    <div className="p-8 xl:px-16">
       <div className="flex items-center justify-between mb-4">
         <Titles title="Education"/>
         <button className="bg-transparent border border-2 border-purple-600 
