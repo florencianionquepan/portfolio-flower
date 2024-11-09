@@ -1,8 +1,10 @@
 import './App.css'
 import { MyHeader } from './assets/MyHeader'
-import { Education } from './education/Education'
+import { EducationSection } from './education/EducationSection'
 import { useAuth } from './hooks/useAuth'
 import { Presentation } from './presentation/Presentation'
+import { ProjectSection } from './projects/ProjectSection'
+import { TechnologySection } from './technologies/TechnologySection'
 
 function App() {
 
@@ -12,7 +14,9 @@ function App() {
       <div className='container max-w-7xl mx-auto'>
           <MyHeader/>
           <Presentation/>
-          <Education/>
+          <EducationSection/>
+          <ProjectSection/>
+          <TechnologySection/>
       </div>
   )
 }
