@@ -9,24 +9,33 @@ import { closeNewEducation } from "../store/education/educationSlice";
 import { InputDateField } from "../formFields/InputDateField";
 import { formValidations } from "./formValidations";
 import { useState } from "react";
-import { startNewEducation } from "../store/education/thunk";
+import { startEditEducation, startNewEducation } from "../store/education/thunk";
 import { Education } from "../store/model/Education";
 
-export const EducationForm = () => {
+interface EducationFormProps {
+  educationToEdit: Education | null; 
+}
 
-  const dispatch: AppDispatch = useDispatch();
+export const EducationForm: React.FC<EducationFormProps> = ({educationToEdit}) => {
+
+const dispatch: AppDispatch = useDispatch();
+
+const initialFormState: Education = {
+    id: educationToEdit?.id || undefined,
+    name: educationToEdit?.name || '', 
+    institution: educationToEdit?.institution || '', 
+    degreeType: educationToEdit?.degreeType || undefined, 
+    status: educationToEdit?.status || '', 
+    startDate: educationToEdit? new Date(educationToEdit!.startDate) : new Date(2023, 0, 1), 
+    endDate: educationToEdit? new Date(educationToEdit!.endDate) : undefined, 
+}; 
+
 
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const { name, institution, degreeType, startDate, endDate, status, onInputChange, onSelectChange,
     formState, nameValid, institutionValid, degreeTypeValid, startDateValid, endDateValid, statusValid, isFormValid }  
-      = useForm<Education>({
-        name: 'Ingenieria',
-        institution: 'Universidad ',
-        degreeType: '',
-        status: '',
-        startDate: new Date()
-      }, formValidations );
+      = useForm<Education>(initialFormState, formValidations );
   
   const statusArray: string[] = Object.values(Status);
 
@@ -38,7 +47,7 @@ export const EducationForm = () => {
     event.preventDefault();
     setFormSubmitted(true);
     if(!isFormValid) return;
-    dispatch(startNewEducation(formState));
+    educationToEdit?.id? dispatch(startEditEducation(formState)): dispatch(startNewEducation(formState));
   }
 
   return (
@@ -47,7 +56,7 @@ export const EducationForm = () => {
         <div className="border rounded border-2 border-purple-600 p-5 mt-5 bg-orange-200">
           <div className="flex justify-between">
             <h2 className="text-base font-semibold leading-7">
-              New Education
+              {educationToEdit? 'Edit Education' : 'New Education'}
             </h2>
             <button type="button" onClick={handleCloseNewEducation}>
               <XMarkIcon className="h-6 w-6 m-1 text-purple-600 hover:text-purple-800" aria-hidden="true" />

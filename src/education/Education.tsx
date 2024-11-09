@@ -12,10 +12,10 @@ import { useMemo } from "react"
 export const Education = () => {
 
   const dispatch: AppDispatch = useDispatch();
-  const {educations, loading, isFormOpen} = useSelector( (state: RootState) => state.education)
+  const {educations, loading, isFormOpen, educationToEdit} = useSelector( (state: RootState) => state.education)
 
   const handleOpenNewEducation = () =>{
-    console.log(educations);
+    //console.log(educations);
     dispatch( openNewEducation() );
   }
 
@@ -46,7 +46,7 @@ export const Education = () => {
           />
         ))}
       </div>
-      { isFormOpen && <EducationForm/> }
+      { isFormOpen && <EducationForm educationToEdit={educationToEdit}/> }
     </div>
   )
 }
