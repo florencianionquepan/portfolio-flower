@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import personReducer from "./person/personSlice"
 import { authSlice } from "./auth/authSlice";
 import { educationSlice } from "./education/educationSlice";
+import { technologySlice } from "./technology/technologySlice";
 
 export const store = configureStore({
     reducer:{
         person: personReducer,
         auth: authSlice.reducer,
-        education: educationSlice.reducer
+        education: educationSlice.reducer,
+        technology: technologySlice.reducer
     }
 })
 
