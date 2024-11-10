@@ -1,7 +1,23 @@
 import { Titles } from '../assets/Titles'
 import { PlusIcon } from '@heroicons/react/24/outline'
+import { useAppDispatch } from '../hooks/useAppDispatch'
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
+import { useEffect } from 'react';
+import { showTechnologies } from '../store/technology/thunk';
+import { TechnologyItem } from './TechnologyItem';
 
 export const TechnologySection = () => {
+
+    const dispatch = useAppDispatch();
+    const {technologies} = useSelector( (state: RootState) => state.technology);
+
+    useEffect(() => {
+      dispatch(showTechnologies());
+
+    }, [dispatch])
+    
+
     const handleOpenNewTechnology = ()=>{
     
     }
@@ -16,7 +32,12 @@ export const TechnologySection = () => {
             </button>
           </div>
           <div>
-            
+            { technologies.map((t)=>(
+              <TechnologyItem
+              key={t.id}
+              technology={t}
+              />
+            ))}
           </div>
         </div>
       )
