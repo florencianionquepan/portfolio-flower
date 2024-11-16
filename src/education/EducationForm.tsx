@@ -51,7 +51,7 @@ const initialFormState: Education = {
   }
 
   return (
-    <form autoComplete="news" onSubmit={onSubmit}>
+    <form autoComplete="off" onSubmit={onSubmit}>
       <div className="space-y-12 w-full max-w-4xl mx-auto">
         <div className="border rounded border-2 border-purple-600 p-5 mt-5 bg-orange-200">
           <div className="flex justify-between">

@@ -1,5 +1,5 @@
 export class Technology{
-    public id: number;
+    public id?: number;
     public name: string;
     public logoUrl: string;
     public version: number;
