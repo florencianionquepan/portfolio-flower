@@ -1,7 +1,16 @@
+import { useSelector } from 'react-redux';
 import { Titles } from '../assets/Titles'
 import { PlusIcon } from '@heroicons/react/24/outline'
+import { RootState } from '../store/store';
+import { TechnologyItem } from '../technologies/TechnologyItem';
+import { ProjectImage } from './ProjectImage';
+import { ProjectLinks } from './ProjectLinks';
+import { ProjectItem } from './ProjectItem';
 
 export const ProjectSection = () => {
+
+  const {technologies} = useSelector( (state: RootState) => state.technology);
+  const {projects, loading, isFormOpen, projectToEdit} = useSelector( (state: RootState) => state.project)
 
 const handleOpenNewProject = ()=>{
     
@@ -17,7 +26,15 @@ const handleOpenNewProject = ()=>{
         </button>
       </div>
       <div>
-        
+        <div className='grid grid-cols-1 md:grid-cols-3'>
+          
+          {projects.map((project)=>(
+            <ProjectItem
+            project={project}
+            />
+          ))}
+
+        </div>
       </div>
     </div>
   )
