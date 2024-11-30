@@ -7,6 +7,10 @@ import { ArrowUpTrayIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { InputField } from "../formFields/InputField";
 import { formValidations } from "./formValidations";
 import { closeFormProject } from "../store/project/projectSlice";
+import { Technologies } from "../assets/Technologies";
+import { Technology } from "../store/model/Technology";
+import { TechnologyItem } from "../technologies/TechnologyItem";
+import { TechnologyDropZone } from "./TechnologyDropZone";
 
 interface ProjectFormProps {
   projectToEdit: Project | null;
@@ -22,6 +26,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
   };
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [selectedTechnologies, setSelectedTechnologies] = useState<Technology[]>([]);
 
   const {
     title,
@@ -30,6 +35,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
     formState,
     titleValid,
     descriptionValid,
+    technologiesValid,
     isFormValid,
   } = useForm<Project>(initialFormState, formValidations);
 
@@ -38,6 +44,9 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
     setFormSubmitted(true);
     if (!isFormValid) return;
   };
+
+  const descriptionHasError = !!descriptionValid && formSubmitted;
+  const technologiesHasError = !!technologiesValid && formSubmitted;
 
   const handlecloseFormProject = () => {
     dispatch(closeFormProject());
@@ -51,7 +60,6 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const descriptionHasError = !!descriptionValid && formSubmitted;
 
   return (
     <form autoComplete="off" onSubmit={onSubmit}>
@@ -113,7 +121,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
                 Description
               </label>
               <textarea
-                className={`block w-full bg-transparent py-1.5 px-2 border rounded-md focus:outline-none ${
+                className={`block w-full min-h-[100px] bg-transparent py-1.5 px-2 border rounded-md focus:outline-none ${
                   descriptionHasError
                     ? "border-red-500 focus:ring-red-500"
                     : "border-purple-400 focus:ring-1 focus:ring-purple-600"
@@ -128,18 +136,34 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
             <div className="col-span-2">
               <label
                 htmlFor={"description"}
-                className="block text-sm font-medium leading-6"
-              >
+                className="block text-sm font-medium leading-6" >
                 Technologies
               </label>
+
+              <TechnologyDropZone
+                selectedTechnologies={selectedTechnologies}
+                setSelectedTechnologies={setSelectedTechnologies}
+                technologiesHasError={technologiesHasError}
+              />
+
+              <textarea
+              id="technologies-text"
+              name="technologies"
+              value={JSON.stringify(
+                selectedTechnologies.map(tech => ({ name: tech.name, version: tech.version }))
+              )}
+              readOnly
+              hidden></textarea>
+
             </div>
+            <Technologies/>
+
           </div>
 
           <div className="mt-8 flex justify-center">
             <button
               type="submit"
-              className="border rounded border-2 border-purple-600 p-1 px-2"
-            >
+              className="border rounded border-2 border-purple-600 p-1 px-2" >
               Save
             </button>
           </div>
