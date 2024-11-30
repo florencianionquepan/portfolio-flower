@@ -1,19 +1,19 @@
 import { useSelector } from 'react-redux';
 import { Titles } from '../assets/Titles'
 import { PlusIcon } from '@heroicons/react/24/outline'
-import { RootState } from '../store/store';
-import { TechnologyItem } from '../technologies/TechnologyItem';
-import { ProjectImage } from './ProjectImage';
-import { ProjectLinks } from './ProjectLinks';
+import { AppDispatch, RootState } from '../store/store';
 import { ProjectItem } from './ProjectItem';
+import { ProjectForm } from './ProjectForm';
+import { useDispatch } from 'react-redux';
+import { openNewProject } from '../store/project/projectSlice';
 
 export const ProjectSection = () => {
 
-  const {technologies} = useSelector( (state: RootState) => state.technology);
+  const dispatch: AppDispatch = useDispatch();
   const {projects, loading, isFormOpen, projectToEdit} = useSelector( (state: RootState) => state.project)
 
 const handleOpenNewProject = ()=>{
-    
+    dispatch( openNewProject() );
 }
   return (
     <div className="p-8 xl:px-16">
@@ -26,16 +26,20 @@ const handleOpenNewProject = ()=>{
         </button>
       </div>
       <div>
-        <div className='grid grid-cols-1 md:grid-cols-3'>
+        <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
           
           {projects.map((project)=>(
             <ProjectItem
+            key={project.id}
             project={project}
             />
           ))}
 
         </div>
       </div>
+      {isFormOpen && 
+        <ProjectForm projectToEdit={null}/>
+      }
     </div>
   )
 }
