@@ -1,5 +1,6 @@
 import { FormValidations } from "../education/educationFormTypes";
 import { Project } from "../store/model/Project";
+import { Technology } from "../store/model/Technology";
 
 export const formValidations: FormValidations<Project> = {
     title: [
@@ -9,6 +10,10 @@ export const formValidations: FormValidations<Project> = {
     description: [
         (value: string) => /^[A-Za-z\s]+$/.test(value), 
         'The description can only contain letters and spaces.'
+    ],
+    technologies: [
+        (value: Technology[]) => value && value.length >0,
+        'There has to be at least one technology' 
     ]
     
     
