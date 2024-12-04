@@ -1,3 +1,4 @@
+import { XCircleIcon } from "@heroicons/react/24/outline";
 import { Technology } from "../store/model/Technology";
 import { TechnologyItem } from "../technologies/TechnologyItem";
 
@@ -13,6 +14,7 @@ export const TechnologyDropZone: React.FC<TechnologyDropZoneProps> = ({
   technologiesHasError
 }) => {
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
+    console.log(selectedTechnologies);
     event.preventDefault();
     const data = event.dataTransfer.getData("application/json");
     if (data) {
@@ -31,6 +33,12 @@ export const TechnologyDropZone: React.FC<TechnologyDropZoneProps> = ({
     event.preventDefault();
   };
 
+  const handleRemoveTechnology = (techToRemove: Technology) => {
+    setSelectedTechnologies(
+      selectedTechnologies.filter((tech) => tech.id !== techToRemove.id)
+    );
+  };
+
   return (
     <div
       className={`block w-full bg-transparent py-1.5 px-2 border rounded-md focus:outline-none ${
@@ -39,13 +47,21 @@ export const TechnologyDropZone: React.FC<TechnologyDropZoneProps> = ({
           : "border-purple-400 focus:ring-1 focus:ring-purple-600"
       }`}
       onDrop={handleDrop}
-      onDragOver={handleDragOver}
-    >
+      onDragOver={handleDragOver} >
       {selectedTechnologies.length === 0 ? (
         <p className="text-gray-500">Drag and drop technologies here</p>
       ) : (
         selectedTechnologies.map((tech, i) => (
-          <TechnologyItem key={i} technology={tech} />
+          <div key={i} className="inline">
+            <TechnologyItem key={i} technology={tech}/>
+            <button
+              type="button"
+              onClick={() => handleRemoveTechnology(tech)}
+              className="text-black" >
+              <XCircleIcon className="w-4 h-4"></XCircleIcon>
+            </button>
+          </div>           
+          
         ))
       )}
     </div>
