@@ -20,9 +20,10 @@ export const useForm = <T extends object> (initialForm:T, formValidations: FormV
     },[formValidation])
     
     
-    const onInputChange =({target}: ChangeEvent<HTMLInputElement> ) => {
+    const onInputChange =({target}: ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) => {
         
       const {name, value, type} = target;
+      console.log(name, value);
       if(type==='date'){
         setFormState({
           ...formState,
