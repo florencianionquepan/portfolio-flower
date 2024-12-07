@@ -14,7 +14,7 @@ export const TechnologyDropZone: React.FC<TechnologyDropZoneProps> = ({
   technologiesHasError
 }) => {
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
-    console.log(selectedTechnologies);
+    //console.log(selectedTechnologies);
     event.preventDefault();
     const data = event.dataTransfer.getData("application/json");
     if (data) {
