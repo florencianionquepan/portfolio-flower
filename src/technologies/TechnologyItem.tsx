@@ -5,11 +5,20 @@ interface TechnologyItemsProps{
 }
 
 export const TechnologyItem = ({technology}:TechnologyItemsProps) => {
+
+  const handleDragStart = (event: React.DragEvent<HTMLSpanElement>) => {
+    // Envía los datos del objeto como JSON
+    event.dataTransfer.setData('application/json', JSON.stringify(technology));
+  };
+  
   return (
     <>
-        <span className="inline-flex items-center rounded-md bg-purple-50 
+        <span 
+        draggable
+        onDragStart={handleDragStart}
+        className="inline-flex items-center rounded-md bg-purple-50 
         px-1 pr-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-inset 
-        ring-purple-700 m-2">
+        ring-purple-700 m-1">
           {technology.logoUrl ? 
               (<img 
               src={technology.logoUrl} 
