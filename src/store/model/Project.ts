@@ -7,7 +7,7 @@ export class Project{
     id?: number; 
     title!: string; 
     description!: string; 
-    technologies: Technology[];
+    technologies!: Technology[];
     endDate?: Date; 
     status?: Status; 
     images?: Image[]; 
