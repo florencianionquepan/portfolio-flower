@@ -4,7 +4,7 @@ import { AppDispatch } from "../store";
 import { addNewProject, closeFormProject, creatingNewProject, errorProject } from "./projectSlice";
 import Swal from "sweetalert2";
 
-export const startNewProject =(project: Project) =>{
+export const startNewProject =(project: Project, files: File[]) =>{
 
     return async(dispatch: AppDispatch, getState ) =>{
 
@@ -14,15 +14,25 @@ export const startNewProject =(project: Project) =>{
         //console.log(getState());
         const {person} = getState().person;
         const id = person.id;
-        const newProject = project;
-        console.log(newProject);
 
         dispatch(creatingNewProject());
 
+        const formData = new FormData();
+        const projectBlob = new Blob([JSON.stringify(project)], {
+            type: 'application/json'
+        });
+        
+        formData.append('project', projectBlob, 'project.json');
+        if (files && files.length > 0) {
+            files.forEach((file) => {
+                formData.append('files', file);
+            });
+        }
+
         const url=`${apiUrl}/projects/person/${id}`;
         try{
-            const resp = await axios.post(url, newProject,{
-                withCredentials:true,
+            const resp = await axios.post(url, formData, {
+                withCredentials:true
             });
 
             const data: Project = resp.data;
