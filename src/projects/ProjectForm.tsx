@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Project } from "../store/model/Project";
 import { useForm } from "../hooks/useForm";
 import { AppDispatch } from "../store/store";
@@ -25,11 +25,18 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
     id: projectToEdit?.id || undefined,
     title: projectToEdit?.title || "",
     description: projectToEdit?.description || "",
+    technologies: projectToEdit?.technologies || [],
+    images: projectToEdit?.images || [],
+    links: projectToEdit?.links || []
   };
 
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [selectedTechnologies, setSelectedTechnologies] = useState<Technology[]>([]);
   const [links, setLinks] = useState<Link[]>([{title:"", url:""}]);
+
+  useEffect(() => {
+    onSelectChange("technologies", selectedTechnologies);
+  }, [selectedTechnologies]); 
 
   const {
     title,
@@ -45,14 +52,14 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
   } = useForm<Project>(initialFormState, formValidations);
 
   const onSubmit = (event: React.SyntheticEvent) => {
-    onSelectChange("technologies", selectedTechnologies);
     event.preventDefault();
     setFormSubmitted(true);
-    //if (!isFormValid) return;
-    projectToEdit?.id? dispatch(startEditProject(formState)) : dispatch(startNewProject(formState));
+    const validLinks = links.filter((link) => link.title.trim() !== "" || link.url.trim() !== "");
+    const finalFormState = { ...formState, links: validLinks };
+    if (!isFormValid) return;
+    projectToEdit?.id? dispatch(startEditProject(finalFormState)) : dispatch(startNewProject(finalFormState, selectedFiles));
   };
 
-  const descriptionHasError = !!descriptionValid && formSubmitted;
   const technologiesHasError = !!technologiesValid && formSubmitted;
 
   const handlecloseFormProject = () => {
@@ -61,22 +68,34 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
 
   const onFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files?.length === 0) return;
+    if (event.target.files) {
+      setSelectedFiles(Array.from(event.target.files));
+    }
     //dispatch(startUploadFiles(target.files));
     console.log(event.target.files);
   };
 
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const addNewLink = () => {
     setLinks((prevLinks) => [
       ...prevLinks,
-      { id: prevLinks.length + 1, title: "", url: "" },
+      { title: "", url: "" },
     ]);
   };
 
   const deleteLink = (i:number) => {
     setLinks((prevLinks) => prevLinks.filter((_,j)=> j!==i));
   }
+
+  const handleLinkChange = (index: number, field: "title" | "url", value: string) => {
+    setLinks((prevLinks) =>
+      prevLinks.map((link, i) =>
+        i === index ? { ...link, [field]: value } : link
+      )
+    );
+  };
   
 
 
@@ -155,7 +174,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
                       name={`title-${i}`}
                       label={i==0?'Title':''}
                       value={link.title}
-                      onChange={onInputChange}
+                      onChange={(e)=>handleLinkChange(i,"title",e.target.value)}
                       hasError={!!linksValid && formSubmitted}
                       errorMessage={linksValid}
                       />
@@ -167,7 +186,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
                     name={`url-${i}`}
                     label={i==0?'URL':''}
                     value={link.url}
-                    onChange={onInputChange}
+                    onChange={(e) => handleLinkChange(i, "url", e.target.value)}
                     hasError={!!linksValid && formSubmitted}
                     errorMessage={linksValid}
                     />
