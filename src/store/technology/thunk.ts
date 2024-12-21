@@ -17,7 +17,7 @@ export const showTechnologies = ()=>{
             const resp = await axios.get(url);
 
             const data: Technology[] = resp.data;
-            console.log(data);
+            //console.log(data);
             dispatch(setTechnologies(data));
     
         }catch(error){
