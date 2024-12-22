@@ -247,7 +247,9 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
               }
 
             </div>
-            <Technologies/>
+            <div className="col-span-2">
+              <Technologies/>
+            </div>
 
           </div>
 
