@@ -1,6 +1,6 @@
 import { RootState } from '../store/store';
 import { useSelector } from 'react-redux';
-import { TechnologyItem } from '../technologies/TechnologyItem';
+import { TechnologyDraggable } from '../technologies/TechnologyDraggable';
 
 export const Technologies = () => {
 
@@ -10,7 +10,7 @@ export const Technologies = () => {
   return (
     <div className="pb-4">
             {technologies.map((t) => (
-            <TechnologyItem key={t.id} technology={t} />
+            <TechnologyDraggable key={t.id} technology={t} />
             ))}
         </div>
   )
