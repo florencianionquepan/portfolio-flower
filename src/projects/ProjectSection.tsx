@@ -16,7 +16,7 @@ const handleOpenNewProject = ()=>{
     dispatch( openNewProject() );
 }
   return (
-    <div className="p-8 xl:px-16">
+    <div className="p-8 xl:px-16" id="projects">
       <div className="flex items-center justify-between mb-4">
         <Titles title="Projects"/>
         <button className="bg-transparent border border-2 border-purple-600 

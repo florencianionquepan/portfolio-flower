@@ -6,10 +6,10 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 export const MyHeader = () => {
 
   const navigation = [
-    { name: 'About Me', href: '#', current: true },
-    { name: 'Education', href: '#', current: false },
-    { name: 'Technologies', href: '#', current: false },
-    { name: 'Projects', href: '#', current: false },
+    { name: 'About Me', href: '#about-me', current: true },
+    { name: 'Education', href: '#education', current: false },
+    { name: 'Projects', href: '#projects', current: false },
+    { name: 'Contact', href: '#contacts', current: false },
   ]
   
   function classNames(...classes: unknown[]) {
@@ -18,7 +18,7 @@ export const MyHeader = () => {
 
   return (
     <>
-      <Disclosure as="nav" className="bg-transparent mt-5">
+      <Disclosure as="nav" className="bg-purple-100 pt-3 shadow-md fixed top-0 left-0 w-full z-50">
         <div className="mx-auto px-2 md:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
         

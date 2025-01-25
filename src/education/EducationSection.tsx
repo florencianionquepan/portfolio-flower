@@ -28,7 +28,7 @@ export const EducationSection = () => {
 }, [educations]);
 
   return (
-    <div className="p-8 xl:px-16">
+    <div className="p-8 xl:px-16" id="education">
       <div className="flex items-center justify-between mb-4">
         <Titles title="Education"/>
         <button className="bg-transparent border border-2 border-purple-600 

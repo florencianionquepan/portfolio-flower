@@ -52,3 +52,7 @@ input:-moz-autofill {
   background-color: transparent !important; /* Set background to transparent */
   color: black !important; /* Set text color */
 }
+
+div#education, div#projects, div#contacts{
+  scroll-margin-top: 4rem;
+}
