@@ -3,7 +3,7 @@ import { Project } from "../store/model/Project";
 import { useForm } from "../hooks/useForm";
 import { AppDispatch } from "../store/store";
 import { useDispatch } from "react-redux";
-import { ArrowUpTrayIcon, PlusCircleIcon, XCircleIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { PlusCircleIcon, XCircleIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { InputField } from "../formFields/InputField";
 import { formValidations } from "./formValidations";
 import { closeFormProject } from "../store/project/projectSlice";
@@ -13,6 +13,10 @@ import { TechnologyDropZone } from "./TechnologyDropZone";
 import { startEditProject, startNewProject } from "../store/project/thunk";
 import { Link } from "../store/model/Link";
 import { TextAreaField } from "../formFields/TextAreaField";
+import { SelectField } from "../formFields/SelectField";
+import { Status } from "../store/model/Status";
+import { InputDateField } from "../formFields/InputDateField";
+import { InputFile } from "../formFields/InputFile";
 
 interface ProjectFormProps {
   projectToEdit: Project | null;
@@ -26,6 +30,8 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
     title: projectToEdit?.title || "",
     description: projectToEdit?.description || "",
     technologies: projectToEdit?.technologies || [],
+    status: projectToEdit?.status || Status.IN_PROGRESS,
+    endDate: projectToEdit?.endDate || undefined,
     images: projectToEdit?.images || [],
     links: projectToEdit?.links || []
   };
@@ -41,11 +47,15 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
   const {
     title,
     description,
+    status,
+    endDate,
     onInputChange,
     onSelectChange,
     formState,
     titleValid,
     descriptionValid,
+    statusValid,
+    endDateValid,
     linksValid,
     technologiesValid,
     isFormValid,
@@ -69,14 +79,30 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
   const onFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files?.length === 0) return;
     if (event.target.files) {
-      setSelectedFiles(Array.from(event.target.files));
+      const files=event.target.files;
+      setSelectedFiles(Array.from(files));
+
+      const previews: string[] = [];
+      Array.from(files).forEach((f:File)=>{
+        const reader=new FileReader();
+        reader.onload = (e) =>{
+          if(e.target?.result){
+            previews.push(e.target.result as string);
+            setImagePreviews([...previews]);
+          }
+        };
+        reader.readAsDataURL(f);
+      })
     }
     //dispatch(startUploadFiles(target.files));
-    console.log(event.target.files);
+    //console.log(event.target.files);
   };
 
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [imagePreviews, setImagePreviews] = useState<string[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const statusArray: string[] = Object.values(Status);
 
   const addNewLink = () => {
     setLinks((prevLinks) => [
@@ -126,32 +152,16 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
                 errorMessage={titleValid}
               />
             </div>
-            <div className="col-span-2 md:col-span-1 flex items-start mx-auto">
-              <div className="block w-full flex items-start">
-              <label className="block text-sm font-medium leading-6  mr-2">
-                  Imagenes
-                </label>
-                <button
-                  type="button"
-                  className="border border-purple-600 rounded hover:border-purple-800"
-                  onClick={() => fileInputRef.current?.click()} >
-                  <ArrowUpTrayIcon
-                    className="h-4 w-4 m-1 text-purple-600 hover:text-purple-800"
-                    aria-hidden="true"> </ArrowUpTrayIcon>
-                </button>
-              
-              <input
-                className="form-control py-3 d-none"
-                type="file"
-                id="inputFile"
-                accept="image/png, image/webp"
-                multiple
-                onChange={onFileInputChange}
-                style={{ display: "none" }}
-                ref={fileInputRef} />
-              </div>
-                
+            <div className="col-span-2 md:col-span-1 flex flex-col items-start mx-auto">
+              <InputFile
+                fileInputRef={fileInputRef}
+                onFileInputChange={onFileInputChange}
+                imagePreviews={imagePreviews}
+                label={"Imagenes"}
+              />
+            
             </div>
+
             <div className="col-span-2">
               <TextAreaField 
               label="Description"
@@ -160,6 +170,28 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
               onChange={onInputChange}
               hasError={!!descriptionValid && formSubmitted}
               errorMessage={descriptionValid}
+              />
+            </div>
+
+            <div className="col-span-2 md:col-span-1">
+              <SelectField 
+                label={"Status"}
+                value={status}
+                onSelectChange={(value) => onSelectChange("status", value)}
+                options={statusArray}
+                hasError={!!statusValid && formSubmitted}
+                errorMessage={"Must have a value"}
+              />
+            </div>
+
+            <div className="col-span-2 md:col-span-1">
+              <InputDateField
+                  name="endDate"
+                  label="End Date"
+                  value={endDate}
+                  onChange={onInputChange}
+                  hasError={!!endDateValid && formSubmitted}
+                  errorMessage={endDateValid}     
               />
             </div>
 
