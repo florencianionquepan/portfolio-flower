@@ -1,5 +1,6 @@
 import { useState, ChangeEvent, useEffect, useMemo } from "react";
 import { EducationFormInterface, FormValidations, ValidationFields } from "../education/educationFormTypes";
+import { Status } from "../store/model/Status";
 
 //export function useForm<T>(initialForm:T){
 export const useForm = <T extends object> (initialForm:T, formValidations: FormValidations<T>) => {
@@ -37,12 +38,15 @@ export const useForm = <T extends object> (initialForm:T, formValidations: FormV
       }
     }
 
-    const onSelectChange = (name: keyof T, value: T[keyof T]) => {
+    const onSelectChange = (name: keyof T, value: string) => {
+/*       if (name === 'status') {
+        value = Status[value as keyof typeof Status];  // Convierte la clave al valor del enum
+      } */
       setFormState({
           ...formState,
-          [name]: value,
+          [name]: value
       });
-  };
+    };
       
     const onResetForm =()=>{
       setFormState(initialForm);

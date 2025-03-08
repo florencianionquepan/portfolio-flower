@@ -14,7 +14,7 @@ import { startEditProject, startNewProject } from "../store/project/thunk";
 import { Link } from "../store/model/Link";
 import { TextAreaField } from "../formFields/TextAreaField";
 import { SelectField } from "../formFields/SelectField";
-import { Status } from "../store/model/Status";
+import { Status, statusArray } from "../store/model/Status";
 import { InputDateField } from "../formFields/InputDateField";
 import { InputFile } from "../formFields/InputFile";
 
@@ -101,8 +101,6 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const statusArray: string[] = Object.values(Status);
 
   const addNewLink = () => {
     setLinks((prevLinks) => [
