@@ -1,7 +1,6 @@
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import { Technology } from "../store/model/Technology";
-import { TechnologyItem } from "../technologies/TechnologyItem";
-
+import { TechnologyDraggable } from "../technologies/TechnologyDraggable";
 interface TechnologyDropZoneProps {
   selectedTechnologies: Technology[];
   setSelectedTechnologies: React.Dispatch<React.SetStateAction<Technology[]>>;
@@ -14,7 +13,6 @@ export const TechnologyDropZone: React.FC<TechnologyDropZoneProps> = ({
   technologiesHasError
 }) => {
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
-    //console.log(selectedTechnologies);
     event.preventDefault();
     const data = event.dataTransfer.getData("application/json");
     if (data) {
@@ -24,7 +22,7 @@ export const TechnologyDropZone: React.FC<TechnologyDropZoneProps> = ({
           (tech) => tech.name === droppedTechnology.name
         )
       ) {
-        setSelectedTechnologies([...selectedTechnologies, droppedTechnology]);
+        setSelectedTechnologies((prev) => [...prev, droppedTechnology]);
       }
     }
   };
@@ -53,7 +51,10 @@ export const TechnologyDropZone: React.FC<TechnologyDropZoneProps> = ({
       ) : (
         selectedTechnologies.map((tech, i) => (
           <div key={i} className="inline">
-            <TechnologyItem key={i} technology={tech}/>
+            <TechnologyDraggable
+              key={i} 
+              technology={tech}
+              />
             <button
               type="button"
               onClick={() => handleRemoveTechnology(tech)}

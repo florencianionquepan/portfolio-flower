@@ -6,7 +6,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 export const MyHeader = () => {
 
   const navigation = [
-    { name: 'About Me', href: '#about-me', current: true },
+    { name: 'About Me', href: '#about-me', current: false },
     { name: 'Education', href: '#education', current: false },
     { name: 'Projects', href: '#projects', current: false },
     { name: 'Contact', href: '#contacts', current: false },

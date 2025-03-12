@@ -53,6 +53,16 @@ input:-moz-autofill {
   color: black !important; /* Set text color */
 }
 
-div#education, div#projects, div#contacts{
+section#about-me, div#education, div#projects, div#contacts{
   scroll-margin-top: 4rem;
+}
+
+a[href="#about-me"]:target,
+a[href="#education"]:target,
+a[href="#projects"]:target,
+a[href="#contacts"]:target {
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  text-decoration-style: solid;
 }

@@ -2,7 +2,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { InputField } from "../formFields/InputField";
 import { SelectField } from "../formFields/SelectField";
 import { useForm } from "../hooks/useForm";
-import { Status } from "../store/model/Status";
+import { statusArray } from "../store/model/Status";
 import { AppDispatch } from "../store/store";
 import { useDispatch } from "react-redux";
 import { closeFormEducation } from "../store/education/educationSlice";
@@ -36,8 +36,6 @@ const initialFormState: Education = {
   const { name, institution, degreeType, startDate, endDate, status, onInputChange, onSelectChange,
     formState, nameValid, institutionValid, degreeTypeValid, startDateValid, endDateValid, statusValid, isFormValid }  
       = useForm<Education>(initialFormState, formValidations );
-  
-  const statusArray: string[] = Object.values(Status);
 
   const handlecloseFormEducation =() =>{
       dispatch(closeFormEducation());

@@ -21,7 +21,7 @@ export const CarouselImages: React.FC<ProjectImagesProps> = ({images}) => {
             loop={true}
             pagination={{ clickable: true }}
             >
-                {images.map((image, index)=>(
+                {images?.map((image, index)=>(
                     <SwiperSlide key={index}>
                         <div className='h-64 overflow-y-auto border border-4 rounded border-gray-800 mx-2'>
                             <img 

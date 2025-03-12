@@ -1,6 +1,4 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useAppDispatch } from "./useAppDispatch";
 import { useFetch } from "./useFetch";
 import { login, logout } from "../store/auth/authSlice";
