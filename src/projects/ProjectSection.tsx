@@ -21,7 +21,8 @@ const handleOpenNewProject = ()=>{
         <Titles title="Projects"/>
         <button className="bg-transparent border border-2 border-purple-600 
         rounded-full hover:shadow hover:shadow-purple-600 disabled:opacity-25 p-1"
-        onClick={handleOpenNewProject} >
+        onClick={handleOpenNewProject} 
+        disabled= {loading || isFormOpen} >
           <PlusIcon className="h-5 w-5 text-purple-600"></PlusIcon>
         </button>
       </div>
@@ -38,7 +39,7 @@ const handleOpenNewProject = ()=>{
         </div>
       </div>
       {isFormOpen && 
-        <ProjectForm projectToEdit={null}/>
+        <ProjectForm projectToEdit={projectToEdit}/>
       }
     </div>
   )

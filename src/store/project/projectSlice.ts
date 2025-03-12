@@ -7,7 +7,7 @@ interface ProjectState {
     loading: boolean,
     error:string | null,
     isFormOpen: boolean,
-    ProjectToEdit: Project | null
+    projectToEdit: Project | null
 }
 
 // Define the initial state using that type
@@ -16,7 +16,7 @@ const initialState: ProjectState = {
     loading:false,
     error:null,
     isFormOpen:false,
-    ProjectToEdit: null
+    projectToEdit: null
 }
 
 export const projectSlice = createSlice({
@@ -46,14 +46,14 @@ export const projectSlice = createSlice({
         },
         openProjectToEdit: (state, action: PayloadAction<Project>) =>{
             state.isFormOpen=true;
-            state.ProjectToEdit=action.payload
+            state.projectToEdit=action.payload
         },
         editingProject:(state)=>{
             state.loading=true;
         },
         closeFormProject: (state) =>{
             state.isFormOpen=false;
-            state.ProjectToEdit=null;
+            state.projectToEdit=null;
         },
         updateProject:(state, action)=>{
             state.loading=false;

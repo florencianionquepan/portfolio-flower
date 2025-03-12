@@ -9,17 +9,17 @@ export class Project{
     description!: string; 
     technologies!: Technology[];
     endDate?: Date; 
-    status?: Status; 
-    images?: Image[]; 
+    status: Status; 
+    images: Image[]; 
     links?: Link[];
     
     constructor(
         title: string,
         description: string,
         technologies: Technology[],
+        images: Image[],
+        status: Status,
         endDate?: Date,
-        status?: Status,
-        images?: Image[],
         links?: Link[],
         id?: number
       ) {
