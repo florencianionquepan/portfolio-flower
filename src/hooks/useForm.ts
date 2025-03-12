@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, useEffect, useMemo } from "react";
 import { EducationFormInterface, FormValidations, ValidationFields } from "../education/educationFormTypes";
 import { Status } from "../store/model/Status";
+import { Image } from "../store/model/Image";
 
 //export function useForm<T>(initialForm:T){
 export const useForm = <T extends object> (initialForm:T, formValidations: FormValidations<T>) => {
@@ -47,6 +48,13 @@ export const useForm = <T extends object> (initialForm:T, formValidations: FormV
           [name]: value
       });
     };
+
+    const updateFormImages = (updatedImages: Image[]) => {
+      setFormState((prev) => ({
+        ...prev,
+        images: updatedImages
+      }));
+    };
       
     const onResetForm =()=>{
       setFormState(initialForm);
@@ -74,6 +82,7 @@ export const useForm = <T extends object> (initialForm:T, formValidations: FormV
     formState,
     onInputChange,
     onSelectChange,
+    updateFormImages,
     onResetForm,
     ...formValidation,
     isFormValid

@@ -1,10 +1,12 @@
-import { ArrowUpTrayIcon } from "@heroicons/react/24/outline";
+import { ArrowUpTrayIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { Image } from "../store/model/Image";
 
 interface InputFileProps {
     fileInputRef: React.RefObject<HTMLInputElement>;
     onFileInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    imagePreviews: string[];
+    imagePreviews: Image[];
     label: string;
+    onRemoveImage: (index: number) => void;
 }
 
 export const InputFile: React.FC<InputFileProps> = ({
@@ -12,6 +14,7 @@ export const InputFile: React.FC<InputFileProps> = ({
     onFileInputChange,
     imagePreviews,
     label,
+    onRemoveImage
 }) => {
   return (
     <>
@@ -43,12 +46,18 @@ export const InputFile: React.FC<InputFileProps> = ({
         <div className="w-full grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4 mt-1">
             {imagePreviews.map((preview, index) => (
                 <div key={index}
-                    className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
+                    className="relative w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
+                      {/* Botón de eliminar en la esquina superior derecha */}
+                    <button
+                        type="button"
+                        className="absolute top-0 right-0 bg-violet-500 text-white rounded-full p-1 hover:bg-violet-700"
+                        onClick={() => onRemoveImage(index)} >
+                        <TrashIcon className="h-4 w-4" />
+                    </button>
                     <img
-                        src={preview}
+                        src={preview.url}
                         alt={`preview-${index}`}
-                        className="object-cover"
-                    />
+                        className="object-cover" />
                 </div>
             ))}
         </div>

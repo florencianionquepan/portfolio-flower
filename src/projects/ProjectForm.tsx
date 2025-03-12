@@ -17,12 +17,14 @@ import { SelectField } from "../formFields/SelectField";
 import { Status, statusArray } from "../store/model/Status";
 import { InputDateField } from "../formFields/InputDateField";
 import { InputFile } from "../formFields/InputFile";
+import { Image } from "../store/model/Image";
 
 interface ProjectFormProps {
   projectToEdit: Project | null;
 }
 
 export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
+  //console.log(projectToEdit);
   const dispatch: AppDispatch = useDispatch();
 
   const initialFormState: Project = {
@@ -51,6 +53,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
     endDate,
     onInputChange,
     onSelectChange,
+    updateFormImages,
     formState,
     titleValid,
     descriptionValid,
@@ -60,6 +63,10 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
     technologiesValid,
     isFormValid,
   } = useForm<Project>(initialFormState, formValidations);
+
+  const handlecloseFormProject = () => {
+    dispatch(closeFormProject());
+  };
 
   const onSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -72,23 +79,23 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
 
   const technologiesHasError = !!technologiesValid && formSubmitted;
 
-  const handlecloseFormProject = () => {
-    dispatch(closeFormProject());
-  };
-
   const onFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //esto es para la vista previa, el envio al back se hace por file
     if (event.target.files?.length === 0) return;
     if (event.target.files) {
       const files=event.target.files;
       setSelectedFiles(Array.from(files));
 
-      const previews: string[] = [];
+      const previews: Image[] = [];
       Array.from(files).forEach((f:File)=>{
         const reader=new FileReader();
         reader.onload = (e) =>{
           if(e.target?.result){
-            previews.push(e.target.result as string);
-            setImagePreviews([...previews]);
+            //setImagePreviews([...previews]);
+            previews.push({ url: e.target.result as string });
+
+          // Asegurar que no se sobrescriban imágenes previas
+          setImagePreviews((prev) => [...prev, { url: e.target!.result as string }]);
           }
         };
         reader.readAsDataURL(f);
@@ -98,8 +105,15 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
     //console.log(event.target.files);
   };
 
+  const onRemoveImage = (index: number) => {
+    const updatedPreviews = imagePreviews.filter((_, i) => i !== index);
+
+    setImagePreviews(updatedPreviews);
+    updateFormImages(updatedPreviews);
+  };
+
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
-  const [imagePreviews, setImagePreviews] = useState<string[]>([]);
+  const [imagePreviews, setImagePreviews] = useState<Image[]>( initialFormState.images);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const addNewLink = () => {
@@ -156,6 +170,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
                 onFileInputChange={onFileInputChange}
                 imagePreviews={imagePreviews}
                 label={"Imagenes"}
+                onRemoveImage={onRemoveImage} // Se pasa la función de eliminar imágenes
               />
             
             </div>
@@ -222,14 +237,13 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
                     />
                     
                     {i==0 && <button 
-                    type="button"
-                    onClick={addNewLink}
-                    className="rounded hover:border-purple-800 ml-2 mt-1">
-                      <PlusCircleIcon
-                        className="h-6 w-6 mx-1 mt-4 text-purple-600 font-bold hover:text-purple-800"
-                        aria-hidden="true" />
-                    </button>
-                    
+                      type="button"
+                      onClick={addNewLink}
+                      className="rounded hover:border-purple-800 ml-2 mt-1">
+                        <PlusCircleIcon
+                          className="h-6 w-6 mx-1 mt-4 text-purple-600 font-bold hover:text-purple-800"
+                          aria-hidden="true" />
+                      </button> 
                     } {i!=0 && <button 
                       type="button"
                       onClick={()=>deleteLink(i)}
