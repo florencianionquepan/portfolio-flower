@@ -40,6 +40,7 @@ export const ProjectItem = ({project}: ProjectItemProps) => {
           </div>
           <CarouselImages 
             images={project.images}/>
+          <h6 className="text-black font-normal mx-2 mt-2">Status: <span>{project.status}</span></h6>
           <p className="mt-2 px-1">
               {project.description}
           </p>

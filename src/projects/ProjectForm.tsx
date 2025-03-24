@@ -33,18 +33,22 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
     description: projectToEdit?.description || "",
     technologies: projectToEdit?.technologies || [],
     status: projectToEdit?.status || Status.IN_PROGRESS,
-    endDate: projectToEdit?.endDate || undefined,
+    endDate: projectToEdit? new Date(projectToEdit.endDate!) : undefined,
     images: projectToEdit?.images || [],
     links: projectToEdit?.links || []
   };
 
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [selectedTechnologies, setSelectedTechnologies] = useState<Technology[]>([]);
-  const [links, setLinks] = useState<Link[]>([{title:"", url:""}]);
+  const [selectedTechnologies, setSelectedTechnologies] = useState<Technology[]>(
+    initialFormState.technologies
+  );
+  const [links, setLinks] = useState<Link[]>(
+    initialFormState.links.length === 0? [{title:"", url:""}] : initialFormState.links 
+  );
 
   useEffect(() => {
     onSelectChange("technologies", selectedTechnologies);
-  }, [selectedTechnologies]); 
+  }, [selectedTechnologies]);  
 
   const {
     title,

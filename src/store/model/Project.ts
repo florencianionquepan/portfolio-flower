@@ -11,7 +11,7 @@ export class Project{
     endDate?: Date; 
     status: Status; 
     images: Image[]; 
-    links?: Link[];
+    links: Link[];
     
     constructor(
         title: string,
@@ -19,8 +19,8 @@ export class Project{
         technologies: Technology[],
         images: Image[],
         status: Status,
+        links: Link[],
         endDate?: Date,
-        links?: Link[],
         id?: number
       ) {
         this.id = id;
@@ -30,6 +30,6 @@ export class Project{
         this.endDate = endDate;
         this.status = status;
         this.images = images;
-        this.links = links;
+        this.links = links || [];
       }
 }

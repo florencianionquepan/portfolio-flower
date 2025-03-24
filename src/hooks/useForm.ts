@@ -1,6 +1,5 @@
 import { useState, ChangeEvent, useEffect, useMemo } from "react";
 import { EducationFormInterface, FormValidations, ValidationFields } from "../education/educationFormTypes";
-import { Status } from "../store/model/Status";
 import { Image } from "../store/model/Image";
 
 //export function useForm<T>(initialForm:T){

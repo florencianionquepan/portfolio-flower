@@ -8,8 +8,8 @@ export const formValidations: FormValidations<Project> = {
         'The title can only contain letters and spaces.'
     ],
     description: [
-        (value: string) => /^[A-Za-z\s.,]+$/.test(value),
-        'The description can only contain letters, spaces, commas, and periods.'
+        (value: string) => /^[A-Za-z0-9\s.,]+$/.test(value),
+        'The description can only contain letters, numbers, spaces, commas, and periods.'
     ],
     technologies: [
         (value: Technology[]) => value && value.length >0,
