@@ -17,7 +17,7 @@ export const logoutSpring = () =>{
     return async(dispatch: AppDispatch)=>{
 
         try{
-            const resp= await axios.post(`${apiUrl}/logout`,{
+            const resp= await axios.post(`${apiUrl}/logout`,{}, {
                 withCredentials:true
             });
             if(resp.status==200){
