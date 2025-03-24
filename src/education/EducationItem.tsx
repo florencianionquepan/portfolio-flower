@@ -4,6 +4,7 @@ import { AppDispatch, RootState } from "../store/store";
 import { useDispatch } from "react-redux";
 import { openEducationToEdit } from "../store/education/educationSlice";
 import { useSelector } from "react-redux";
+import { EditionButton } from "../assets/EditionButton";
 
 interface EducationItemProps {
     education: Education;
@@ -37,14 +38,11 @@ export const EducationItem = ({education}: EducationItemProps) => {
           </div>
       </div>
       <div className="ml-auto">
-        <button 
-            className="bg-transparent border border-2 border-purple-600 
-                        rounded-full hover:shadow hover:shadow-purple-600 disabled:opacity-25 p-2"
-                        disabled={loading || isFormOpen}
-                        onClick={() => onEdit()} 
-            aria-label={`Edit ${education.name}`} >
-            <PencilIcon className="h-3 w-3 text-purple-600"></PencilIcon>
-          </button>
+          <EditionButton
+          onClick={()=>onEdit()}
+          disabled={loading || isFormOpen}
+          label={`Edit ${education.name}`}
+          />
       </div>
     </div>
 

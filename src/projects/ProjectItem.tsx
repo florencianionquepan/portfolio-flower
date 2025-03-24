@@ -8,6 +8,7 @@ import { TechnologyItem } from "../technologies/TechnologyItem";
 import { CarouselImages } from "./CarouselImages";
 import { openProjectToEdit } from "../store/project/projectSlice";
 import { PencilIcon } from "@heroicons/react/24/outline";
+import { EditionButton } from "../assets/EditionButton";
 
 interface ProjectItemProps{
     project:Project
@@ -29,14 +30,11 @@ export const ProjectItem = ({project}: ProjectItemProps) => {
         <div className="mx-auto">
           <div className="flex items-center justify-between w-full px-2 mb-2">
             <h3 className="my-2 text-lg font-semibold px-2">{project.title}</h3>
-              <button 
-              className="bg-transparent border border-2 border-purple-600 
-                          rounded-full hover:shadow hover:shadow-purple-600 disabled:opacity-25 p-2"
-                          disabled={loading || isFormOpen}
-                          onClick={() => onEdit()} 
-              aria-label={`Edit ${project.title}`} >
-              <PencilIcon className="h-3 w-3 text-purple-600"></PencilIcon>
-              </button>
+            <EditionButton
+              onClick={()=>onEdit()}
+              disabled={loading || isFormOpen}
+              label={`Edit ${project.title}`}
+              />
           </div>
           <CarouselImages 
             images={project.images}/>
