@@ -13,11 +13,12 @@ export const TechnologySection = () => {
 
     const dispatch = useAppDispatch();
     const {technologies, loading, isFormOpen} = useSelector( (state: RootState) => state.technology);
+    const { status } = useSelector((state: RootState) => state.auth);
 
     useEffect(() => {
       dispatch(showTechnologies());
 
-    }, [dispatch])
+    }, [dispatch, status])
     
 
     const handleOpenNewTechnology = ()=>{

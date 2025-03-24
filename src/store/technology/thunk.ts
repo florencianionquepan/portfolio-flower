@@ -14,7 +14,7 @@ export const showTechnologies = ()=>{
 
         const url=`${apiUrl}/technologies`;
         try{
-            const resp = await axios.get(url);
+            const resp = await axios.get(url,{ withCredentials: true });
 
             const data: Technology[] = resp.data;
             //console.log(data);
