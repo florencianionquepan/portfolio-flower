@@ -1,4 +1,4 @@
-import { FormValidations } from "../education/educationFormTypes";
+import { FormValidations } from "../formFields/FormValidations";
 import { ContactFormData } from "./ContactData";
 
 export const formValidations: FormValidations<ContactFormData> = {

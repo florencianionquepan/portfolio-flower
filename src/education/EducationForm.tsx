@@ -7,10 +7,10 @@ import { AppDispatch } from "../store/store";
 import { useDispatch } from "react-redux";
 import { closeFormEducation } from "../store/education/educationSlice";
 import { InputDateField } from "../formFields/InputDateField";
-import { formValidations } from "./formValidations";
 import { useState } from "react";
 import { startEditEducation, startNewEducation } from "../store/education/thunk";
 import { Education } from "../store/model/Education";
+import { formValidations } from "./formValidations";
 
 interface EducationFormProps {
   educationToEdit: Education | null; 
@@ -21,13 +21,13 @@ export const EducationForm: React.FC<EducationFormProps> = ({educationToEdit}) =
 const dispatch: AppDispatch = useDispatch();
 
 const initialFormState: Education = {
-    id: educationToEdit?.id || undefined,
+    id: educationToEdit?.id,
     name: educationToEdit?.name || '', 
     institution: educationToEdit?.institution || '', 
-    degreeType: educationToEdit?.degreeType || undefined, 
+    degreeType: educationToEdit?.degreeType, 
     status: educationToEdit?.status || '', 
     startDate: educationToEdit? new Date(educationToEdit!.startDate) : new Date(2023, 0, 1), 
-    endDate: educationToEdit? new Date(educationToEdit!.endDate) : undefined, 
+    endDate: educationToEdit?.endDate? new Date(educationToEdit.endDate) : undefined, 
 }; 
 
 

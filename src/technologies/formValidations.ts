@@ -1,4 +1,4 @@
-import { FormValidations } from "../education/educationFormTypes";
+import { FormValidations } from "../formFields/FormValidations";
 import { Technology } from "../store/model/Technology";
 
 export const formValidations: FormValidations<Technology> = {

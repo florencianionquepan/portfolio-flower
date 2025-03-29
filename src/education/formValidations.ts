@@ -1,5 +1,5 @@
+import { FormValidations } from "../formFields/FormValidations";
 import { Education } from "../store/model/Education";
-import { FormValidations } from "./educationFormTypes";
 
 export const formValidations: FormValidations<Education> = {
     name: [
