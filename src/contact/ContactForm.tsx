@@ -26,9 +26,9 @@ export const ContactForm= () => {
     }
 
   return (
-    <form autoComplete="off" onSubmit={onSubmit}>
+    <form autoComplete="off" onSubmit={onSubmit} id="contact">
       <div className="space-y-12 w-full max-w-4xl mx-auto">
-        <div className="border rounded border-2 border-purple-600 p-5 mt-5 bg-orange-200">
+        <div className="border rounded border-purple-600 p-5 shadow-lg shadow-purple-400 mt-5">
 
           <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="md:col-span-3 ml-2">
