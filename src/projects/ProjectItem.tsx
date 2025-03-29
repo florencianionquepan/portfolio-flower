@@ -7,7 +7,6 @@ import { Project } from "../store/model/Project";
 import { TechnologyItem } from "../technologies/TechnologyItem";
 import { CarouselImages } from "./CarouselImages";
 import { openProjectToEdit } from "../store/project/projectSlice";
-import { PencilIcon } from "@heroicons/react/24/outline";
 import { EditionButton } from "../assets/EditionButton";
 
 interface ProjectItemProps{

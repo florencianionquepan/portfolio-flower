@@ -1,4 +1,3 @@
-import { PencilIcon } from "@heroicons/react/24/outline";
 import { Education } from "../store/model/Education"
 import { AppDispatch, RootState } from "../store/store";
 import { useDispatch } from "react-redux";
