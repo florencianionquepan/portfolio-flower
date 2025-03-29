@@ -7,6 +7,7 @@ import { Presentation } from './presentation/Presentation'
 import { ProjectSection } from './projects/ProjectSection'
 import { RootState } from './store/store'
 import { TechnologySection } from './technologies/TechnologySection'
+import { ContactSection } from './contact/ContactSection'
 
 function App() {
 
@@ -14,13 +15,19 @@ function App() {
   const { status, role } = useSelector((state: RootState) => state.auth);
 
   return (
-      <div className='container max-w-7xl mx-auto'>
-          <MyHeader/>
-          <Presentation/>
-          <EducationSection/>
-          <ProjectSection/>
-          {status === 'auth' && role.includes('ROLE_ADMIN') && <TechnologySection/>}
+    <>
+      <div className='min-h-[800px] flex flex-col'>
+        <MyHeader/>
+        <div className='container max-w-7xl mx-auto'>
+            <MyHeader/>
+            <Presentation/>
+            <EducationSection/>
+            <ProjectSection/>
+            {status === 'auth' && role.includes('ROLE_ADMIN') && <TechnologySection/>}
+            <ContactSection/>
+        </div>
       </div>
+    </>
   )
 }
 
