@@ -1,29 +1,35 @@
-import { Button } from "@headlessui/react"
 import { useForm } from "../hooks/useForm"
 import { InputField } from "../formFields/InputField"
 import { ContactFormData } from "./ContactData"
 import { formValidations } from "./formValidations"
 import { useState } from "react"
 import { TextAreaField } from "../formFields/TextAreaField"
+import { AppDispatch } from "../store/store"
+import { useDispatch } from "react-redux"
+import { startSendingContactForm } from "../store/contactForm/thunk"
 
 export const ContactForm= () => {
-    const initialFormState: ContactFormData = {
-        email: "",
-        subject: "",
-        description: "",
-    }
 
-    const [formSubmitted, setFormSubmitted] = useState(false)
+  const dispatch: AppDispatch = useDispatch();
 
-    const {email, subject, description, onInputChange, formState, 
-        emailValid, subjectValid, descriptionValid, isFormValid} 
-    = useForm<ContactFormData>(initialFormState, formValidations)
+  const initialFormState: ContactFormData = {
+    email: "",
+    subject: "",
+    description: "",
+}
 
-    const onSubmit = (event: React.SyntheticEvent) =>{
-        event.preventDefault();
-        setFormSubmitted(true);
-        if(!isFormValid) return;
-    }
+  const [formSubmitted, setFormSubmitted] = useState(false)
+
+  const {email, subject, description, onInputChange, formState, 
+      emailValid, subjectValid, descriptionValid, isFormValid} 
+  = useForm<ContactFormData>(initialFormState, formValidations)
+
+  const onSubmit = (event: React.SyntheticEvent) =>{
+      event.preventDefault();
+      setFormSubmitted(true);
+      if(!isFormValid) return;
+      dispatch(startSendingContactForm(formState));
+  }
 
   return (
     <form autoComplete="off" onSubmit={onSubmit} id="contact">

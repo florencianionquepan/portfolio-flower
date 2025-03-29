@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, useEffect, useMemo } from "react";
-import { EducationFormInterface, FormValidations, ValidationFields } from "../education/educationFormTypes";
+import { EducationFormInterface} from "../education/educationFormTypes";
 import { Image } from "../store/model/Image";
+import { FormValidations, ValidationFields } from "../formFields/FormValidations";
 
 //export function useForm<T>(initialForm:T){
 export const useForm = <T extends object> (initialForm:T, formValidations: FormValidations<T>) => {
@@ -13,7 +14,7 @@ export const useForm = <T extends object> (initialForm:T, formValidations: FormV
     }, [formState])
 
     const isFormValid = useMemo( ()=>{
-      for (const formValue of Object.keys( formValidation )){
+      for (const formValue of Object.keys( formValidation ) as Array<keyof ValidationFields<T>>){
         if(formValidation[formValue]!==null) return false;
 
       }
