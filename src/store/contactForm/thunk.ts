@@ -4,7 +4,7 @@ import { AppDispatch } from "../store";
 import { contactSent, errorContactForm, sendingContactData } from "./contactFormSlice";
 import axios, { AxiosError } from "axios";
 
-export const startSendingContactForm = (contact: ContactFormData)=>{
+export const startSendingContactForm = (contact: ContactFormData, onSuccess: () => void)=>{
     return async(dispatch: AppDispatch ) =>{
 
         const apiUrl = import.meta.env.VITE_API_URL;
@@ -22,6 +22,8 @@ export const startSendingContactForm = (contact: ContactFormData)=>{
                 title:'Success!',
                 text:message
             })
+
+            onSuccess();
     
         }catch(error){
             console.log(error);

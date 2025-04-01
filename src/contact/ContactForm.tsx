@@ -21,14 +21,17 @@ export const ContactForm= () => {
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const {email, subject, description, onInputChange, formState, 
-      emailValid, subjectValid, descriptionValid, isFormValid} 
+      emailValid, subjectValid, descriptionValid, isFormValid, onResetForm} 
   = useForm<ContactFormData>(initialFormState, formValidations)
 
   const onSubmit = (event: React.SyntheticEvent) =>{
       event.preventDefault();
       setFormSubmitted(true);
       if(!isFormValid) return;
-      dispatch(startSendingContactForm(formState));
+      dispatch(startSendingContactForm(formState,()=>{
+        onResetForm();
+        setFormSubmitted(false);
+      }));
   }
 
   return (
