@@ -8,6 +8,7 @@ import { ProjectSection } from './projects/ProjectSection'
 import { RootState } from './store/store'
 import { TechnologySection } from './technologies/TechnologySection'
 import { ContactSection } from './contact/ContactSection'
+import { MyFooter } from './assets/MyFooter'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
             {status === 'auth' && role.includes('ROLE_ADMIN') && <TechnologySection/>}
             <ContactSection/>
         </div>
+        <MyFooter/>
       </div>
     </>
   )
