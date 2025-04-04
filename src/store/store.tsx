@@ -5,6 +5,7 @@ import { educationSlice } from "./education/educationSlice";
 import { projectSlice } from "./project/projectSlice";
 import { technologySlice } from "./technology/technologySlice";
 import { contactFormSlice } from "./contactForm/contactFormSlice";
+import resumeSlice from "./resume/resumeSlice";
 
 export const store = configureStore({
     reducer:{
@@ -13,7 +14,8 @@ export const store = configureStore({
         education: educationSlice.reducer,
         project: projectSlice.reducer,
         technology: technologySlice.reducer,
-        contact: contactFormSlice.reducer
+        contact: contactFormSlice.reducer,
+        resume: resumeSlice.reducer
     }
 })
 

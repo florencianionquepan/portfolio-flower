@@ -5,7 +5,6 @@ import { setEducations } from "../education/educationSlice";
 import { setProjects } from "../project/projectSlice";
 
 export const getPerson = () =>{
-    //luego vamos a cargar todos los datos de persona(educations, projetcs, etc)
     const apiUrl = import.meta.env.VITE_API_URL;
 
     return async(dispatch: AppDispatch )=>{
