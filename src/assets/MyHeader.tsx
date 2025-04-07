@@ -1,16 +1,21 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react"
 import { Login } from "./Login"
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
-
+import { Logo } from "./Logo"
+import { useScrollSpyNavigation } from "../hooks/useScrollSpyNavigation"
 
 export const MyHeader = () => {
 
+  const sectionIds = ['about-me', 'education', 'projects', 'contact'];
+  const activeSection = useScrollSpyNavigation(sectionIds);
+
+
   const navigation = [
-    { name: 'About Me', href: '#about-me', current: false },
-    { name: 'Education', href: '#education', current: false },
-    { name: 'Projects', href: '#projects', current: false },
-    { name: 'Contact', href: '#contacts', current: false },
-  ]
+    { name: 'About Me', href: '#about-me' },
+    { name: 'Education', href: '#education' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Contact', href: '#contact' },
+  ];  
   
   function classNames(...classes: unknown[]) {
     return classes.filter(Boolean).join(' ')
@@ -21,10 +26,9 @@ export const MyHeader = () => {
       <Disclosure as="nav" className="bg-purple-100 pt-3 shadow-md fixed top-0 left-0 w-full z-50">
         <div className="mx-auto px-2 md:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
-        
 
             <div className="absolute inset-y-0 left-2 flex items-center pr-2 md:static md:inset-auto sm:ml-6 md:pr-0">
-              <Login/>
+              <Login/> 
             </div>
 
             {/* Parte menu-movil */}
@@ -41,23 +45,24 @@ export const MyHeader = () => {
               </DisclosureButton>
             </div>
 
-            
+            {/* Parte menu-desktop */}
               <div className="hidden md:ml-6 md:block">
                 <div className="flex space-x-4">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      aria-current={item.current ? 'page' : undefined}
-                      className={classNames(
-                        item.current ? 'bg-transparent underline underline-offset-8 decoration-solid' : 
-                        'hover:underline underline-offset-8 hover:text-black-100',
-                        'rounded-md px-3 py-2 text-md font-medium',
-                      )}
-                    >
-                      {item.name}
-                    </a>
-                  ))}
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className={classNames(
+                      activeSection === item.href.substring(1)
+                        ? 'underline underline-offset-8 decoration-solid'
+                        : 'hover:underline underline-offset-8 hover:text-black-100',
+                      'rounded-md px-3 py-2 text-md font-medium'
+                    )}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+
                 </div>
               </div>
 
@@ -69,10 +74,11 @@ export const MyHeader = () => {
                 key={item.name}
                 as="a"
                 href={item.href}
-                aria-current={item.current ? 'page' : undefined}
                 className={classNames(
-                  item.current ? 'underline underline-offset-8 decoration-solid' : 'hover:underline underline-offset-8 hover:text-black-100',
-                  'block rounded-md px-3 py-2 text-sm font-medium',
+                  activeSection === item.href.substring(1)
+                    ? 'underline underline-offset-8 decoration-solid'
+                    : 'hover:underline underline-offset-8 hover:text-black-100',
+                  'block rounded-md px-3 py-2 text-md font-medium'
                 )} >
                 {item.name}
               </DisclosureButton>
