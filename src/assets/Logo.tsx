@@ -2,7 +2,7 @@ interface LogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
-export const Logo = ({size='md'}:LogoProps) => {
+export const Logo = ({size='sm'}:LogoProps) => {
 
   const sizeClasses = {
     sm: 'w-12 h-12',
