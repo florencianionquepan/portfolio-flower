@@ -4,6 +4,7 @@ import { getPerson } from "../store/person/thunks";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import { FullScreenLoader } from "../assets/FullScreenLoader";
 
 export const Presentation = () => {
   //const {data, isLoading, hasError } =useFetch('public/profile/ñonquepan');
@@ -34,7 +35,7 @@ export const Presentation = () => {
           </p>
         }
 
-        {loading && <p>...</p>}
+        {loading && <FullScreenLoader/>}
 
       </div>
       <div className="xl:w-2/5 flex justify-center xl:justify-center mb-8 lg:mb-0">
