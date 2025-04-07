@@ -23,12 +23,12 @@ export const MyHeader = () => {
 
   return (
     <>
-      <Disclosure as="nav" className="bg-purple-100 pt-3 shadow-md fixed top-0 left-0 w-full z-50">
+      <Disclosure as="nav" className="bg-purple-100 py-2 shadow-md fixed top-0 left-0 w-full z-50">
         <div className="mx-auto px-2 md:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
 
             <div className="absolute inset-y-0 left-2 flex items-center pr-2 md:static md:inset-auto sm:ml-6 md:pr-0">
-              <Login/> 
+              <Logo/> 
             </div>
 
             {/* Parte menu-movil */}
@@ -68,7 +68,7 @@ export const MyHeader = () => {
 
 
         <DisclosurePanel className="md:hidden" style={{zIndex:'10'}}>
-          <div className="space-y-1 px-2 pb-3 pt-3 mt-60 bg-black-700 rounded border border-gray-700 bg-purple-100">
+          <div className="space-y-1 px-2 pb-3 pt-3 mt-64 bg-black-700 rounded border border-gray-700 bg-purple-100">
             {navigation.map((item) => (
               <DisclosureButton
                 key={item.name}
