@@ -13,7 +13,7 @@ import { MyFooter } from './assets/MyFooter'
 function App() {
 
   useAuth();
-  const { status, role } = useSelector((state: RootState) => state.auth);
+  const { status = 'no-auth', role = [] } = useSelector((state: RootState) => state.auth);
 
   return (
     <>
