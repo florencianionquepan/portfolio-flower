@@ -78,7 +78,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
     const validLinks = links.filter((link) => link.title.trim() !== "" || link.url.trim() !== "");
     const finalFormState = { ...formState, links: validLinks };
     if (!isFormValid) return;
-    projectToEdit?.id? dispatch(startEditProject(finalFormState)) : dispatch(startNewProject(finalFormState, selectedFiles));
+    projectToEdit?.id? dispatch(startEditProject(finalFormState, selectedFiles)) : dispatch(startNewProject(finalFormState, selectedFiles));
   };
 
   const technologiesHasError = !!technologiesValid && formSubmitted;
@@ -270,7 +270,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
 
             <div className="col-span-2">
               <label
-                htmlFor={"description"}
+                htmlFor={"technologies"}
                 className="block text-sm font-medium leading-6" >
                 Technologies
               </label>

@@ -1,5 +1,4 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react"
-import { Login } from "./Login"
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 import { Logo } from "./Logo"
 import { useScrollSpyNavigation } from "../hooks/useScrollSpyNavigation"

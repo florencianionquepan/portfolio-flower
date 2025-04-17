@@ -4,7 +4,7 @@ interface TextAreaProps {
     label:string,
     name:string,
     value: string | number | readonly string[] | undefined,
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
     hasError: boolean,
     errorMessage: string | null | undefined
 }

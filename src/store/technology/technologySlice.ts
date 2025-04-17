@@ -66,7 +66,7 @@ export const technologySlice = createSlice({
             state.loading=false;
             state.error=action.payload;
         },
-        deleteTechnologyById: (state, action)=>{
+        deleteTechnologyById: ()=>{
 
         }
     },

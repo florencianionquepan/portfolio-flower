@@ -1,4 +1,5 @@
 import { FormValidations } from "../formFields/FormValidations";
+import { Link } from "../store/model/Link";
 import { Project } from "../store/model/Project";
 import { Technology } from "../store/model/Technology";
 
@@ -19,6 +20,10 @@ export const formValidations: FormValidations<Project> = {
         (value: Technology[]) => value && value.length > 0,
         'There has to be at least one technology'
     ],
-    images: [],
-    links: []
+    images: [() => true , 
+        ''
+    ],
+    links: [(value: Link[]) => value.length > 0,
+    'You need at least one link.'
+    ]
 }

@@ -14,7 +14,7 @@ interface FetchError {
 }
 
 
-export const useFetch = (endpoint: string) => {
+export const useFetch = <T>(endpoint: string) => {
   const apiUrl = import.meta.env.VITE_API_URL;
 
   const [state, setState] = useState<FetchState<T>>({
@@ -26,7 +26,7 @@ export const useFetch = (endpoint: string) => {
 
   useEffect(() => {
     getFetch();
-  }, []);
+  },[]);
 
   const setLoadingState = () => {
     setState({

@@ -7,8 +7,6 @@ import { RootState } from "../store/store";
 import { FullScreenLoader } from "../assets/FullScreenLoader";
 
 export const Presentation = () => {
-  //const {data, isLoading, hasError } =useFetch('public/profile/ñonquepan');
-  //console.log(data);
 
   const dispatch = useAppDispatch();
   const {person, loading, error }= useSelector ( (state: RootState) => state.person); 

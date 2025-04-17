@@ -65,7 +65,7 @@ export const projectSlice = createSlice({
             state.loading=false;
             state.error=action.payload;
         },
-        deleteProjectById: (state, action)=>{
+        deleteProjectById: ()=>{
 
         }
     },

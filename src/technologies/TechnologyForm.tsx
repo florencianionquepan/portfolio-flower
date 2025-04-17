@@ -1,5 +1,4 @@
 import { XMarkIcon } from "@heroicons/react/24/outline"
-import { InputDateField } from "../formFields/InputDateField"
 import { useForm } from "../hooks/useForm"
 import { Technology } from "../store/model/Technology"
 import { formValidations } from "./formValidations"

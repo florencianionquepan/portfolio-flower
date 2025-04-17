@@ -1,19 +1,19 @@
 import axios, { AxiosError } from "axios";
 import { Project } from "../model/Project";
-import { AppDispatch } from "../store";
+import { AppDispatch, RootState } from "../store";
 import { addNewProject, closeFormProject, creatingNewProject, editingProject, errorProject, updateProject } from "./projectSlice";
 import Swal from "sweetalert2";
 
 export const startNewProject =(project: Project, files: File[]) =>{
 
-    return async(dispatch: AppDispatch, getState ) =>{
+    return async(dispatch: AppDispatch, getState: () => RootState ) =>{
 
         const apiUrl = import.meta.env.VITE_API_URL;
 
         //id de person obtener del store
         //console.log(getState());
         const {person} = getState().person;
-        const id = person.id;
+        const id = person!.id;
 
         dispatch(creatingNewProject());
 

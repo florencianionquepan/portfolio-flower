@@ -50,7 +50,7 @@ export const TechnologyDropZone: React.FC<TechnologyDropZoneProps> = ({
         <p className="text-gray-500">Drag and drop technologies here</p>
       ) : (
         selectedTechnologies.map((tech, i) => (
-          <div key={i} className="inline">
+          <div key={tech.id} className="inline">
             <TechnologyDraggable
               key={i} 
               technology={tech}

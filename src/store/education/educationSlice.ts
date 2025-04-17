@@ -65,7 +65,7 @@ export const educationSlice = createSlice({
             state.loading=false;
             state.error=action.payload;
         },
-        deleteEducationById: (state, action)=>{
+        deleteEducationById: ()=>{
 
         }
     },

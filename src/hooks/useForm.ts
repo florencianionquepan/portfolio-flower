@@ -2,6 +2,7 @@ import { useState, ChangeEvent, useEffect, useMemo } from "react";
 import { EducationFormInterface} from "../education/educationFormTypes";
 import { Image } from "../store/model/Image";
 import { FormValidations, ValidationFields } from "../formFields/FormValidations";
+import { Technology } from "../store/model/Technology";
 
 //export function useForm<T>(initialForm:T){
 export const useForm = <T extends object> (initialForm:T, formValidations: FormValidations<T>) => {
@@ -39,7 +40,7 @@ export const useForm = <T extends object> (initialForm:T, formValidations: FormV
       }
     }
 
-    const onSelectChange = (name: keyof T, value: string) => {
+    const onSelectChange = (name: keyof T, value: string | Technology[]) => {
 /*       if (name === 'status') {
         value = Status[value as keyof typeof Status];  // Convierte la clave al valor del enum
       } */
@@ -61,16 +62,19 @@ export const useForm = <T extends object> (initialForm:T, formValidations: FormV
     } 
 
     const createValidators = () => {
-      const formCheckedValues : {[key:string]:string | null} = {};
+      // Este objeto debe tener claves como "titleValid", "endDateValid", etc.
+      const formCheckedValues: ValidationFields<T> = {} as ValidationFields<T>;
+
       for (const formField of Object.keys(formValidations) as (keyof T)[]){
         const [fn, errorMessage] = formValidations[formField];
         const value = formState[formField];
+        const key = `${String(formField)}Valid` as keyof ValidationFields<T>;
 
         if (formField === 'endDate' && 'status' in formState && 'status' in initialForm) {
             const status = (formState as unknown as EducationFormInterface).status;
-            formCheckedValues[`${String(formField)}Valid`] = fn(value, status) ? null : errorMessage;
+            formCheckedValues[key] = (fn(value, status) ? null : errorMessage) as ValidationFields<T>[typeof key];
         } else {
-            formCheckedValues[`${String(formField)}Valid`] = fn(value) ? null : errorMessage;
+          formCheckedValues[key] = (fn(value) ? null : errorMessage) as ValidationFields<T>[typeof key];
         }
       }
 
