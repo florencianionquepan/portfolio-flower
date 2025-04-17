@@ -12,6 +12,7 @@ RUN npm install
 
 # COPY REMAINING FILES
 COPY . .
+COPY .env .env
 
 # Construir la aplicación
 RUN npm run build
@@ -22,12 +23,9 @@ WORKDIR /app
 
 # Copiar los archivos construidos desde la etapa de construcción
 COPY --from=BUILD_IMAGE /app/dist/ /app/dist/
+COPY package.json ./
 
-# Exponer el puerto en el que Nginx escuchará
+RUN npm install -g serve
+
 EXPOSE 80
-COPY package.json .
-COPY vite.config.ts .
-RUN npm i typescript
-
-# Comando para iniciar Nginx
-CMD ["npm", "run", "preview"]
+CMD ["serve", "-s", "dist", "-l", "80"]

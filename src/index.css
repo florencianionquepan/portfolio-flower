@@ -2,10 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: 'SUSE';
+  src: url('./fonts/SUSE-VariableFont_wght.ttf') format('truetype');
+}
 
+@font-face {
+  font-family: 'quicksand';
+  src: url(./fonts/Quicksand-VariableFont_wght.ttf) format('truetype');
+}
+
+
+:root {
+  font-family: suse;
+  font-weight: 200;
+  font-size: larger;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(37, 36, 36, 0.87);
+  background-color: rgb(243 232 255); /*purple-200*/
+}
+
+.suse{
+  font-family: 'SUSE';
+}
+
+.quicksand{
+  font-family: "quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator, 
+input[type="time"]::-webkit-calendar-picker-indicator{
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 2px;
+  opacity: 0.9;
+  filter: invert(0.9);
+}
+
+/* /* Autofill styles for Chrome */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px rgb(254 215 170) inset !important; 
+  -webkit-text-fill-color: black !important;
+}
+
+#contact input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #F3E8FF inset !important; 
+  -webkit-text-fill-color: black !important;
+  background-color: rgb(243, 232, 255) !important;
+} */
+
+/* Autofill styles for Firefox */
+input:-moz-autofill {
+  background-color: transparent !important; /* Set background to transparent */
+  color: black !important; /* Set text color */
+}
+
+section#about-me, div#education, div#projects, div#contacts{
+  scroll-margin-top: 4rem;
+}
+
+a[href="#about-me"]:target,
+a[href="#education"]:target,
+a[href="#projects"]:target,
+a[href="#contacts"]:target {
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  text-decoration-style: solid;
 }
