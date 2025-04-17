@@ -2,6 +2,7 @@ import { DocumentArrowDownIcon, EnvelopeIcon } from "@heroicons/react/24/outline
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../store/store";
 import { startDownloadingResume } from "../store/resume/thunk";
+import { Login } from "./Login";
 
 const contact=[
     {id:1, name:'Github',link:'https://github.com/florencianionquepan'},
@@ -22,8 +23,9 @@ export const MyFooter = () => {
     <footer className="bg-purple-100 py-6 mt-12 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.15),0_-2px_4px_-2px_rgba(0,0,0,0.2)]">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <p className="text-sm text-gray-900">
+          <div className="mb-4 md:mb-0 flex flex-row items-center">
+            <Login/>
+            <p className="text-sm text-gray-900 mx-2">
               © {new Date().getFullYear()} Florencia Ñonquepan. All rights reserved.
             </p>
           </div>

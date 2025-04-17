@@ -28,7 +28,7 @@ export const Login = () => {
 
     const handleLoginClick = () => {
         MySwal.fire({
-          title: 'Login',
+          title: 'Login for admin',
           showCancelButton: false,
           showConfirmButton: false,
           background: '',
@@ -36,6 +36,9 @@ export const Login = () => {
             title:'suse'
           },
           html: `
+                <p style="margin-bottom: 1rem; font-size: 14px; color: #666;">
+                  Feel free to try logging in to see how it works — but it won’t actually do anything.
+                </p>
                 <button id="github-login" class="swal2-styled suse" style="background-color:#242424; color:#F0F0F0; padding: 10px 20px; border-radius: 5px; margin-right: 10px;">GitHub</button>
                 <button id="google-login" class="swal2-styled suse" style="background-color:#DB4A39; color:#F0F0F0; padding: 10px 20px; border-radius: 5px;">Google</button>
             `,
@@ -55,8 +58,9 @@ export const Login = () => {
       { notAuth &&
         (<button type="button"
           onClick={handleLoginClick}
+          title="Login for admin"
           className="bg-transparent border border-2 border-purple-600 rounded-full hover:shadow hover:shadow-purple-600">
-            <UserIcon className="h-8 w-9 text-purple-600"/>
+            <UserIcon className="h-6 w-6 text-purple-600"/>
         </button>)
       }
       { checkingAuth && <p>...</p> }
