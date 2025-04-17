@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux'
 import './App.css'
 import { MyHeader } from './assets/MyHeader'
-import { EducationSection } from './education/EducationSection'
 import { useAuth } from './hooks/useAuth'
 import { Presentation } from './presentation/Presentation'
+import { EducationSection } from './education/EducationSection'
+import { ProjectSection } from './projects/ProjectSection'
 import { RootState } from './store/store'
 import { TechnologySection } from './technologies/TechnologySection'
 import { ContactSection } from './contact/ContactSection'
@@ -21,7 +22,8 @@ function App() {
         <div className='container max-w-7xl mx-auto'>
             <Presentation/>
             <EducationSection/>
-            {status === 'auth' && role.includes('ROLE_ADMIN') && <TechnologySection/>}
+            <ProjectSection/>
+            {status === 'auth' && Array.isArray(role) && role.includes('ROLE_ADMIN') && <TechnologySection/>}
             <ContactSection/>
         </div>
         <MyFooter/>

@@ -20,6 +20,8 @@ export const EducationSection = () => {
   }
 
   const sortedEducations = useMemo(() => {
+    if (!Array.isArray(educations)) return [];
+    
     return [...educations].sort((a, b) => {
         const endDateA = new Date(a.startDate).getTime();
         const endDateB = new Date(b.startDate).getTime();

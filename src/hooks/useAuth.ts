@@ -5,10 +5,6 @@ import { login, logout } from "../store/auth/authSlice";
 
 export const useAuth = () =>{
 
-/*     const { status } = useSelector( (state: RootState) => state.auth)
-
-    const isAuth= useMemo(()=> status==='checking', [status]); */
-
     const dispatch = useAppDispatch();
 
     const { data, isLoading, hasError, error } = useFetch("auth");

@@ -29,7 +29,7 @@ const handleOpenNewProject = ()=>{
       <div>
         <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
           
-          {projects.map((project)=>(
+          {(projects ?? []).map((project)=>(
             <ProjectItem
             key={project.id}
             project={project}
