@@ -10,7 +10,7 @@ interface EditionButtonProps {
 
 export const EditionButton: React.FC<EditionButtonProps> = ({ onClick, disabled, label }) => {
 
-  const { status, role } = useSelector((state: RootState) => state.auth);
+  const { status, role = [] } = useSelector((state: RootState) => state.auth);
 
   if (status !== 'auth' || !role.includes('ROLE_ADMIN')) return null;
 
