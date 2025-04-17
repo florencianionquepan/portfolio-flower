@@ -4,7 +4,6 @@ import { Image } from "../store/model/Image";
 import { FormValidations, ValidationFields } from "../formFields/FormValidations";
 import { Technology } from "../store/model/Technology";
 
-//export function useForm<T>(initialForm:T){
 export const useForm = <T extends object> (initialForm:T, formValidations: FormValidations<T>) => {
 
     const [formState, setFormState] = useState(initialForm);
