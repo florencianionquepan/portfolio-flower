@@ -4,13 +4,16 @@ import { ContactFormData } from "./ContactData"
 import { formValidations } from "./formValidations"
 import { useState } from "react"
 import { TextAreaField } from "../formFields/TextAreaField"
-import { AppDispatch } from "../store/store"
+import { AppDispatch, RootState } from "../store/store"
 import { useDispatch } from "react-redux"
 import { startSendingContactForm } from "../store/contactForm/thunk"
+import { useSelector } from "react-redux"
+import { FullScreenLoader } from "../assets/FullScreenLoader"
 
 export const ContactForm= () => {
 
   const dispatch: AppDispatch = useDispatch();
+  const {sending} = useSelector((state: RootState) => state.contact);
 
   const initialFormState: ContactFormData = {
     email: "",
@@ -35,6 +38,10 @@ export const ContactForm= () => {
   }
 
   return (
+    <>
+    {sending && <FullScreenLoader message="Sending your message..." 
+                                  bgClass="bg-gray-500 bg-opacity-50 pointer-events-none"
+                                  textClass="text-black text-lg"/>}
     <form autoComplete="off" onSubmit={onSubmit} id="contact">
       <div className="space-y-12 w-full max-w-4xl mx-auto">
         <div className="border rounded border-purple-600 p-5 shadow-lg shadow-purple-400 mt-5">
@@ -79,8 +86,11 @@ export const ContactForm= () => {
           </div>
 
           <div className="mt-8 flex justify-center">
-                <button type="submit" className="border rounded border-2 border-purple-600 p-1 px-2">
-                    Send Message
+                <button type="submit" 
+                disabled={sending}
+                className="border rounded border-2 border-purple-600 p-1 px-2
+                          disabled:bg-gray-200 disabled:text-gray-500">
+                    {sending ? "Sending..." : "Send Message"}
                 </button>
            </div>
 
@@ -88,5 +98,7 @@ export const ContactForm= () => {
 
       </div>
     </form>
+    </>
+    
   )
 }

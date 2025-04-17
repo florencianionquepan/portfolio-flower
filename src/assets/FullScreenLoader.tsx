@@ -1,15 +1,27 @@
 import { Logo } from './Logo';
 
-export const FullScreenLoader = () => {
+interface FullScreenLoaderProps {
+  message?: string;
+  bgClass?: string;
+  textClass?:string;
+}
+
+export const FullScreenLoader = ({
+  message,
+  bgClass = 'bg-black bg-opacity-80 backdrop-blur',
+  textClass='text-white'
+}: FullScreenLoaderProps) => {
     return (
-      <div className="fixed inset-0 z-50 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center">
+      <div className={`fixed inset-0 z-50 ${bgClass} flex items-center justify-center`}>
         <div className="flex flex-col items-center">
           <div className="animate-pulse">
             <Logo size="xl" />
           </div>
-          <p className="mt-3 text-white text-md text-center">
-            This may take a few seconds because the backend is hosted on a free server.
+          {message && (
+          <p className={`mt-3 ${textClass} text-md text-center`}>
+            {message}
           </p>
+        )}
         </div>
       </div>
     );
