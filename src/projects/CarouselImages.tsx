@@ -15,7 +15,8 @@ export const CarouselImages: React.FC<ProjectImagesProps> = ({images}) => {
   return (
     <>
         <div className='max-w-[300px] max-h-80 overflow-hidden mx-auto flex justify-center flex justify-center items-center'>
-            <Swiper
+            {images && 
+            (<Swiper
             modules={[Pagination]}
             spaceBetween={20}
             slidesPerView={1}
@@ -32,7 +33,8 @@ export const CarouselImages: React.FC<ProjectImagesProps> = ({images}) => {
                     </SwiperSlide>
 
                 ))}
-            </Swiper>
+            </Swiper>)
+            }
         </div>
     </>
   )

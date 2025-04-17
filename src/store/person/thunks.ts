@@ -11,7 +11,7 @@ export const getPerson = () =>{
         dispatch(startLoadingPerson());
 
         try{
-            const resp = await axios.get(`${apiUrl}/public/profile/ñonquepan`);
+            const resp = await axios.get(`${apiUrl}/public/profile/1`);
             const data = resp.data;
             //console.log(data);
 
