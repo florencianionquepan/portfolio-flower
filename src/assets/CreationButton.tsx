@@ -9,7 +9,7 @@ interface CreationButtonProps {
 
 export const CreationButton: React.FC<CreationButtonProps> = ({ onClick, disabled }) => {
 
-  const { status, role } = useSelector((state: RootState) => state.auth);
+  const { status, role = [] } = useSelector((state: RootState) => state.auth);
 
   // Solo mostrar el botón si el usuario es admin
   if (status !== 'auth' || !role.includes('ROLE_ADMIN')) return null;
