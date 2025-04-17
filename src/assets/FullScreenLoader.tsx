@@ -9,7 +9,7 @@ interface FullScreenLoaderProps {
 export const FullScreenLoader = ({
   message,
   bgClass = 'bg-black bg-opacity-80 backdrop-blur',
-  textClass='text-white'
+  textClass='text-white text-lg'
 }: FullScreenLoaderProps) => {
     return (
       <div className={`fixed inset-0 z-50 ${bgClass} flex items-center justify-center`}>
