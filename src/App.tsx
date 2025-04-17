@@ -23,7 +23,7 @@ function App() {
             <Presentation/>
             <EducationSection/>
             <ProjectSection/>
-            {status === 'auth' && role.includes('ROLE_ADMIN') && <TechnologySection/>}
+            {status === 'auth' && Array.isArray(role) && role.includes('ROLE_ADMIN') && <TechnologySection/>}
             <ContactSection/>
         </div>
         <MyFooter/>
