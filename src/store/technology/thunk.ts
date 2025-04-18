@@ -21,7 +21,7 @@ export const showTechnologies = ()=>{
             dispatch(setTechnologies(data));
     
         }catch(error){
-            console.log(error);
+            //console.log(error);
             const axiosError = error as AxiosError;
 
             dispatch(errorTechnology(axiosError?.message || ''));
@@ -53,7 +53,7 @@ export const startNewTechnology =(technology: Technology)=>{
             dispatch(closeFormTechnology());
     
         }catch(error){
-            console.log(error);
+            //console.log(error);
             const axiosError = error as AxiosError<ErrorResponse>;
             const detailMessages = axiosError?.response?.data?.detalle 
                                         ? Object.values(axiosError.response.data.detalle).join('. ') 

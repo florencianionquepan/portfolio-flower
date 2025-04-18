@@ -33,7 +33,6 @@ export const TechnologyForm = () => {
         event.preventDefault();
         setFormSubmitted(true);
         if(!isFormValid) return;
-        console.log(formState);
         dispatch(startNewTechnology(formState));
     }
 
