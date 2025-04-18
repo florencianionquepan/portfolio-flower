@@ -16,6 +16,7 @@ interface FetchError {
 
 export const useFetch = <T>(endpoint: string) => {
   const apiUrl = import.meta.env.VITE_API_URL;
+  console.log(apiUrl);
 
   const [state, setState] = useState<FetchState<T>>({
     data: null,

@@ -12,7 +12,7 @@ export const CreationButton: React.FC<CreationButtonProps> = ({ onClick, disable
   const { status, role = [] } = useSelector((state: RootState) => state.auth);
 
   // Solo mostrar el botón si el usuario es admin
-  if (status !== 'auth' || !role.includes('ROLE_ADMIN')) return null;
+  if (status !== 'auth' || !Array.isArray(role) || !role.includes('ROLE_ADMIN')) return null;
 
   return (
     <button
