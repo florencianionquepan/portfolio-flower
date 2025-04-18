@@ -14,7 +14,7 @@ interface ProjectImagesProps{
 export const CarouselImages: React.FC<ProjectImagesProps> = ({images}) => {
   return (
     <>
-        <div className='max-w-[300px] max-h-80 overflow-hidden mx-auto flex justify-center flex justify-center items-center'>
+        <div className='w-full px-2'>
             {images && 
             (<Swiper
             modules={[Pagination]}
@@ -22,6 +22,7 @@ export const CarouselImages: React.FC<ProjectImagesProps> = ({images}) => {
             slidesPerView={1}
             loop={images.length>1}
             pagination={{ clickable: true }}
+            className="w-full max-w-[280px] mx-auto"
             >
                 {images?.map((image, index)=>(
                     <SwiperSlide key={index}>
