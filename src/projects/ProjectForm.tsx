@@ -146,7 +146,9 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
       <div className="space-y-12 w-full max-w-4xl mx-auto">
         <div className="border rounded border-2 border-purple-600 p-5 mt-5 bg-orange-200">
           <div className="flex justify-between">
-            <h2 className="text-base font-semibold leading-7">New Project</h2>
+            <h2 className="text-base font-semibold leading-7">
+              {projectToEdit ? `Edit ${projectToEdit.title}` : 'New Project'}
+            </h2>
             <button type="button" onClick={handlecloseFormProject}>
               <XMarkIcon
                 className="h-6 w-6 m-1 text-purple-600 hover:text-purple-800"
@@ -212,48 +214,51 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
               />
             </div>
 
-            <div className="col-span-2">
-            <label className="text-sm font-medium text-gray-700">Links</label>
+            <div className="md:col-span-2">
+            <label className="text-sm font-medium text-gray-700 md:pb-0">Links</label>
               {
                 links.map((link,i)=>(
-                  <div key={i} className="flex flex-row items-center mb-3">
-                    <div className="basis-1/4">
+                  <div key={i} className="flex flex-col md:flex-row items-start md:items-center mb-5 md:mb-3 
+                                          border rounded border-purple-400 p-2 pt-1
+                                          md:border-0 md:rounded-none md:p-0">
+                    <div className="w-full md:basis-1/4">
 
                       <InputField
                       name={`title-${i}`}
-                      label={i==0?'Title':''}
+                      label={i == 0 || window.innerWidth < 768 ? 'Title' : ''}
                       value={link.title}
                       onChange={(e)=>handleLinkChange(i,"title",e.target.value)}
                       hasError={!!linksValid && formSubmitted}
                       errorMessage={linksValid}
                       />
                     </div>
-                  <p className={`mx-1 ${i === 0 ? 'mt-5' : ''}`}>:</p>
-                  <div className="flex basis-3/4 items-center">
-
+                    <p className={`md:mx-1 hidden md:block ${i === 0 ? 'md:mt-5' : ''}`}>:</p>
+                  <div className="relative flex w-full md:basis-3/4 items-center">
+                  <div className="w-full">
                     <InputField
-                    name={`url-${i}`}
-                    label={i==0?'URL':''}
-                    value={link.url}
-                    onChange={(e) => handleLinkChange(i, "url", e.target.value)}
-                    hasError={!!linksValid && formSubmitted}
-                    errorMessage={linksValid}
+                      name={`url-${i}`}
+                      label={i == 0 || window.innerWidth < 768 ? 'URL' : ''}
+                      value={link.url}
+                      onChange={(e) => handleLinkChange(i, "url", e.target.value)}
+                      hasError={!!linksValid && formSubmitted}
+                      errorMessage={linksValid}
                     />
+                  </div>
                     
                     {i==0 && <button 
                       type="button"
                       onClick={addNewLink}
-                      className="rounded hover:border-purple-800 ml-2 mt-1">
+                      className="rounded hover:border-purple-800 md:ml-2 md:mt-1 absolute -right-2 -top-16 md:relative md:right-auto md:top-auto">
                         <PlusCircleIcon
-                          className="h-6 w-6 mx-1 mt-4 text-purple-600 font-bold hover:text-purple-800"
+                          className="h-6 w-6 md:mx-1 md:mt-4 text-purple-600 font-bold hover:text-purple-800"
                           aria-hidden="true" />
                       </button> 
                     } {i!=0 && <button 
                       type="button"
                       onClick={()=>deleteLink(i)}
-                      className="rounded hover:border-purple-800 ml-2 mt-1">
+                      className="rounded hover:border-purple-800 md:ml-2 md:mt-0 absolute -right-2 -top-16 md:relative md:right-auto md:top-auto">
                         <XCircleIcon
-                          className="h-6 w-6 mx-1 text-purple-600 font-bold hover:text-purple-800"
+                          className="h-6 w-6 md:mx-1 text-purple-600 font-bold hover:text-purple-800"
                           aria-hidden="true" />
                       </button>
                       
