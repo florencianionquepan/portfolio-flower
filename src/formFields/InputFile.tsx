@@ -1,6 +1,5 @@
 import { ArrowUpTrayIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { Image } from "../store/model/Image";
-import BreakpointDisplay from "../assets/Breakpoint";
 
 interface InputFileProps {
     fileInputRef: React.RefObject<HTMLInputElement>;
