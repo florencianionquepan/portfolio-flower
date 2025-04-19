@@ -4,11 +4,13 @@ import { Technology } from "../store/model/Technology"
 import { formValidations } from "./formValidations"
 import { useState } from "react"
 import { InputField } from "../formFields/InputField"
-import { AppDispatch } from "../store/store"
+import { AppDispatch, RootState } from "../store/store"
 import { useDispatch } from "react-redux"
 import { closeFormTechnology } from "../store/technology/technologySlice"
 import BreakpointDisplay from "../assets/Breakpoint"
 import { startNewTechnology } from "../store/technology/thunk"
+import { useSelector } from "react-redux"
+import { FullScreenLoader } from "../assets/FullScreenLoader"
 
 const initialFormState: Technology ={
     name: '',
@@ -20,6 +22,7 @@ const initialFormState: Technology ={
 export const TechnologyForm = () => {
 
     const dispatch: AppDispatch = useDispatch();
+    const {loading} = useSelector((state: RootState)=>state.technology);
 
     const {name, logoUrl, version, onInputChange, formState, isFormValid, nameValid, logoUrlValid, versionValid} = useForm<Technology> (initialFormState, formValidations) 
 
@@ -33,13 +36,16 @@ export const TechnologyForm = () => {
         event.preventDefault();
         setFormSubmitted(true);
         if(!isFormValid) return;
-        console.log(formState);
         dispatch(startNewTechnology(formState));
     }
 
   return (
+    <>
+    {loading && <FullScreenLoader message="Saving technology..." 
+                      bgClass="bg-gray-500 bg-opacity-50 pointer-events-none"
+                      textClass="text-black text-lg"/>}
+
     <form autoComplete="off" onSubmit={onSubmit}>
-        <BreakpointDisplay/>
         <div className="space-y-12 w-full max-w-2xl mx-auto">
             <div className="border rounded border-2 border-purple-600 p-5 mt-5 bg-orange-200">
                 <div className="flex justify-between">
@@ -96,5 +102,6 @@ export const TechnologyForm = () => {
             </div>
         </div>
     </form>
+    </>
   )
 }

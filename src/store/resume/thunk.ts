@@ -23,7 +23,7 @@ export const startDownloadingResume = () => {
           window.URL.revokeObjectURL(url);
           dispatch(downloadSuccess());
       } catch (error) {
-        console.log(error);
+        //console.log(error);
         const axiosError = error as AxiosError;
 
         dispatch(downloadError(axiosError?.message || ''));

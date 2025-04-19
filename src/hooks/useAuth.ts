@@ -10,7 +10,6 @@ export const useAuth = () =>{
     const { data, isLoading, hasError, error } = useFetch("auth");
 
     useEffect(()=>{
-        //console.log({ data, isLoading, hasError, error });
 
         if(error?.code==401) dispatch(logout())
         if(!hasError && data){

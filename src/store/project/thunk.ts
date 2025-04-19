@@ -45,7 +45,7 @@ export const startNewProject =(project: Project, files: File[]) =>{
             dispatch(closeFormProject());
     
         }catch(error){
-            console.log(error);
+            //console.log(error);
             const axiosError = error as AxiosError;
 
             Swal.fire({
@@ -62,7 +62,6 @@ export const startEditProject = (project:Project, files: File[]) =>{
     return async(dispatch: AppDispatch) =>{
 
         const apiUrl = import.meta.env.VITE_API_URL;
-        console.log(project);
         const idProject=project.id;
 
         const formData = new FormData();
@@ -94,7 +93,7 @@ export const startEditProject = (project:Project, files: File[]) =>{
             dispatch(closeFormProject());
     
         }catch(error){
-            console.log(error);
+            //console.log(error);
             const axiosError = error as AxiosError;
 
             Swal.fire({

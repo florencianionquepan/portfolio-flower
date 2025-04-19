@@ -34,7 +34,7 @@ export const startNewEducation =(education: Education) =>{
             dispatch(closeFormEducation());
     
         }catch(error){
-            console.log(error);
+            //console.log(error);
             const axiosError = error as AxiosError;
 
             Swal.fire({
@@ -74,7 +74,7 @@ export const startEditEducation =(education: Education) =>{
             dispatch(closeFormEducation());
     
         }catch(error){
-            console.log(error);
+            //console.log(error);
             const axiosError = error as AxiosError;
 
             Swal.fire({

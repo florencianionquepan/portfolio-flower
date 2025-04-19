@@ -1,5 +1,6 @@
 import { ArrowUpTrayIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { Image } from "../store/model/Image";
+import BreakpointDisplay from "../assets/Breakpoint";
 
 interface InputFileProps {
     fileInputRef: React.RefObject<HTMLInputElement>;
@@ -18,7 +19,7 @@ export const InputFile: React.FC<InputFileProps> = ({
 }) => {
   return (
     <>
-        <div className="flex items-center mx-auto">
+        <div className="flex items-center mx-auto mb-1">
                 <label className="block text-sm font-medium leading-6 mr-2">
                   {label}
                 </label>
@@ -43,10 +44,10 @@ export const InputFile: React.FC<InputFileProps> = ({
         </div>
 
         {/* Vista previa de imágenes */}
-        <div className="w-full grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4 mt-1">
+        <div className="w-full grid grid-cols-2 gap-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 mt-1">
             {imagePreviews.map((preview, index) => (
                 <div key={index}
-                    className="relative w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
+                    className="relative w-20 h-20 border border-gray-300 rounded-md overflow-hidden mx-auto">
                       {/* Botón de eliminar en la esquina superior derecha */}
                     <button
                         type="button"

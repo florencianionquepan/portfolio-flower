@@ -26,7 +26,7 @@ export const startSendingContactForm = (contact: ContactFormData, onSuccess: () 
             onSuccess();
     
         }catch(error){
-            console.log(error);
+            //console.log(error);
             const axiosError = error as AxiosError;
 
             Swal.fire({
