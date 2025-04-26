@@ -1,8 +1,55 @@
+import { useEffect, useRef } from 'react';
 import './girl.css';
 
 export const Girl = () => {
+  const catEyeLeftRef = useRef<HTMLDivElement | null>(null);
+  const catEyeRightRef = useRef<HTMLDivElement | null>(null);
+  const cartoonGirlRef = useRef<HTMLDivElement | null>(null); // Ref para el contenedor principal
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!catEyeLeftRef.current || !catEyeRightRef.current) return
+
+      const leftEye = catEyeLeftRef.current;
+      const rightEye = catEyeRightRef.current;
+      const cartoonGirl = cartoonGirlRef.current;
+
+      if (!leftEye || !rightEye || !cartoonGirl) return;
+
+      // Obtenemos la posición y dimensiones del contenedor usando el ref
+      const rect = cartoonGirl.getBoundingClientRect();
+
+      // Calculamos la posición relativa del mouse dentro del elemento
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      // Calculamos el centro del elemento
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      // Calculamos la dirección desde el centro
+      const deltaX = mouseX - centerX;
+      const deltaY = mouseY - centerY;
+
+      // Limitamos el movimiento de los ojos
+      const maxMove = 3;
+      const moveX = Math.max(Math.min(deltaX / 20, maxMove), -maxMove);
+      const moveY = Math.max(Math.min(deltaY / 20, maxMove), -maxMove);
+
+      // Aplicamos la transformación a los ojos
+      leftEye.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      rightEye.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
-    <div className="cartoon-girl">
+    <div className="cartoon-girl" ref={cartoonGirlRef}>
       
       <div className='hear-back'></div>
       <div className='head'>
@@ -32,8 +79,12 @@ export const Girl = () => {
         <div className='cat-head'>
           <div className='cat-ear'></div>
           <div className='cat-ear'></div>
-          <div className='cat-eye'></div>
-          <div className='cat-eye'></div>
+          <div className="cat-eye">
+            <div className="cat-pupil" ref={catEyeLeftRef}></div>
+          </div>
+          <div className="cat-eye">
+            <div className="cat-pupil" ref={catEyeRightRef}></div>
+          </div>
           <div className='cat-nose'>
             <div className='cat-whisker-one'></div>
             <div className='cat-whisker-two'></div>

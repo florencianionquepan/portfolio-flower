@@ -314,20 +314,23 @@
     background: var(--eye);
     top: 20%;
     left: 20%;
-    +.cat-eye{
-        left:50%;
-    }
+    overflow:hidden;
 }
 
-.cat-eye::after{
-    content: '';
+.cat-eye:nth-child(4) {
+    left: 50%;
+}
+
+
+.cat-pupil {
     position: absolute;
-    width: 25%; 
-    height: 25%;
-    background: var(--line); 
+    width: 30%;
+    height: 30%; 
+    background: var(--line);
     border-radius: 50%;
-    top: 30%; 
-    left: 30%; 
+    top: 35%; 
+    left: 35%; 
+    transition: transform 0.1s ease-out;
 }
 
 .cat-nose{
