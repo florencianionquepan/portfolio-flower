@@ -22,13 +22,15 @@
 .cartoon-girl {
     position: relative;
     width: 50vmin;
-    height: 50vmin;
-    max-width: 560px;
+    height: auto;
+    aspect-ratio: 1 / 1; 
+    max-width: 100%;
     max-height: 560px;
     overflow: hidden;
     border-radius: 50%;
     border: 0.8vmin solid var(--border-cartoon);
-    
+    display: block;
+    margin: auto; 
 }
   
 .cartoon-girl div {
@@ -388,7 +390,7 @@
   position: absolute;
   width: 70%;
   height: 100%;
-  background: black;
+  background: rgb(71, 71, 71);
 }
 .cat-whisker-one::before {
     left: -30%;
@@ -407,7 +409,7 @@
   position: absolute;
   width: 70%;
   height: 100%;
-  background: black;
+  background:  rgb(71, 71, 71);
 }
 .cat-whisker-two::before {
   left: -30%;
