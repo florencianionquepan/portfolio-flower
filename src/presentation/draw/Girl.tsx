@@ -3,13 +3,21 @@ import './girl.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { TechSticker } from './TechSticker';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { showTechnologies } from '../../store/technology/thunk';
 
 export const Girl = () => {
   const catEyeLeftRef = useRef<HTMLDivElement | null>(null);
   const catEyeRightRef = useRef<HTMLDivElement | null>(null);
   const cartoonGirlRef = useRef<HTMLDivElement | null>(null); // Ref para el contenedor principal
 
+  const dispatch = useAppDispatch();
   const {technologies} = useSelector( (state: RootState) => state.technology);
+
+  useEffect(() => {
+    dispatch(showTechnologies());
+
+  }, [dispatch])
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
