@@ -249,6 +249,8 @@
     border-radius: 5% 5% 0 0;
     top: 55%;
     left: 10%;
+    position: relative;
+    overflow: hidden;
 }
 
 .computer::after{

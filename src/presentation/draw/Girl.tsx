@@ -1,10 +1,15 @@
 import { useEffect, useRef } from 'react';
 import './girl.css';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import { TechSticker } from './TechSticker';
 
 export const Girl = () => {
   const catEyeLeftRef = useRef<HTMLDivElement | null>(null);
   const catEyeRightRef = useRef<HTMLDivElement | null>(null);
   const cartoonGirlRef = useRef<HTMLDivElement | null>(null); // Ref para el contenedor principal
+
+  const {technologies} = useSelector( (state: RootState) => state.technology);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -73,7 +78,14 @@ export const Girl = () => {
       <div className='desk'></div>
       <div className='desk-wall'></div>
       <div className='hand'></div>
-      <div className='computer'></div>
+      <div className='computer grid grid-cols-6 justify-items-center items-center'>
+      {technologies.slice().reverse().map((t)=>(
+              <TechSticker
+              key={t.id}
+              technology={t}
+              />
+            ))}
+      </div>
 
       <div className='cat'>
         <div className='cat-head'>
