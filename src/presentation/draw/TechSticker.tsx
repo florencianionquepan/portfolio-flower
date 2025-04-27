@@ -16,7 +16,9 @@ export const TechSticker = ({technology}:TechnologyItemsProps) => {
         {technology.logoUrl ? 
               (<img 
               src={technology.logoUrl} 
-              alt={`${technology.name} logo`} 
+              alt={`${technology.name} logo`}
+              width={100}
+              height={100}
               className="w-[95%] h-[95%] object-contain"/>)
             :""}
     </span>

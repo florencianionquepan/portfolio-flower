@@ -62,7 +62,7 @@ export const Girl = () => {
   }, []);
 
   return (
-    <div className="cartoon-girl" ref={cartoonGirlRef}>
+    <div className="cartoon-girl w-full max-w-[300px] aspect-[1/1] mx-auto" ref={cartoonGirlRef}>
       
       <div className='hear-back'></div>
       <div className='head'>
