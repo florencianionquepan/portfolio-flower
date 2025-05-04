@@ -8,6 +8,7 @@ import { TechnologyItem } from "../technologies/TechnologyItem";
 import { CarouselImages } from "./CarouselImages";
 import { openProjectToEdit } from "../store/project/projectSlice";
 import { EditionButton } from "../assets/EditionButton";
+import { statusArray } from "../store/model/Status";
 
 interface ProjectItemProps{
     project:Project
@@ -21,6 +22,9 @@ export const ProjectItem = ({project}: ProjectItemProps) => {
   const onEdit =() =>{
     dispatch(openProjectToEdit(project));
   }
+
+  const readableStatus = statusArray.find(s => s.key === project.status)?.value || project.status;
+
 
   return (
     <div className='flex max-w-2xl flex-col items-start justify-between 
@@ -40,7 +44,7 @@ export const ProjectItem = ({project}: ProjectItemProps) => {
           <CarouselImages images={project.images}/>
           
           <div className="px-2 mt-2">
-            <h6 className="text-gray-800 font-normal mx-2 mt-2">Status: <span>{project.status}</span></h6>
+            <h6 className="text-gray-800 font-normal mx-2 mt-2">Status: <span>{readableStatus}</span></h6>
             <p className="mt-2 px-1">
               {project.description}
             </p>
