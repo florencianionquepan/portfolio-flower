@@ -34,7 +34,7 @@ export const Presentation = () => {
         }
 
         {loading && 
-        <FullScreenLoader message="This may take a few seconds because the backend is hosted on a free server."
+        <FullScreenLoader message="This may take a few seconds..."
         />}
 
       </div>
