@@ -3,6 +3,7 @@ import { EducationFormInterface} from "../education/educationFormTypes";
 import { Image } from "../store/model/Image";
 import { FormValidations, ValidationFields } from "../formFields/FormValidations";
 import { Technology } from "../store/model/Technology";
+import { Link } from "../store/model/Link";
 
 export const useForm = <T extends object> (initialForm:T, formValidations: FormValidations<T>) => {
 
@@ -39,7 +40,7 @@ export const useForm = <T extends object> (initialForm:T, formValidations: FormV
       }
     }
 
-    const onSelectChange = (name: keyof T, value: string | Technology[]) => {
+    const onSelectChange = (name: keyof T, value: string | Technology[] | Link[]) => {
 /*       if (name === 'status') {
         value = Status[value as keyof typeof Status];  // Convierte la clave al valor del enum
       } */

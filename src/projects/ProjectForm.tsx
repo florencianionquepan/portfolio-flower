@@ -141,6 +141,10 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ projectToEdit }) => {
       )
     );
   };
+
+  useEffect(() => {
+    onSelectChange('links', links);
+  }, [links]);
   
 
 
