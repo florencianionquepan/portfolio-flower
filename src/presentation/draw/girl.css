@@ -30,7 +30,7 @@
     border-radius: 50%;
     border: 0.8vmin solid var(--border-cartoon);
     display: block;
-    margin: auto; 
+    margin: auto;
 }
   
 .cartoon-girl div {
@@ -179,7 +179,7 @@
     height: 15%;
     left: 40%;
     top: 40%;
-    background-color: var(--skin);
+    background-color: var(--skin) !important;
     border: 1px solid var(--skin-line);
     border-radius: 20%;
 }
@@ -313,7 +313,8 @@
     width: 30%;
     height: 30%;
     border-radius: 50%;
-    background: var(--eye);
+    background: var(--eye) !important;
+    background-image: none !important;
     top: 20%;
     left: 20%;
     overflow:hidden;
