@@ -12,7 +12,7 @@ export const TechSticker = ({technology}:TechnologyItemsProps) => {
 
   return (
     <span className="inline-flex items-center justify-center border
-    border-gray-700 border-rounded rounded aspect-[1/1]">
+    border-gray-500 border-rounded rounded aspect-[1/1]">
         {technology.logoUrl ? 
               (<img 
               src={technology.logoUrl} 
