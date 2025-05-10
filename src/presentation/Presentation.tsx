@@ -19,7 +19,7 @@ export const Presentation = () => {
 
   return (
     <section className="flex flex-col-reverse lg:flex-row items-center p-8 xl:p-16 mt-20 xl:mt-10" id="about-me">
-      <div className="xl:w-3/5 flex flex-col items-center lg:items-start text-center xl:text-left text-black">
+      <div className="xl:w-3/5 flex flex-col items-center text-center lg:items-start lg:text-start xl:text-left text-black">
         <h1 className="text-3xl xl:text-4xl mb-2">
           Hi! My name is 
           <br></br>
