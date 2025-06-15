@@ -10,10 +10,10 @@ export const MyHeader = () => {
 
 
   const navigation = [
-    { name: 'About Me', href: '#about-me' },
-    { name: 'Education', href: '#education' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Acerca de', href: '#about-me' },
+    { name: 'Educación', href: '#education' },
+    { name: 'Proyectos', href: '#projects' },
+    { name: 'Contacto', href: '#contact' },
   ];  
   
   function classNames(...classes: unknown[]) {

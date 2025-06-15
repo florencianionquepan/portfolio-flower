@@ -63,7 +63,7 @@ export const ContactForm= () => {
                 <div className="col-span-1">
                 <InputField
                     name="subject"
-                    label="Subject"
+                    label="Asunto"
                     value={subject}
                     onChange={onInputChange} 
                     hasError={!!subjectValid && formSubmitted}
@@ -73,7 +73,7 @@ export const ContactForm= () => {
 
                 <div className="col-span-1 md:col-span-2">
                   <TextAreaField
-                    label="Description"
+                    label="Descripción"
                     name="description"
                     value={description}
                     onChange={onInputChange}
@@ -90,7 +90,7 @@ export const ContactForm= () => {
                 disabled={sending}
                 className="border rounded border-2 border-purple-600 p-1 px-2
                           disabled:bg-gray-200 disabled:text-gray-500">
-                    {sending ? "Sending..." : "Send Message"}
+                    {sending ? "Enviando..." : "Enviar"}
                 </button>
            </div>
 

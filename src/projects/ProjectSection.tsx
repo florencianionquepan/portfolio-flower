@@ -18,7 +18,7 @@ const handleOpenNewProject = ()=>{
   return (
     <div className="p-8 xl:px-16" id="projects">
       <div className="flex items-center justify-between mb-4">
-        <Titles title="Projects"/>
+        <Titles title="Proyectos"/>
         <CreationButton
         onClick={handleOpenNewProject}
         disabled={loading || isFormOpen} />
