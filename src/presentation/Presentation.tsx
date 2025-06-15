@@ -4,14 +4,13 @@ import { useAppDispatch } from "../hooks/useAppDispatch";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { FullScreenLoader } from "../assets/FullScreenLoader";
-import BreakpointDisplay from "../assets/Breakpoint";
 
 const icons = ['1.svg', '2.svg', '3.svg', '4.svg'];
 
 export const Presentation = () => {
 
   const dispatch = useAppDispatch();
-  const {person, loading, error }= useSelector ( (state: RootState) => state.person);
+  const { loading }= useSelector ( (state: RootState) => state.person);
   const [activeIndexes, setActiveIndexes] = useState<number[]>([]); 
 
   useEffect(() => {
