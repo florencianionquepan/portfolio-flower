@@ -60,7 +60,7 @@ export const ProjectItem = ({project}: ProjectItemProps) => {
           </div>
 
             <div className="mx-2 my-auto py-2">
-              <h6 className="text-black font-normal">Technologies</h6>
+              <h6 className="text-black font-normal">Tecnologias</h6>
               {project.technologies?.map((tech)=>(
                 <TechnologyItem
                 key={tech.id}
