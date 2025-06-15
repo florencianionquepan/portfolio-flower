@@ -1,7 +1,7 @@
 export enum Status{
-    IN_PROGRESS ="IN PROGRESS",
-    PENDING ="PENDING",
-    COMPLETED ="COMPLETED"
+    IN_PROGRESS ="EN PROGRESO",
+    PENDING ="PENDIENTE",
+    COMPLETED ="FINALIZADO"
 }
 
 export const statusArray = Object.entries(Status).map(([key, value]) => ({
