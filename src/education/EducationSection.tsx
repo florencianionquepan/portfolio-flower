@@ -32,7 +32,7 @@ export const EducationSection = () => {
   return (
     <div className="p-8 xl:px-16" id="education">
       <div className="flex items-center justify-between mb-4">
-        <Titles title="Education"/>
+        <Titles title="Educación"/>
         <CreationButton
         onClick={handleOpenNewEducation}
         disabled={loading || isFormOpen}
