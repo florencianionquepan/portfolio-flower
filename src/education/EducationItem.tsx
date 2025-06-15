@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { openEducationToEdit } from "../store/education/educationSlice";
 import { useSelector } from "react-redux";
 import { EditionButton } from "../assets/EditionButton";
+import { statusArray } from "../store/model/Status";
 
 interface EducationItemProps {
     education: Education;
@@ -22,6 +23,8 @@ export const EducationItem = ({education}: EducationItemProps) => {
     //console.log(education.id);
   }
 
+  const readableStatus = statusArray.find(s => s.key === education.status)?.value || education.status;
+
   return (
     <>
     <div className="flex items-center justify-between mt-2" role="listitem" aria-label="Educational background">
@@ -33,7 +36,7 @@ export const EducationItem = ({education}: EducationItemProps) => {
           <div className="pl-3">
               <p className="font-semibold"> {education.name} - {education.institution} </p>
               <p> {education.degreeType} </p>
-              <p> Status: <span className="font-semibold">{education.status}</span></p>
+              <p> Estado: <span className="font-semibold">{readableStatus}</span></p>
           </div>
       </div>
       <div className="ml-auto">

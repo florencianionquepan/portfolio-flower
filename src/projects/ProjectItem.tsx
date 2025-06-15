@@ -44,7 +44,7 @@ export const ProjectItem = ({project}: ProjectItemProps) => {
           <CarouselImages images={project.images}/>
           
           <div className="px-2 mt-2">
-            <h6 className="text-gray-800 font-normal mx-2 mt-2">Status: <span>{readableStatus}</span></h6>
+            <h6 className="text-gray-800 font-normal mx-2 mt-2">Estado: <span>{readableStatus}</span></h6>
             <p className="mt-2 px-1">
               {project.description}
             </p>
