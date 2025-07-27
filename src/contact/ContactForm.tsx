@@ -39,7 +39,7 @@ export const ContactForm= () => {
 
   return (
     <>
-    {sending && <FullScreenLoader message="Sending your message..." 
+    {sending && <FullScreenLoader message="Enviando..." 
                                   bgClass="bg-gray-500 bg-opacity-50 pointer-events-none"
                                   textClass="text-black text-lg"/>}
     <form autoComplete="off" onSubmit={onSubmit} id="contact">
