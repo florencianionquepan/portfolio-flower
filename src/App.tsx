@@ -1,19 +1,12 @@
-import { useSelector } from 'react-redux'
 import './App.css'
 import { MyHeader } from './assets/MyHeader'
-import { useAuth } from './hooks/useAuth'
 import { Presentation } from './presentation/Presentation'
 import { EducationSection } from './education/EducationSection'
 import { ProjectSection } from './projects/ProjectSection'
-import { RootState } from './store/store'
-import { TechnologySection } from './technologies/TechnologySection'
 import { ContactSection } from './contact/ContactSection'
 import { MyFooter } from './assets/MyFooter'
 
 function App() {
-
-  useAuth();
-  const { status = 'no-auth', role = [] } = useSelector((state: RootState) => state.auth);
 
   return (
     <>
@@ -23,7 +16,6 @@ function App() {
             <Presentation/>
             <EducationSection/>
             <ProjectSection/>
-            {status === 'auth' && Array.isArray(role) && role.includes('ROLE_ADMIN') && <TechnologySection/>}
             <ContactSection/>
         </div>
         <MyFooter/>

@@ -1,4 +1,3 @@
-import axios, { AxiosError } from "axios";
 import { AppDispatch } from "../store";
 import { downloadError, downloadSuccess, startDownload } from "./resumeSlice";
 
@@ -7,27 +6,19 @@ export const startDownloadingResume = () => {
       dispatch(startDownload());
   
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_URL}/public/resume`, {
-            responseType: 'blob',
-          });
-    
-          const blob = new Blob([response.data], { type: 'application/pdf' });
-          const url = window.URL.createObjectURL(blob);
-    
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'resume.pdf';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          window.URL.revokeObjectURL(url);
-          dispatch(downloadSuccess());
-      } catch (error) {
-        //console.log(error);
-        const axiosError = error as AxiosError;
+        const url = '/files/resume.pdf';
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'resume.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
 
-        dispatch(downloadError(axiosError?.message || ''));
+        dispatch(downloadSuccess());
+      } catch (error) {
+        dispatch(downloadError('Error al descargar el CV'));
       }
+
     };
   };
   
