@@ -36,7 +36,7 @@ export const EducationItem = ({education}: EducationItemProps) => {
           <div className="pl-3">
               <p className="font-semibold"> {education.name} - {education.institution} </p>
               <p> {education.degreeType} </p>
-              <p> Estado: <span className="font-semibold">{readableStatus}</span></p>
+              <p> Estado: <span >{readableStatus}</span></p>
           </div>
       </div>
       <div className="ml-auto">
