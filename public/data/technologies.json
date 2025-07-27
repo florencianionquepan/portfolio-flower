@@ -1,0 +1,176 @@
+[
+    {
+        "id": 8,
+        "name": "TypeScript",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1745708259/portfolio/technologies/ts_cmzxjp.png",
+        "version": "5.5"
+    },
+    {
+        "id": 9,
+        "name": "Scikit learn",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1741539604/portfolio/technologies/scikit-learn_zdttpq.svg",
+        "version": "1.6"
+    },
+    {
+        "id": 10,
+        "name": "Spring Boot",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/fl_preserve_transparency/v1731724861/portfolio/technologies/spring-boot_ymtpdg.jpg?_s=public-apps",
+        "version": "2.7"
+    },
+    {
+        "id": 11,
+        "name": "Swagger",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1742752694/portfolio/technologies/swagger_vgvjxy.svg",
+        "version": "3"
+    },
+    {
+        "id": 12,
+        "name": "JUnit",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1742753170/portfolio/technologies/junit5-logo_f5yzfg.png",
+        "version": "5.8"
+    },
+    {
+        "id": 13,
+        "name": "Mockito",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1742753174/portfolio/technologies/mockito_l3w0qp.webp",
+        "version": "3.12"
+    },
+    {
+        "id": 14,
+        "name": "TailwindCCS",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1742772916/portfolio/technologies/tailwind_elvqjr.svg",
+        "version": "3.4"
+    },
+    {
+        "id": 15,
+        "name": "Java",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/fl_preserve_transparency/v1729384741/portfolio/technologies/java_tdrrvb.jpg?_s=public-apps",
+        "version": "11"
+    },
+    {
+        "id": 16,
+        "name": "React",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/t_m/v1745708259/portfolio/technologies/React-icon_jziwkw.svg",
+        "version": "18.2"
+    },
+    {
+        "id": 17,
+        "name": "Spring Boot",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/fl_preserve_transparency/v1731724861/portfolio/technologies/spring-boot_ymtpdg.jpg?_s=public-apps",
+        "version": "3.2"
+    },
+    {
+        "id": 18,
+        "name": "Spring Security",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/t_m/v1745708407/portfolio/technologies/spring-security_bi3jmx.svg",
+        "version": "3.2"
+    },
+    {
+        "id": 19,
+        "name": "Angular",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/fl_preserve_transparency/v1731192951/portfolio/technologies/angular_klcvgy.jpg?_s=public-apps",
+        "version": "12"
+    },
+    {
+        "id": 20,
+        "name": "Python",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1741539605/portfolio/technologies/python-3-logo_hmwuzh.svg",
+        "version": "3"
+    },
+    {
+        "id": 21,
+        "name": "Pandas",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1741539605/portfolio/technologies/Pandas_jncn9s.svg",
+        "version": "2"
+    },
+    {
+        "id": 22,
+        "name": "Numpy",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1741539605/portfolio/technologies/numpy-1_wp6wch.svg",
+        "version": "1.26"
+    },
+    {
+        "id": 23,
+        "name": "Matplotlib",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1741539605/portfolio/technologies/Matplotlib-logo_n0pgsr.svg",
+        "version": "3.10"
+    },
+    {
+        "id": 24,
+        "name": "Seaborn",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1741539605/portfolio/technologies/seaborn-1_bucr7z.svg",
+        "version": "1.13"
+    },
+    {
+        "id": 25,
+        "name": "Bootstrap",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1744991026/portfolio/technologies/Bootstrap_logo_tobwv3.png",
+        "version": "5.31"
+    },
+    {
+        "id": 26,
+        "name": "SweetAlert",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1744991436/portfolio/technologies/favicon_jy66gl.png",
+        "version": "11.7"
+    },
+    {
+        "id": 27,
+        "name": "Java",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1729384741/portfolio/technologies/java_tdrrvb.webp",
+        "version": "17"
+    },
+    {
+        "id": 28,
+        "name": "Cloudinary Java SDK",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1744992418/portfolio/technologies/Cloudinary_Icon_Blue_uj9edc.svg",
+        "version": "1.31"
+    },
+    {
+        "id": 29,
+        "name": "Spring OAuth Client",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1744992638/portfolio/technologies/Spring_s1jp6u.png",
+        "version": "6.31"
+    },
+    {
+        "id": 30,
+        "name": "Angular",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1731192951/portfolio/technologies/angular_klcvgy.webp",
+        "version": "14"
+    },
+    {
+        "id": 31,
+        "name": "Mercado Pago SDK",
+        "logoUrl": "",
+        "version": "2.1"
+    },
+    {
+        "id": 32,
+        "name": "AWS SDK",
+        "logoUrl": "",
+        "version": "2"
+    },
+    {
+        "id": 33,
+        "name": "TypeScript",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1745708259/portfolio/technologies/ts_cmzxjp.png",
+        "version": "4"
+    },
+    {
+        "id": 35,
+        "name": "C#",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1746306933/portfolio/technologies/C_CSharp_v4etat.svg",
+        "version": "12"
+    },
+    {
+        "id": 36,
+        "name": "EF Core",
+        "logoUrl": "",
+        "version": "8"
+    },
+    {
+        "id": 37,
+        "name": ".NET",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1746399888/portfolio/technologies/dotnet-logo_j4afl5.svg",
+        "version": "8"
+    }
+]

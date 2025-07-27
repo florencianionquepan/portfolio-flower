@@ -1,0 +1,468 @@
+{
+    "person": {
+        "id": 1,
+        "name": "Florencia",
+        "lastName": "Ñonquepan",
+        "tel": null,
+        "email": null,
+        "dateOfBirth": null,
+        "occupation": "Fullstack dev",
+        "presentation": "I''m a Fullstack Developer with a focus on backend development, particularly with Java Spring Boot. While backend is my primary expertise, I also have experience with frontend technologies to complement full-stack solutions when needed."
+    },
+    "programs": [
+        {
+            "id": 1,
+            "name": "Ingeniera Química",
+            "institution": "Universidad Nacional del Sur",
+            "degreeType": "",
+            "startDate": "2010-03-01",
+            "endDate": "2016-12-10",
+            "status": "COMPLETED"
+        },
+        {
+            "id": 2,
+            "name": "Tecnicatura Universitaria en Desarrollo Web",
+            "institution": "Universidad Nacional del Comahue",
+            "degreeType": "",
+            "startDate": "2021-08-01",
+            "endDate": "2023-12-10",
+            "status": "COMPLETED"
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "title": "Rescats",
+            "description": "Este proyecto es una plataforma para una ONG ficticia gestionada por voluntarios, dedicada a encontrar adoptantes y hogares de tránsito para gatitos. También permite a los usuarios apadrinar gatitos mientras buscan una familia permanente, y enviar solicitudes para formar parte de la organización. Además, se guarda el historial de hogares de tránsito por los que pasó cada gatito.",
+            "endDate": "2023-12-12",
+            "status": "COMPLETED",
+            "images": [
+                {
+                    "id": 1,
+                    "name": "1-rescats-home",
+                    "url": "https://res.cloudinary.com/nonquepan/image/upload/v1741544191/1-home-large_ioewzo.webp",
+                    "imageId": "ef0njfxnvrk8kjreb24z"
+                },
+                {
+                    "id": 2,
+                    "name": "2-rescats-apadrinar-movil",
+                    "url": "http://res.cloudinary.com/nonquepan/image/upload/v1731957504/r4pnaikbgd0iruwzjbtx.webp",
+                    "imageId": "r4pnaikbgd0iruwzjbtx"
+                },
+                {
+                    "id": 3,
+                    "name": "3-rescats-detalle-movil",
+                    "url": "http://res.cloudinary.com/nonquepan/image/upload/v1731957505/kcumauv6ijs5pdxpidab.webp",
+                    "imageId": "kcumauv6ijs5pdxpidab"
+                },
+                {
+                    "id": 4,
+                    "name": "4-rescats-gatos-voluntario",
+                    "url": "http://res.cloudinary.com/nonquepan/image/upload/v1731957506/zyxxggw3c3nxydkklt67.webp",
+                    "imageId": "zyxxggw3c3nxydkklt67"
+                }
+            ],
+            "links": [
+                {
+                    "id": 5,
+                    "title": "Front Repo",
+                    "url": "https://github.com/florencianionquepan/adopcion-gatos-v2"
+                },
+                {
+                    "id": 6,
+                    "title": "Back Repo",
+                    "url": "https://github.com/florencianionquepan/gatos-spring-boot"
+                },
+                {
+                    "id": 9,
+                    "title": "Demo",
+                    "url": "https://res.cloudinary.com/nonquepan/video/upload/v1750350238/portfolio/demos/rescats-demo-completa_qhpc1t.mp4"
+                }
+            ],
+            "technologies": [
+                {
+                    "id": 19,
+                    "name": "Angular",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/fl_preserve_transparency/v1731192951/portfolio/technologies/angular_klcvgy.jpg?_s=public-apps",
+                    "version": "12"
+                },
+                {
+                    "id": 25,
+                    "name": "Bootstrap",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1744991026/portfolio/technologies/Bootstrap_logo_tobwv3.png",
+                    "version": "5.31"
+                },
+                {
+                    "id": 26,
+                    "name": "SweetAlert",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1744991436/portfolio/technologies/favicon_jy66gl.png",
+                    "version": "11.7"
+                },
+                {
+                    "id": 15,
+                    "name": "Java",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/fl_preserve_transparency/v1729384741/portfolio/technologies/java_tdrrvb.jpg?_s=public-apps",
+                    "version": "11"
+                },
+                {
+                    "id": 17,
+                    "name": "Spring Boot",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/fl_preserve_transparency/v1731724861/portfolio/technologies/spring-boot_ymtpdg.jpg?_s=public-apps",
+                    "version": "3.2"
+                },
+                {
+                    "id": 28,
+                    "name": "Cloudinary Java SDK",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1744992418/portfolio/technologies/Cloudinary_Icon_Blue_uj9edc.svg",
+                    "version": "1.31"
+                },
+                {
+                    "id": 31,
+                    "name": "Mercado Pago SDK",
+                    "logoUrl": "",
+                    "version": "2.1"
+                },
+                {
+                    "id": 32,
+                    "name": "AWS SDK",
+                    "logoUrl": "",
+                    "version": "2"
+                },
+                {
+                    "id": 33,
+                    "name": "TypeScript",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1745708259/portfolio/technologies/ts_cmzxjp.png",
+                    "version": "4"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Taller mecánico",
+            "description": "Esta API gestiona un taller de reparación de vehículos, incluyendo el registro de clientes y vehículos, órdenes de trabajo, asignación de tareas, facturación y entrega de los vehículos. Garantiza flujos de trabajo eficientes, una facturación precisa y operaciones fluidas durante todo el proceso de reparación.",
+            "endDate": "2023-03-14",
+            "status": "COMPLETED",
+            "images": [
+                {
+                    "id": 5,
+                    "name": "iPad-575x1705",
+                    "url": "http://res.cloudinary.com/nonquepan/image/upload/v1731968624/imgdinjma9ojsq6gdkrw.webp",
+                    "imageId": "imgdinjma9ojsq6gdkrw"
+                }
+            ],
+            "links": [
+                {
+                    "id": 7,
+                    "title": "Github Repo",
+                    "url": "https://github.com/florencianionquepan/taller-mecanico"
+                }
+            ],
+            "technologies": [
+                {
+                    "id": 15,
+                    "name": "Java",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/fl_preserve_transparency/v1729384741/portfolio/technologies/java_tdrrvb.jpg?_s=public-apps",
+                    "version": "11"
+                },
+                {
+                    "id": 10,
+                    "name": "Spring Boot",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/fl_preserve_transparency/v1731724861/portfolio/technologies/spring-boot_ymtpdg.jpg?_s=public-apps",
+                    "version": "2.7"
+                },
+                {
+                    "id": 11,
+                    "name": "Swagger",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1742752694/portfolio/technologies/swagger_vgvjxy.svg",
+                    "version": "3"
+                },
+                {
+                    "id": 12,
+                    "name": "JUnit",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1742753170/portfolio/technologies/junit5-logo_f5yzfg.png",
+                    "version": "5.8"
+                },
+                {
+                    "id": 13,
+                    "name": "Mockito",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1742753174/portfolio/technologies/mockito_l3w0qp.webp",
+                    "version": "3.12"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Portfolio",
+            "description": "Este es mi portfolio, con integracion de OAuth2 mediante GitHub y Google para la autenticacion al momento de crear o editar datos. Incluye formularios personalizados, como el formulario de proyectos con funcion de arrastrar y soltar tecnologias, y la posibilidad de agregar enlaces de forma dinamica. Las imagenes se almacenan en Cloudinary a traves del backend.",
+            "endDate": "1969-12-31",
+            "status": "IN_PROGRESS",
+            "images": [
+                {
+                    "id": 9,
+                    "name": "1-surface-pro-edit-projects",
+                    "url": "http://res.cloudinary.com/nonquepan/image/upload/v1745024792/ayta9xlg7qjukkyjrzav.webp",
+                    "imageId": "ayta9xlg7qjukkyjrzav"
+                },
+                {
+                    "id": 10,
+                    "name": "2-pixelbook-portfolio-edit-projects",
+                    "url": "http://res.cloudinary.com/nonquepan/image/upload/v1745024793/jqcktx59pfu2sht9tq1d.webp",
+                    "imageId": "jqcktx59pfu2sht9tq1d"
+                }
+            ],
+            "links": [
+                {
+                    "id": 1,
+                    "title": "Front Repo",
+                    "url": "https://github.com/florencianionquepan/portfolio-flower"
+                },
+                {
+                    "id": 2,
+                    "title": "Back Repo",
+                    "url": "https://github.com/florencianionquepan/portfolio-backend"
+                },
+                {
+                    "id": 11,
+                    "title": "Demo",
+                    "url": "https://res.cloudinary.com/nonquepan/video/upload/v1753573557/portfolio/demos/portfolio_demo_sqbcw2.webm"
+                }
+            ],
+            "technologies": [
+                {
+                    "id": 16,
+                    "name": "React",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/t_m/v1745708259/portfolio/technologies/React-icon_jziwkw.svg",
+                    "version": "18.2"
+                },
+                {
+                    "id": 14,
+                    "name": "TailwindCCS",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1742772916/portfolio/technologies/tailwind_elvqjr.svg",
+                    "version": "3.4"
+                },
+                {
+                    "id": 26,
+                    "name": "SweetAlert",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1744991436/portfolio/technologies/favicon_jy66gl.png",
+                    "version": "11.7"
+                },
+                {
+                    "id": 27,
+                    "name": "Java",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1729384741/portfolio/technologies/java_tdrrvb.webp",
+                    "version": "17"
+                },
+                {
+                    "id": 17,
+                    "name": "Spring Boot",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/fl_preserve_transparency/v1731724861/portfolio/technologies/spring-boot_ymtpdg.jpg?_s=public-apps",
+                    "version": "3.2"
+                },
+                {
+                    "id": 29,
+                    "name": "Spring OAuth Client",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1744992638/portfolio/technologies/Spring_s1jp6u.png",
+                    "version": "6.31"
+                },
+                {
+                    "id": 28,
+                    "name": "Cloudinary Java SDK",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1744992418/portfolio/technologies/Cloudinary_Icon_Blue_uj9edc.svg",
+                    "version": "1.31"
+                },
+                {
+                    "id": 8,
+                    "name": "TypeScript",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1745708259/portfolio/technologies/ts_cmzxjp.png",
+                    "version": "5.5"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "title": "A la carta",
+            "description": "Este es un desafío frontend en Angular para el programa de aceleración de Alkemy que incluye funcionalidad de login, creación dinámica de menús, búsqueda de platos y vistas detalladas. Cuenta con características como cálculo de precio promedio, tiempo de preparación y puntuación de salud, además de autenticación de usuarios y protección en la navegación.",
+            "endDate": "1970-01-01",
+            "status": "COMPLETED",
+            "images": [
+                {
+                    "id": 7,
+                    "name": "a-la-carta",
+                    "url": "http://res.cloudinary.com/nonquepan/image/upload/v1737847343/ky0hzpv1cmzmbvr0otbl.webp",
+                    "imageId": "ky0hzpv1cmzmbvr0otbl"
+                }
+            ],
+            "links": [
+                {
+                    "id": 3,
+                    "title": "Github Repo",
+                    "url": "https://github.com/florencianionquepan/a-la-carta"
+                }
+            ],
+            "technologies": [
+                {
+                    "id": 30,
+                    "name": "Angular",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1731192951/portfolio/technologies/angular_klcvgy.webp",
+                    "version": "14"
+                },
+                {
+                    "id": 25,
+                    "name": "Bootstrap",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1744991026/portfolio/technologies/Bootstrap_logo_tobwv3.png",
+                    "version": "5.31"
+                },
+                {
+                    "id": 33,
+                    "name": "TypeScript",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1745708259/portfolio/technologies/ts_cmzxjp.png",
+                    "version": "4"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Análisis predictivo de formación de hidratos",
+            "description": "Este proyecto analiza la formación de hidratos en líneas de producción offshore, utilizando análisis de datos reales y simulados de formación de hidratos en líneas offshore, aplicando un modelo Random Forest para identificar condiciones de riesgo y estrategias de mitigación, garantizando la eficiencia operativa e integridad de los oleoductos.",
+            "endDate": "2025-02-27",
+            "status": "COMPLETED",
+            "images": [
+                {
+                    "id": 13,
+                    "name": "analisis_hidratos_1",
+                    "url": "http://res.cloudinary.com/nonquepan/image/upload/v1745699619/jbweth0lxdbfzmf6lmfd.webp",
+                    "imageId": "jbweth0lxdbfzmf6lmfd"
+                },
+                {
+                    "id": 14,
+                    "name": "analisis_hidratos_2",
+                    "url": "http://res.cloudinary.com/nonquepan/image/upload/v1745700000/b8a4fechu8br7tsr0grw.webp",
+                    "imageId": "b8a4fechu8br7tsr0grw"
+                }
+            ],
+            "links": [
+                {
+                    "id": 4,
+                    "title": "Github Repo",
+                    "url": "https://github.com/florencianionquepan/analisis_hidratos_offshore"
+                }
+            ],
+            "technologies": [
+                {
+                    "id": 20,
+                    "name": "Python",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1741539605/portfolio/technologies/python-3-logo_hmwuzh.svg",
+                    "version": "3"
+                },
+                {
+                    "id": 21,
+                    "name": "Pandas",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1741539605/portfolio/technologies/Pandas_jncn9s.svg",
+                    "version": "2"
+                },
+                {
+                    "id": 23,
+                    "name": "Matplotlib",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1741539605/portfolio/technologies/Matplotlib-logo_n0pgsr.svg",
+                    "version": "3.10"
+                },
+                {
+                    "id": 22,
+                    "name": "Numpy",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1741539605/portfolio/technologies/numpy-1_wp6wch.svg",
+                    "version": "1.26"
+                },
+                {
+                    "id": 9,
+                    "name": "Scikit learn",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1741539604/portfolio/technologies/scikit-learn_zdttpq.svg",
+                    "version": "1.6"
+                },
+                {
+                    "id": 24,
+                    "name": "Seaborn",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1741539605/portfolio/technologies/seaborn-1_bucr7z.svg",
+                    "version": "1.13"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "title": "EngiDocs",
+            "description": "EngiDocs es un sistema documental para proyectos de ingenieria que permite subir planos y documentos tecnicos como PDFs, DWGs, etc. Usa inteligencia artificial para extraer automaticamente metadatos clave como titulo, codigo, tipo, disciplina, resumen y palabras clave. Soporta versiones, permite editar la info generada y registra cambios. Mejora la organizacion, trazabilidad y busqueda de documentacion tecnica.",
+            "endDate": "1970-01-01",
+            "status": "IN_PROGRESS",
+            "images": [
+                {
+                    "id": 19,
+                    "name": "engi3",
+                    "url": "http://res.cloudinary.com/nonquepan/image/upload/v1753568682/a99lecws1xmxwwulngak.webp",
+                    "imageId": "a99lecws1xmxwwulngak"
+                },
+                {
+                    "id": 20,
+                    "name": "engi2",
+                    "url": "http://res.cloudinary.com/nonquepan/image/upload/v1753568682/wbfuwdtzemjkxcxcp9qh.webp",
+                    "imageId": "wbfuwdtzemjkxcxcp9qh"
+                },
+                {
+                    "id": 21,
+                    "name": "engidocslogin",
+                    "url": "http://res.cloudinary.com/nonquepan/image/upload/v1753568806/pi61uvlyd5yzwcjor49m.webp",
+                    "imageId": "pi61uvlyd5yzwcjor49m"
+                }
+            ],
+            "links": [
+                {
+                    "id": 10,
+                    "title": "Demo",
+                    "url": "https://res.cloudinary.com/nonquepan/video/upload/v1753564414/portfolio/demos/engidocs_he2iqz.webm"
+                }
+            ],
+            "technologies": [
+                {
+                    "id": 27,
+                    "name": "Java",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1729384741/portfolio/technologies/java_tdrrvb.webp",
+                    "version": "17"
+                },
+                {
+                    "id": 17,
+                    "name": "Spring Boot",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/fl_preserve_transparency/v1731724861/portfolio/technologies/spring-boot_ymtpdg.jpg?_s=public-apps",
+                    "version": "3.2"
+                },
+                {
+                    "id": 18,
+                    "name": "Spring Security",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/t_m/v1745708407/portfolio/technologies/spring-security_bi3jmx.svg",
+                    "version": "3.2"
+                },
+                {
+                    "id": 30,
+                    "name": "Angular",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1731192951/portfolio/technologies/angular_klcvgy.webp",
+                    "version": "14"
+                },
+                {
+                    "id": 8,
+                    "name": "TypeScript",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1745708259/portfolio/technologies/ts_cmzxjp.png",
+                    "version": "5.5"
+                },
+                {
+                    "id": 26,
+                    "name": "SweetAlert",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1744991436/portfolio/technologies/favicon_jy66gl.png",
+                    "version": "11.7"
+                },
+                {
+                    "id": 14,
+                    "name": "TailwindCCS",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1742772916/portfolio/technologies/tailwind_elvqjr.svg",
+                    "version": "3.4"
+                }
+            ]
+        }
+    ]
+}

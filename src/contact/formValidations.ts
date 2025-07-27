@@ -11,7 +11,7 @@ export const formValidations: FormValidations<ContactFormData> = {
         'The subject can only contain letters and spaces.'
     ],
     description: [
-        (value: string) => /^[A-Za-z0-9\s.,]+$/.test(value),
-        'The description can only contain letters, numbers, spaces, commas, and periods.'
+        (value: string) => /^[A-Za-z0-9\s.,:!¿?áéíóúÁÉÍÓÚ]+$/.test(value),
+        'The description can only contain letters, numbers, spaces, commas, periods, colons, exclamation marks, question marks, and accented letters.'
     ]
 }
