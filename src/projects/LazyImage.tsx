@@ -14,17 +14,19 @@ interface LazyImageProps {
         {!loaded && (
           <div className="absolute inset-0 bg-gray-400 animate-pulse z-10" />
         )}
-        <img
-          src={path}
-          alt={imageAlt}
-          loading="lazy"
-          onLoad={() => setLoaded(true)}
-          className={`
-            w-full object-contain
-            transition-opacity duration-700 ease-in-out
-            ${loaded ? 'opacity-100' : 'opacity-0'}
-          `}
-        />
+        <a href={path} target="_blank" rel="noopener noreferrer">
+          <img
+            src={path}
+            alt={imageAlt}
+            loading="lazy"
+            onLoad={() => setLoaded(true)}
+            className={`
+              my-auto w-full object-contain
+              transition-opacity duration-700 ease-in-out
+              ${loaded ? 'opacity-100' : 'opacity-0'}
+            `}
+          />
+        </a>
       </div>
     );
   };

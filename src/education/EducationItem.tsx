@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { openEducationToEdit } from "../store/education/educationSlice";
 import { useSelector } from "react-redux";
 import { EditionButton } from "../assets/EditionButton";
-import { statusArray } from "../store/model/Status";
 
 interface EducationItemProps {
     education: Education;
@@ -23,20 +22,23 @@ export const EducationItem = ({education}: EducationItemProps) => {
     //console.log(education.id);
   }
 
-  const readableStatus = statusArray.find(s => s.key === education.status)?.value || education.status;
-
   return (
     <>
     <div className="flex items-center justify-between mt-2" role="listitem" aria-label="Educational background">
-      <div className="flex flex-items-center justify-start mt-2" role="listitem" aria-label="Educational background">
+      <div className="flex flex-items-center justify-start mt-2" 
+      role="listitem" aria-label="Educational background">
           <div className="mx-1 pr-3 border-purple-400 border-r-2 font-normal">
             <p aria-label="Start year">{startYear}- </p>
             <p aria-label="End year">{endYear}</p>
           </div>
           <div className="pl-3">
-              <p className="font-semibold"> {education.name} - {education.institution} </p>
-              <p> {education.degreeType} </p>
-              <p> Estado: <span >{readableStatus}</span></p>
+              <p className="font-semibold text-lg">
+            {education.name}
+          </p>
+          <p className="text-gray-600">{education.institution}</p>
+          {education.degreeType && (
+            <p className="text-sm text-gray-500 italic">{education.degreeType}</p>
+          )}
           </div>
       </div>
       <div className="ml-auto">

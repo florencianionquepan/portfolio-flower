@@ -12,7 +12,7 @@
     "programs": [
         {
             "id": 1,
-            "name": "Ingeniera Química",
+            "name": "Ingeniería Química",
             "institution": "Universidad Nacional del Sur",
             "degreeType": "",
             "startDate": "2010-03-01",
@@ -31,9 +31,9 @@
     ],
     "projects": [
         {
-            "id": 1,
+            "id": 2,
             "title": "Rescats",
-            "description": "Este proyecto es una plataforma para una ONG ficticia gestionada por voluntarios, dedicada a encontrar adoptantes y hogares de tránsito para gatitos. También permite a los usuarios apadrinar gatitos mientras buscan una familia permanente, y enviar solicitudes para formar parte de la organización. Además, se guarda el historial de hogares de tránsito por los que pasó cada gatito.",
+            "description": "Este proyecto fue el trabajo final de la tecnicatura y simula una plataforma para una ONG ficticia gestionada por voluntarios, dedicada a encontrar adoptantes y hogares de tránsito para gatitos. También permite a los usuarios apadrinar gatitos mientras buscan una familia permanente (para esto se implementó MercadoPago en sandbox), y enviar solicitudes para formar parte de la organización. Además, se guarda el historial de hogares de tránsito por los que pasó cada gatito.",
             "endDate": "2023-12-12",
             "status": "COMPLETED",
             "images": [
@@ -137,8 +137,8 @@
             ]
         },
         {
-            "id": 2,
-            "title": "Taller mecánico",
+            "id": 22,
+            "title": "API Taller mecánico",
             "description": "Esta API gestiona un taller de reparación de vehículos, incluyendo el registro de clientes y vehículos, órdenes de trabajo, asignación de tareas, facturación y entrega de los vehículos. Garantiza flujos de trabajo eficientes, una facturación precisa y operaciones fluidas durante todo el proceso de reparación.",
             "endDate": "2023-03-14",
             "status": "COMPLETED",
@@ -193,9 +193,9 @@
         {
             "id": 3,
             "title": "Portfolio",
-            "description": "Este es mi portfolio, con integracion de OAuth2 mediante GitHub y Google para la autenticacion al momento de crear o editar datos. Incluye formularios personalizados, como el formulario de proyectos con funcion de arrastrar y soltar tecnologias, y la posibilidad de agregar enlaces de forma dinamica. Las imagenes se almacenan en Cloudinary a traves del backend.",
+            "description": "Este es mi portfolio. Incluye autenticación OAuth2 con GitHub y Google, formularios personalizados con drag & drop de tecnologías y enlaces dinámicos, y manejo de imágenes con Cloudinary.\nNota: Actualmente en producción, el sitio solo cuenta con el frontend y lee datos desde JSON locales, aunque originalmente incluía backend completo como muestra la demo.",
             "endDate": "1969-12-31",
-            "status": "IN_PROGRESS",
+            "status": "COMPLETED",
             "images": [
                 {
                     "id": 9,
@@ -279,7 +279,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 44,
             "title": "A la carta",
             "description": "Este es un desafío frontend en Angular para el programa de aceleración de Alkemy que incluye funcionalidad de login, creación dinámica de menús, búsqueda de platos y vistas detalladas. Cuenta con características como cálculo de precio promedio, tiempo de preparación y puntuación de salud, además de autenticación de usuarios y protección en la navegación.",
             "endDate": "1970-01-01",
@@ -387,9 +387,9 @@
             ]
         },
         {
-            "id": 7,
+            "id": 1,
             "title": "EngiDocs",
-            "description": "EngiDocs es un sistema documental para proyectos de ingenieria que permite subir planos y documentos tecnicos como PDFs, DWGs, etc. Usa inteligencia artificial para extraer automaticamente metadatos clave como titulo, codigo, tipo, disciplina, resumen y palabras clave. Soporta versiones, permite editar la info generada y registra cambios. Mejora la organizacion, trazabilidad y busqueda de documentacion tecnica.",
+            "description": "EngiDocs es un sistema documental para proyectos de ingenieria que permite subir planos y documentos tecnicos como PDFs, DWGs, etc. Soporta versiones, edición de metadatos y registro de cambios. Facilita la organización, trazabilidad y búsqueda de documentación técnica. \nActualmente la demo utiliza un mock de extracción de metadatos, pero está pensado para integrarse con IA (API de OpenAI) y automatizar la identificación del título, código, disciplina y palabras clave de los PDFs.",
             "endDate": "1970-01-01",
             "status": "IN_PROGRESS",
             "images": [
@@ -401,15 +401,21 @@
                 },
                 {
                     "id": 20,
-                    "name": "engidashboard",
-                    "url": "https://res.cloudinary.com/nonquepan/image/upload/v1753657921/engidocs-11_y3azdy.webp",
+                    "name": "engiupload",
+                    "url": "https://res.cloudinary.com/nonquepan/image/upload/v1756427247/engidocs_002_yvujdg.webp",
                     "imageId": "wbfuwdtzemjkxcxcp9qh"
                 },
                 {
                     "id": 21,
-                    "name": "engiupload",
-                    "url": "https://res.cloudinary.com/nonquepan/image/upload/v1753657921/engidocs-111_ymupzg.webp",
+                    "name": "engipendings",
+                    "url": "https://res.cloudinary.com/nonquepan/image/upload/v1756421276/engidocs_03_l2wjmj.webp",
                     "imageId": "pi61uvlyd5yzwcjor49m"
+                },
+                {
+                    "id": 22,
+                    "name": "engipendingsmodal",
+                    "url": "https://res.cloudinary.com/nonquepan/image/upload/v1756420907/engidocs_3_xitxxk.webp",
+                    "imageId": "pi61uvlyd5yzwcjor49s"
                 }
             ],
             "links": [
