@@ -13,10 +13,11 @@ export const getPerson = () =>{
             const resp = await axios.get('/data/data.json');
             const data = resp.data;
             //console.log(data);
+            const sortedProjects = [...data.projects].sort((a, b) => a.id - b.id);
 
             dispatch( setPerson (data.person));
             dispatch( setEducations(data.programs));
-            dispatch( setProjects(data.projects));
+            dispatch( setProjects(sortedProjects));
 
         }catch(error){
             console.error(error);

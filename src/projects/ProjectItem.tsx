@@ -46,7 +46,9 @@ export const ProjectItem = ({project}: ProjectItemProps) => {
           <div className="px-2 mt-2">
             <h6 className="text-gray-800 font-normal mx-2 mt-2">Estado: <span>{readableStatus}</span></h6>
             <p className="mt-2 px-1">
-              {project.description}
+              {project.description.split('\n').map((line, i) => (
+            <span key={i}>{line}<br /></span>
+            ))}
             </p>
 
             <div className="mt-2 flex flex-wrap gap-2 px-2">
