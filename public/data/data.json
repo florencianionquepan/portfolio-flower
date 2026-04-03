@@ -279,48 +279,6 @@
             ]
         },
         {
-            "id": 44,
-            "title": "A la carta",
-            "description": "Este es un desafío frontend en Angular para el programa de aceleración de Alkemy que incluye funcionalidad de login, creación dinámica de menús, búsqueda de platos y vistas detalladas. Cuenta con características como cálculo de precio promedio, tiempo de preparación y puntuación de salud, además de autenticación de usuarios y protección en la navegación.",
-            "endDate": "1970-01-01",
-            "status": "COMPLETED",
-            "images": [
-                {
-                    "id": 7,
-                    "name": "a-la-carta",
-                    "url": "http://res.cloudinary.com/nonquepan/image/upload/v1737847343/ky0hzpv1cmzmbvr0otbl.webp",
-                    "imageId": "ky0hzpv1cmzmbvr0otbl"
-                }
-            ],
-            "links": [
-                {
-                    "id": 3,
-                    "title": "Github Repo",
-                    "url": "https://github.com/florencianionquepan/a-la-carta"
-                }
-            ],
-            "technologies": [
-                {
-                    "id": 30,
-                    "name": "Angular",
-                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1731192951/portfolio/technologies/angular_klcvgy.webp",
-                    "version": "14"
-                },
-                {
-                    "id": 25,
-                    "name": "Bootstrap",
-                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1744991026/portfolio/technologies/Bootstrap_logo_tobwv3.png",
-                    "version": "5.31"
-                },
-                {
-                    "id": 33,
-                    "name": "TypeScript",
-                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1745708259/portfolio/technologies/ts_cmzxjp.png",
-                    "version": "4"
-                }
-            ]
-        },
-        {
             "id": 5,
             "title": "Análisis predictivo de formación de hidratos",
             "description": "Este proyecto analiza la formación de hidratos en líneas de producción offshore, utilizando análisis de datos reales y simulados de formación de hidratos en líneas offshore, aplicando un modelo Random Forest para identificar condiciones de riesgo y estrategias de mitigación, garantizando la eficiencia operativa e integridad de los oleoductos.",
@@ -387,11 +345,71 @@
             ]
         },
         {
+            "id": 0,
+            "title": "Pump Data Service",
+            "description": "Sistema de monitoreo de una bomba industrial que simula el flujo de datos de un equipo con sensores conectados a un PLC. Recibe datos vía MQTT, los procesa mediante el patrón Observer y los expone a través de una API REST. \nEl proyecto simula el flujo de datos de un PLC real: un script Python lee registros de un CSV y los publica en un broker MQTT local. Un servicio Spring Boot suscripto al broker recibe cada mensaje, lo parsea y notifica a sus observers, que pueden persistir los datos, evaluar alertas o enviar notificaciones externas.",
+            "endDate": "1970-01-01",
+            "status": "IN_PROGRESS",
+            "images": [
+                {
+                    "id": 23,
+                    "name": "docker-compose-up",
+                    "url": "https://res.cloudinary.com/nonquepan/image/upload/v1775258058/pump_service_0_jddhg1.webp",
+                    "imageId": "b3327ce839ae1b2f534bfc48d333a849"
+                },
+                {
+                    "id": 20,
+                    "name": "mosquitto_topic",
+                    "url": "https://res.cloudinary.com/nonquepan/image/upload/v1775258059/pump-service_1_qlm1bn.webp",
+                    "imageId": "c3e015fe52c9835ed9e3821356f24b47"
+                }
+            ],
+            "links": [
+                {
+                    "id": 35,
+                    "title": "Github Repo",
+                    "url": "https://github.com/florencianionquepan/pump-monitoring-system"
+                }
+            ],
+            "technologies": [
+                {
+                    "id": 27,
+                    "name": "Java",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1729384741/portfolio/technologies/java_tdrrvb.webp",
+                    "version": "17"
+                },
+                {
+                    "id": 17,
+                    "name": "Spring Boot",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/fl_preserve_transparency/v1731724861/portfolio/technologies/spring-boot_ymtpdg.jpg?_s=public-apps",
+                    "version": "3.2"
+                },
+                {
+                    "id": 20,
+                    "name": "Python",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1741539605/portfolio/technologies/python-3-logo_hmwuzh.svg",
+                    "version": "3"
+                },
+                {
+                    "id": 38,
+                    "name": "Mosquitto",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1775249349/portfolio/technologies/mosquitto-200px_drghvc.webp",
+                    "version": "2"
+                },
+                {
+                    "id": 39,
+                    "name": "Docker",
+                    "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1775256191/portfolio/technologies/docker_d2z8xl.svg",
+                    "version": "27"
+                }
+            ]
+        },
+        {
             "id": 1,
             "title": "EngiDocs",
             "description": "EngiDocs es un sistema documental para proyectos de ingenieria que permite subir planos y documentos tecnicos como PDFs, DWGs, etc. Soporta versiones, edición de metadatos y registro de cambios. Facilita la organización, trazabilidad y búsqueda de documentación técnica. \nActualmente la demo utiliza un mock de extracción de metadatos, pero está pensado para integrarse con IA (API de OpenAI) y automatizar la identificación del título, código, disciplina y palabras clave de los PDFs.",
             "endDate": "1970-01-01",
-            "status": "IN_PROGRESS",
+            "status": "PENDING",
             "images": [
                 {
                     "id": 19,
