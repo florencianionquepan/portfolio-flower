@@ -172,5 +172,17 @@
         "name": ".NET",
         "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1746399888/portfolio/technologies/dotnet-logo_j4afl5.svg",
         "version": "8"
+    },
+    {
+        "id": 38,
+        "name": "Mosquitto",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1775249349/portfolio/technologies/mosquitto-200px_drghvc.webp",
+        "version": "2"
+    },
+    {
+        "id": 39,
+        "name": "Docker",
+        "logoUrl": "https://res.cloudinary.com/nonquepan/image/upload/v1775256191/portfolio/technologies/docker_d2z8xl.svg",
+        "version": "27"
     }
 ]
