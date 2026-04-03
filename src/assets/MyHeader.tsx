@@ -11,7 +11,6 @@ export const MyHeader = () => {
 
   const navigation = [
     { name: 'Acerca de', href: '#about-me' },
-    { name: 'Educación', href: '#education' },
     { name: 'Proyectos', href: '#projects' },
     { name: 'Contacto', href: '#contact' },
   ];  
