@@ -42,14 +42,13 @@ export const Presentation = () => {
     <section className="flex flex-col md:flex-row items-center px-8 pt-8 xl:pt-20 xl:px-16 mt-20 xl:mt-10" id="about-me">
       <div className="md:w-[90%] lg:w-3/4 flex flex-col items-center text-center md:items-start md:text-start xl:text-left text-black">
       <h1 className="text-3xl xl:text-4xl mb-2">
-          ¡Hola! Mi nombre es <span className="quicksand">Florencia Ñonquepan</span>
+          Mi nombre es <span className="quicksand">Florencia Ñonquepan</span>
           <br></br>
-          <span className="quicksand text-2xl xl:text-3xl"> Desarrolladora web e Ingeniera Química </span>
+          <span className="quicksand text-2xl xl:text-3xl"> Ingeniera Química y Desarrolladora Web</span>
         </h1>
-        <p className="text-sm my-2 font-normal">
-          Con experiencia previa en gestión documental dentro del sector industrial, estoy enfocada en crear soluciones digitales para empresas del Oil & Gas y rubros afines.
-          <br></br>Mi objetivo es ayudar a profesionales y pequeñas empresas a organizar mejor su trabajo, optimizar procesos y dar sus primeros pasos hacia la digitalización.
-          <br></br>Estoy dando mis primeros pasos en el desarrollo freelance, con la mirada puesta en ofrecer sistemas simples, seguros y adaptados a cada necesidad.
+        <p className="my-2 font-normal">
+          Con experiencia en Oil & Gas y desarrollo de software. 
+          <br></br>Me interesan especialmente los sistemas industriales, la automatización, el análisis de datos y las soluciones tecnológicas aplicadas a la industria.
         </p>
 
         {loading && 
